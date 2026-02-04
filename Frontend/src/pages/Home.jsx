@@ -132,7 +132,7 @@ const Home = () => {
             ].map((item, idx) => (
                 <Col xs={24} md={8} key={idx}>
                     <Card 
-                        bordered={false} 
+                        variant="borderless" 
                         style={{ background: '#112240', borderRadius: 12, height: '100%' }}
                         styles={{ body: { padding: 30 } }}
                     >
