@@ -1,4 +1,4 @@
-import{Q as i}from"./index-D0u8OO1K.js";var s=`accept acceptCharset accessKey action allowFullScreen allowTransparency
+import{Q as i}from"./index-DlS3YOfk.js";var s=`accept acceptCharset accessKey action allowFullScreen allowTransparency
     alt async autoComplete autoFocus autoPlay capture cellPadding cellSpacing challenge
     charSet checked classID className colSpan cols content contentEditable contextMenu
     controls coords crossOrigin data dateTime default defer dir disabled download draggable
