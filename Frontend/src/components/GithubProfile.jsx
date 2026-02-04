@@ -32,7 +32,7 @@ const GithubProfile = () => {
   // Mock contribution graph
   const renderContributionGraph = () => {
     return (
-      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', maxWidth: 600 }}>
+      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', maxWidth: '100%', overflowX: 'auto' }}>
         {Array.from({ length: 150 }).map((_, i) => (
           <div 
             key={i} 
