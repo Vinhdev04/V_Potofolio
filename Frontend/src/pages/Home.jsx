@@ -10,6 +10,7 @@ import Skills from './Skills';
 import Experience from './Experience';
 import Contact from './Contact';
 import GithubProfile from '../components/GithubProfile';
+import avatarImg from '../assets/avt.png';
 
 const { Title, Paragraph } = Typography;
 
@@ -109,9 +110,9 @@ const Home = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-                {/* Placeholder for Hero Image */}
-                <div style={{ color: '#64ffda', fontFamily: 'Fira Code' }}>
-                    &lt;Code /&gt;
+                {/* Hero Image */}
+                <div style={{ width: 300, height: 300, borderRadius: '50%', overflow: 'hidden', border: '5px solid #64ffda', boxShadow: '0 0 30px rgba(100, 255, 218, 0.3)', zIndex: 1 }}>
+                    <img src={avatarImg} alt="VinhDev" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 {/* Decorative Elements */}
                 <div style={{ position: 'absolute', top: 20, right: 20, width: 100, height: 100, background: '#3b82f6', filter: 'blur(80px)', opacity: 0.2 }}></div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Avatar, Typography, Row, Col, Button, Tag, Space } from 'antd';
 import { GithubOutlined, EnvironmentOutlined, LinkOutlined, MailOutlined, TeamOutlined, BookOutlined, StarOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
+import avatarImg from '../assets/avt.png';
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -62,7 +63,7 @@ const GithubProfile = () => {
           <div style={{ textAlign: 'center', md: { textAlign: 'left' } }}>
             <Avatar 
               size={260} 
-              src="https://avatars.githubusercontent.com/u/vinhdev04" // Fallback to github avatar if available
+              src={avatarImg} 
               icon={<GithubOutlined />}
               style={{ border: '1px solid #30363d', marginBottom: 16 }}
             />
