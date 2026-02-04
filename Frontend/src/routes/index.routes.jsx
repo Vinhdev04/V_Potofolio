@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
 import LoadingScreen from '@/components/LoadingScreen';
+import NotFound from '@/pages/NotFound';
 
 // Lazy load pages
 const Home = lazy(() => import('@/pages/Home'));
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
