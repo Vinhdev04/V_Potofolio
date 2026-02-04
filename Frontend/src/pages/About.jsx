@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Button, Row, Col, Tag, Card, message } from 'antd';
 import { motion } from 'framer-motion';
 import { DownloadOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import avatarImg from '../assets/avt.png';
 
 const { Title, Paragraph, Text } = Typography;
 

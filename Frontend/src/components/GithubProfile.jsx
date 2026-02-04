@@ -56,7 +56,7 @@ const GithubProfile = () => {
         color: '#c9d1d9',
         overflow: 'hidden'
       }}
-      bodyStyle={{ padding: 24 }}
+      styles={{ body: { padding: 24 } }}
     >
       <Row gutter={[24, 24]}>
         <Col xs={24} md={8} lg={6}>
