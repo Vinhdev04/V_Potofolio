@@ -193,7 +193,7 @@ const Projects = () => {
                   onClick={() => setSelectedProject(project)}
                   cover={<img alt={project.title} src={project.image} style={{ height: 200, objectFit: 'cover' }} />}
                   style={{ background: '#112240', border: 'none', borderRadius: 12, overflow: 'hidden' }}
-                  bodyStyle={{ padding: 24 }}
+                  styles={{ body: { padding: 24 } }}
                   >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                      <Tag color="#233554" style={{ color: '#64ffda', border: 'none', margin: 0 }}>{project.category}</Tag>

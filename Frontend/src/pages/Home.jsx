@@ -134,7 +134,7 @@ const Home = () => {
                     <Card 
                         bordered={false} 
                         style={{ background: '#112240', borderRadius: 12, height: '100%' }}
-                        bodyStyle={{ padding: 30 }}
+                        styles={{ body: { padding: 30 } }}
                     >
                         <div style={{ fontSize: 30, marginBottom: 20 }}>{item.icon}</div>
                         <Title level={4} style={{ color: '#ccd6f6' }}>{item.title}</Title>

@@ -60,7 +60,7 @@ const Skills = () => {
             >
                 <Card
                     style={{ background: '#112240', border: 'none', borderRadius: 12 }}
-                    bodyStyle={{ padding: 25 }}
+                    styles={{ body: { padding: 25 } }}
                 >
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 15 }}>
                         <div style={{ background: 'rgba(255,255,255,0.05)', padding: 10, borderRadius: 8 }}>

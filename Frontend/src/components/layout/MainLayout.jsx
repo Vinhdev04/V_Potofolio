@@ -19,6 +19,7 @@ const MainLayout = () => {
     if (path.includes('/projects')) return '3';
     if (path.includes('/skills')) return '4';
     if (path.includes('/experience')) return '5';
+    if (path.includes('/certificates')) return '7';
     if (path.includes('/contact')) return '6';
     return '1';
   };

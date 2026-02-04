@@ -100,7 +100,7 @@ const GithubProfile = () => {
                    <Card 
                     size="small"
                     style={{ background: '#0d1117', borderColor: '#30363d', height: '100%' }}
-                    bodyStyle={{ padding: 16 }}
+                    styles={{ body: { padding: 16 } }}
                    >
                      <div style={{ display: 'flex', alignItems: 'center', marginBottom: 8 }}>
                        <BookOutlined style={{ color: '#8b949e', marginRight: 8 }} />

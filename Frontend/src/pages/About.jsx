@@ -29,7 +29,7 @@ const About = () => {
         <Col xs={24} lg={8}>
             <Card
                 style={{ background: '#112240', border: 'none', borderRadius: 16, overflow: 'hidden' }}
-                bodyStyle={{ padding: 0 }}
+                styles={{ body: { padding: 0 } }}
             >
                 <div style={{ padding: 30, textAlign: 'center', background: '#112240' }}>
                     <div style={{ 
@@ -41,10 +41,11 @@ const About = () => {
                         border: '4px solid #3b82f6'
                     }}>
                         {/* Placeholder for Profile Image */}
-                        <img src="https://via.placeholder.com/150" alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={avatarImg} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
-                    <Title level={3} style={{ color: '#ccd6f6', marginBottom: 5 }}>Vinh Nguyen</Title>
-                    <Text style={{ color: '#3b82f6', fontSize: '1rem' }}>Senior Full Stack Engineer</Text>
+                    <Title level={3} style={{ color: '#ccd6f6', marginBottom: 5 }}>Phạm Công Vinh</Title>
+                    <Text style={{ color: '#3b82f6', fontSize: '1rem' }}>Web Developer</Text>
+                    <Paragraph style={{ color: '#8892b0', marginTop: 10 }}>Sinh viên IT năm cuối trường Đại Học Công Nghệ TP.HCM chuyên ngành Công Nghệ Phần Mềm</Paragraph>
                     
                     <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center', gap: 10 }}>
                         <Button shape="circle" icon={<EnvironmentOutlined />} ghost style={{ borderColor: '#8892b0', color: '#8892b0' }} />
@@ -66,7 +67,7 @@ const About = () => {
                 <div style={{ padding: 30, borderTop: '1px solid #233554' }}>
                     <Text strong style={{ color: '#ccd6f6', display: 'block', marginBottom: 15 }}>CÔNG NGHỆ CHÍNH</Text>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                        {['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Nuxt.js', 'GraphQL', 'PostgreSQL', 'AWS'].map(tech => (
+                        {['ReactJS', 'Javascript', 'Node.js', 'Tailwind CSS', 'TypeScript', 'PostgreSQL'].map(tech => (
                             <Tag key={tech} color="#233554" style={{ color: '#64ffda', border: 'none', padding: '4px 10px' }}>
                                 {tech}
                             </Tag>
@@ -78,14 +79,14 @@ const About = () => {
 
         {/* Right Column: About Me Content */}
         <Col xs={24} lg={16}>
-            <Card style={{ background: '#112240', border: 'none', borderRadius: 16 }} bodyStyle={{ padding: 40 }}>
+            <Card style={{ background: '#112240', border: 'none', borderRadius: 16 }} styles={{ body: { padding: 40 } }}>
                 <Title level={2} style={{ color: '#ccd6f6', marginTop: 0 }}>Giới Thiệu</Title>
                 <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                    Tôi là một Full Stack Engineer đam mê với hơn 8 năm kinh nghiệm xây dựng các ứng dụng web có khả năng mở rộng. 
-                    Tôi chuyên về hệ sinh thái JavaScript, đặc biệt là React và Node.js, và có kinh nghiệm cung cấp mã nguồn chất lượng cao, hiệu năng tốt.
+                    Tôi là một sinh viên IT năm cuối chuyên ngành Công Nghệ Phần Mềm tại Đại Học Công Nghệ TP.HCM (HUTECH). 
+                    Tôi có niềm đam mê mạnh mẽ với lập trình web, đặc biệt là ReactJS và hệ sinh thái JavaScript.
                 </Paragraph>
                 <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                    Tôi phát triển mạnh trong môi trường cộng tác và thích hướng dẫn các nhà phát triển trẻ trong khi giải quyết các thách thức kỹ thuật phức tạp.
+                    Tôi luôn tìm tòi học hỏi các công nghệ mới và áp dụng chúng vào các dự án thực tế để tạo ra những sản phẩm chất lượng, hiệu quả.
                 </Paragraph>
             </Card>
 
@@ -95,10 +96,9 @@ const About = () => {
                 </Title>
                 
                 {[
-                    { school: 'Cử nhân Khoa học Máy tính', place: 'Đại học Bách Khoa', year: '2012 - 2016', gpa: 'GPA 3.8', icon: '🎓' },
-                    { school: 'Full Stack Bootcamp', place: 'Code Academy Pro', year: '2016', desc: 'Chương trình chuyên sâu 12 tuần', icon: '💻' }
+                    { school: 'Đại Học Công Nghệ TP.HCM (HUTECH)', place: 'Công Nghệ Phần Mềm', year: 'Năm cuối', gpa: '', icon: '🎓' },
                 ].map((edu, idx) => (
-                    <Card key={idx} style={{ background: '#112240', border: 'none', borderRadius: 12, marginTop: 15 }} bodyStyle={{ padding: 25 }}>
+                    <Card key={idx} style={{ background: '#112240', border: 'none', borderRadius: 12, marginTop: 15 }} styles={{ body: { padding: 25 } }}>
                         <Row align="middle">
                             <Col flex="60px">
                                 <div style={{ fontSize: 30, color: '#3b82f6' }}>{edu.icon}</div>

@@ -11,6 +11,7 @@ const Projects = lazy(() => import('@/pages/Projects'));
 const Skills = lazy(() => import('@/pages/Skills'));
 const Experience = lazy(() => import('@/pages/Experience'));
 const Contact = lazy(() => import('@/pages/Contact'));
+const Certificates = lazy(() => import('@/pages/Certificates'));
 
 const SuspenseWrapper = ({ children }) => (
   <Suspense fallback={<LoadingScreen />}>
@@ -49,9 +50,15 @@ export const router = createBrowserRouter([
         element: <SuspenseWrapper><Contact /></SuspenseWrapper>,
       },
       {
+        path: 'certificates',
+        element: <SuspenseWrapper><Certificates /></SuspenseWrapper>,
+      },
+      {
         path: '*',
         element: <NotFound />,
       },
     ],
   },
-]);
+], {
+  basename: import.meta.env.BASE_URL
+});

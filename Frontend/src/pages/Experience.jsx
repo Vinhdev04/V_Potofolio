@@ -84,7 +84,7 @@ const Experience = () => {
 
             <Card 
               style={{ background: '#112240', border: 'none', borderRadius: 12 }}
-              bodyStyle={{ padding: 30 }}
+              styles={{ body: { padding: 30 } }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: 20 }}>
                 <div>

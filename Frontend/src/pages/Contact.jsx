@@ -59,7 +59,7 @@ const Contact = () => {
         </Col>
 
         <Col xs={24} md={12}>
-            <Card style={{ background: '#112240', border: 'none', borderRadius: 12 }} bodyStyle={{ padding: 30 }}>
+            <Card style={{ background: '#112240', border: 'none', borderRadius: 12 }} styles={{ body: { padding: 30 } }}>
                 <Form
                     form={form}
                     layout="vertical"
