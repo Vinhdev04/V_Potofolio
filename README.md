@@ -58,7 +58,28 @@ npm run dev
 ```
 Truy cập: `http://localhost:5173`
 
-### 3. Setup Backend (Optional)
+### 3. Deploy (Triển khai)
+
+#### Option 1: Deploy lên Netlify (Recommended)
+1. Đăng nhập Netlify và chọn **Add new site** -> **Import an existing project**.
+2. Kết nối với GitHub và chọn repository `V_Potofolio`.
+3. Điền các thông số Build settings như sau:
+   - **Base directory:** `Frontend`
+   - **Build command:** `npm run build`
+   - **Publish directory:** `dist`
+4. Nhấn **Deploy**.
+
+#### Option 2: Deploy lên GitHub Pages
+Dự án đã được cấu hình sẵn để deploy tự động lên GitHub Pages bằng `gh-pages`.
+
+```bash
+cd Frontend
+# Build và Deploy
+npm run deploy
+```
+*Lưu ý: Nếu dùng GitHub Pages, cần đổi lại `base` trong `vite.config.js` thành `/V_Potofolio/`.*
+
+### 4. Setup Backend (Optional)
 ```bash
 cd Backend
 npm install

@@ -93,7 +93,7 @@ const Skills = () => {
                         '100%': '#64ffda'
                       }}
                       trailColor="rgba(255, 255, 255, 0.05)"
-                      strokeWidth={8}
+                      size={['100%', 8]}
                       className="skill-progress"
                     />
                   </div>
