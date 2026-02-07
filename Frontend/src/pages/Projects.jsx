@@ -43,7 +43,7 @@ const Projects = () => {
           </Paragraph>
           
           <div className="projects-filter">
-            {['All', 'Web Apps', 'Open Source', 'UI/UX'].map(cat => (
+            {['All', 'Web Apps', 'Mobile Apps', 'E-commerce', 'Games', 'Tools', 'UI Components'].map(cat => (
               <Button 
                 key={cat}
                 type={filter === cat ? 'primary' : 'default'}
