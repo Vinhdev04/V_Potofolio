@@ -2,10 +2,11 @@ import React from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import BackToTop from '../BackToTop';
-import SocialFloatingButtons from '../SocialFloatingButtons';
+import BackToTop from '@components/BackToTop';
+import SocialFloatingButtons from '@components/SocialFloatingButtons';
 import Footer from './Footer';
-import '@/styles/layout.scss';
+import '@/assets/css/layout.scss';
+
 
 const { Header, Content } = Layout;
 

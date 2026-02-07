@@ -60,5 +60,13 @@ export const router = createBrowserRouter([
     ],
   },
 ], {
-  basename: import.meta.env.BASE_URL
+  basename: import.meta.env.BASE_URL,
+  future: {
+    v7_startTransition: true,
+    v7_relativeSplatPath: true,
+    v7_fetcherPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation: true,
+  }
 });

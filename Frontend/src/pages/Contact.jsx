@@ -1,7 +1,8 @@
 import React from 'react';
 import { Typography, Form, Input, Button, Row, Col, Card, message } from 'antd';
 import { motion } from 'framer-motion';
-import { SendOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { SendOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined, GithubOutlined, LinkedinOutlined, TwitterOutlined } from '@ant-design/icons';
+import '@/assets/css/pages/Contact.scss';
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;
@@ -15,87 +16,213 @@ const Contact = () => {
     form.resetFields();
   };
 
+  const contactInfo = [
+    {
+      icon: <MailOutlined />,
+      title: 'Email',
+      value: 'PCV.FED@GMAIL.COM',
+      link: 'mailto:PCV.FED@GMAIL.COM',
+      color: '#64ffda'
+    },
+    {
+      icon: <PhoneOutlined />,
+      title: 'Điện Thoại',
+      value: '0352032375',
+      link: 'tel:0352032375',
+      color: '#3b82f6'
+    },
+    {
+      icon: <EnvironmentOutlined />,
+      title: 'Địa Chỉ',
+      value: 'TP. Hồ Chí Minh, Việt Nam',
+      link: null,
+      color: '#a855f7'
+    }
+  ];
+
+  const socialLinks = [
+    { icon: <GithubOutlined />, name: 'Github', link: '#', color: '#fff' },
+    { icon: <LinkedinOutlined />, name: 'LinkedIn', link: '#', color: '#0077b5' },
+    { icon: <TwitterOutlined />, name: 'Twitter', link: '#', color: '#1da1f2' }
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      style={{ padding: '50px 0', maxWidth: 1000, margin: '0 auto' }}
+      className="contact-container"
     >
-      <div style={{ textAlign: 'center', marginBottom: 50 }}>
-        <Title level={1} style={{ color: '#ccd6f6' }}>Liên Hệ</Title>
-        <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto' }}>
-          Tôi đang tìm kiếm cơ hội mới, hộp thư của tôi luôn mở. Dù bạn có thắc mắc hay chỉ muốn chào hỏi, tôi sẽ cố gắng hết sức để phản hồi bạn!
-        </Paragraph>
+      <div className="contact-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <Title level={1} className="contact-title">Liên Hệ</Title>
+          <Paragraph className="contact-description">
+            Tôi đang tìm kiếm cơ hội mới, hộp thư của tôi luôn mở. Dù bạn có thắc mắc hay chỉ muốn chào hỏi, tôi sẽ cố gắng hết sức để phản hồi bạn!
+          </Paragraph>
+        </motion.div>
       </div>
 
       <Row gutter={[48, 48]}>
+        {/* Contact Information */}
         <Col xs={24} md={12}>
-          <Title level={3} style={{ color: '#ccd6f6' }}>Thông Tin Liên Hệ</Title>
-          <div style={{ marginTop: 30 }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: 20 }}>
-                <MailOutlined style={{ fontSize: 24, color: '#64ffda', marginRight: 15 }} />
-                <div>
-                    <Text strong style={{ color: '#e6f1ff', display: 'block' }}>Email</Text>
-                    <Text style={{ color: '#8892b0' }}>PCV.FED@GMAIL.COM</Text>
-                </div>
+          <motion.div
+            initial={{ x: -30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <Title level={3} className="section-subtitle">Thông Tin Liên Hệ</Title>
+            
+            <div className="contact-info-list">
+              {contactInfo.map((info, index) => (
+                <motion.div
+                  key={index}
+                  className="contact-info-item"
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 * index }}
+                  whileHover={{ x: 10 }}
+                >
+                  <div className="info-icon" style={{ color: info.color }}>
+                    {info.icon}
+                  </div>
+                  <div className="info-content">
+                    <Text strong className="info-title">{info.title}</Text>
+                    {info.link ? (
+                      <a href={info.link} className="info-value">{info.value}</a>
+                    ) : (
+                      <Text className="info-value">{info.value}</Text>
+                    )}
+                  </div>
+                  <div className="info-glow" style={{ background: info.color }}></div>
+                </motion.div>
+              ))}
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: 20 }}>
-                <PhoneOutlined style={{ fontSize: 24, color: '#64ffda', marginRight: 15 }} />
-                <div>
-                    <Text strong style={{ color: '#e6f1ff', display: 'block' }}>Điện Thoại</Text>
-                    <Text style={{ color: '#8892b0' }}>0352032375</Text>
-                </div>
+            
+            {/* Social Links */}
+            <div className="social-links">
+              <Title level={5} className="social-title">Kết Nối</Title>
+              <div className="social-icons">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-icon"
+                    whileHover={{ y: -5, scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <div className="icon-wrapper" style={{ '--hover-color': social.color }}>
+                      {social.icon}
+                    </div>
+                    <span className="social-name">{social.name}</span>
+                  </motion.a>
+                ))}
+              </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: 20 }}>
-                <EnvironmentOutlined style={{ fontSize: 24, color: '#64ffda', marginRight: 15 }} />
-                <div>
-                    <Text strong style={{ color: '#e6f1ff', display: 'block' }}>Địa Chỉ</Text>
-                    <Text style={{ color: '#8892b0' }}>TP. Hồ Chí Minh, Việt Nam</Text>
-                </div>
+            
+            {/* Decorative Quote */}
+            <div className="contact-quote">
+              <div className="quote-icon">"</div>
+              <Paragraph className="quote-text">
+                Hãy cùng nhau xây dựng điều gì đó tuyệt vời!
+              </Paragraph>
             </div>
-          </div>
+          </motion.div>
         </Col>
 
+        {/* Contact Form */}
         <Col xs={24} md={12}>
-            <Card style={{ background: '#112240', border: 'none', borderRadius: 12 }} styles={{ body: { padding: 30 } }}>
-                <Form
-                    form={form}
-                    layout="vertical"
-                    onFinish={onFinish}
+          <motion.div
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <Card className="contact-form-card">
+              <Form
+                form={form}
+                layout="vertical"
+                onFinish={onFinish}
+                className="contact-form"
+              >
+                <Form.Item
+                  name="name"
+                  label={<span className="form-label">Họ và Tên</span>}
+                  rules={[{ required: true, message: 'Vui lòng nhập tên của bạn!' }]}
                 >
-                    <Form.Item
-                        name="name"
-                        label={<span style={{ color: '#ccd6f6' }}>Họ và Tên</span>}
-                        rules={[{ required: true, message: 'Vui lòng nhập tên của bạn!' }]}
-                    >
-                        <Input size="large" placeholder="Nguyễn Văn A" style={{ background: '#0a192f', border: '1px solid #233554', color: '#ccd6f6' }} />
-                    </Form.Item>
+                  <Input 
+                    size="large" 
+                    placeholder="Nguyễn Văn A" 
+                    className="form-input"
+                    prefix={<span className="input-icon">👤</span>}
+                  />
+                </Form.Item>
 
-                    <Form.Item
-                        name="email"
-                        label={<span style={{ color: '#ccd6f6' }}>Email</span>}
-                        rules={[{ required: true, message: 'Vui lòng nhập email!' }, { type: 'email', message: 'Vui lòng nhập email hợp lệ!' }]}
-                    >
-                        <Input size="large" placeholder="nguyenvana@example.com" style={{ background: '#0a192f', border: '1px solid #233554', color: '#ccd6f6' }} />
-                    </Form.Item>
+                <Form.Item
+                  name="email"
+                  label={<span className="form-label">Email</span>}
+                  rules={[
+                    { required: true, message: 'Vui lòng nhập email!' }, 
+                    { type: 'email', message: 'Vui lòng nhập email hợp lệ!' }
+                  ]}
+                >
+                  <Input 
+                    size="large" 
+                    placeholder="nguyenvana@example.com" 
+                    className="form-input"
+                    prefix={<span className="input-icon">📧</span>}
+                  />
+                </Form.Item>
 
-                    <Form.Item
-                        name="message"
-                        label={<span style={{ color: '#ccd6f6' }}>Tin Nhắn</span>}
-                        rules={[{ required: true, message: 'Vui lòng nhập tin nhắn!' }]}
-                    >
-                        <TextArea rows={4} placeholder="Xin chào, tôi muốn..." style={{ background: '#0a192f', border: '1px solid #233554', color: '#ccd6f6' }} />
-                    </Form.Item>
+                <Form.Item
+                  name="subject"
+                  label={<span className="form-label">Tiêu Đề</span>}
+                  rules={[{ required: true, message: 'Vui lòng nhập tiêu đề!' }]}
+                >
+                  <Input 
+                    size="large" 
+                    placeholder="Chủ đề bạn muốn thảo luận" 
+                    className="form-input"
+                    prefix={<span className="input-icon">💬</span>}
+                  />
+                </Form.Item>
 
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit" size="large" block icon={<SendOutlined />} style={{ background: '#64ffda', color: '#0a192f', fontWeight: 'bold', border: 'none' }}>
-                            Gửi Tin Nhắn
-                        </Button>
-                    </Form.Item>
-                </Form>
+                <Form.Item
+                  name="message"
+                  label={<span className="form-label">Tin Nhắn</span>}
+                  rules={[{ required: true, message: 'Vui lòng nhập tin nhắn!' }]}
+                >
+                  <TextArea 
+                    rows={5} 
+                    placeholder="Xin chào, tôi muốn..." 
+                    className="form-textarea"
+                  />
+                </Form.Item>
+
+                <Form.Item>
+                  <Button 
+                    type="primary" 
+                    htmlType="submit" 
+                    size="large" 
+                    block 
+                    icon={<SendOutlined />} 
+                    className="submit-btn"
+                  >
+                    <span>Gửi Tin Nhắn</span>
+                    <span className="btn-glow"></span>
+                  </Button>
+                </Form.Item>
+              </Form>
             </Card>
+          </motion.div>
         </Col>
       </Row>
     </motion.div>

@@ -1,0 +1,413 @@
+
+
+.projects-container {
+  padding: 50px 0;
+}
+
+// Header
+.projects-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.projects-title {
+  color: $text-primary;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, $secondary-color, transparent);
+    margin: 20px auto 0;
+    border-radius: 2px;
+  }
+}
+
+.projects-description {
+  color: $text-secondary;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+// Filter Buttons
+.projects-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-btn {
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid #233554;
+  background: transparent;
+  color: $text-secondary;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(100, 255, 218, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+  }
+  
+  &:hover {
+    border-color: $secondary-color;
+    color: $secondary-color;
+    transform: translateY(-2px);
+    
+    &::before {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
+  &.active {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border-color: #3b82f6;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    
+    &:hover {
+      border-color: #3b82f6;
+      color: #fff;
+    }
+  }
+}
+
+// Project Card
+.project-card {
+  background: #112240;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  
+  :global(.ant-card-body) {
+    padding: 0;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(100, 255, 218, 0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  
+  &:hover {
+    border-color: rgba(100, 255, 218, 0.3);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(100, 255, 218, 0.1);
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    .project-image {
+      transform: scale(1.1);
+    }
+    
+    .project-overlay {
+      opacity: 1;
+    }
+    
+    .card-shine {
+      left: 100%;
+    }
+  }
+}
+
+// Project Image
+.project-image-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: #0a192f;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-content {
+  display: flex;
+  gap: 15px;
+}
+
+.overlay-btn {
+  width: 50px;
+  height: 50px;
+  border: 2px solid $secondary-color;
+  background: rgba(100, 255, 218, 0.1);
+  color: $secondary-color;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: $secondary-color;
+    color: #0a192f;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+  }
+  
+  :global {
+    .anticon {
+      font-size: 20px;
+    }
+  }
+}
+
+.project-category-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+}
+
+.category-tag {
+  background: rgba(17, 34, 64, 0.9);
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  color: $secondary-color;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+// Project Content
+.project-content {
+  padding: 24px;
+}
+
+.project-title {
+  color: $text-primary;
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  transition: color 0.3s;
+  
+  .project-card:hover & {
+    color: $secondary-color;
+  }
+}
+
+.project-description {
+  color: $text-secondary;
+  margin-bottom: 16px;
+  min-height: 72px;
+  line-height: 1.6;
+}
+
+// Tech Tags
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background: rgba(100, 255, 218, 0.05);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  color: $text-secondary;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(100, 255, 218, 0.1);
+    border-color: $secondary-color;
+    color: $secondary-color;
+    transform: translateY(-2px);
+  }
+  
+  &.more-tag {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+  }
+}
+
+// Card Shine Effect
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transition: left 0.6s;
+  pointer-events: none;
+}
+
+// Empty State
+.empty-state {
+  padding: 80px 20px;
+  
+  :global {
+    .ant-empty-description {
+      color: $text-secondary;
+      font-size: 1.1rem;
+    }
+    
+    .ant-empty-image {
+      svg {
+        fill: rgba(100, 255, 218, 0.2);
+      }
+    }
+  }
+}
+
+.empty-text {
+  color: $text-secondary;
+  font-size: 1.1rem;
+}
+
+// Load More Button
+.load-more-wrapper {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.load-more-btn {
+  height: 50px;
+  padding: 0 32px;
+  background: transparent;
+  border: 2px solid $secondary-color;
+  color: $secondary-color;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.2);
+    
+    &::before {
+      left: 100%;
+    }
+    
+    .btn-arrow {
+      transform: translateY(4px);
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 992px) {
+  .projects-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 2rem;
+  }
+  
+  .projects-description {
+    font-size: 1rem;
+  }
+  
+  .project-image-wrapper {
+    height: 180px;
+  }
+  
+  .project-content {
+    padding: 20px;
+  }
+  
+  .overlay-btn {
+    width: 45px;
+    height: 45px;
+    
+    :global {
+      .anticon {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .filter-btn {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 0.85rem;
+  }
+  
+  .project-description {
+    min-height: 60px;
+  }
+}

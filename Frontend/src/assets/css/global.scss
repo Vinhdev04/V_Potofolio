@@ -1,0 +1,405 @@
+@use "@/assets/css/variables.scss" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $bg-color;
+  color: $text-primary;
+  font-family: $font-main;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: $bg-color;
+}
+::-webkit-scrollbar-thumb {
+  background: $text-secondary;
+  border-radius: 4px;
+}
+@import 'variables';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $bg-color;
+  color: $text-primary;
+  font-family: $font-main;
+  line-height: 1.6;
+  overflow-x: hidden;
+  
+  // Animated background gradient
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(100, 255, 218, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(168, 85, 247, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Selection
+::selection {
+  background: rgba(100, 255, 218, 0.3);
+  color: $text-primary;
+}
+
+::-moz-selection {
+  background: rgba(100, 255, 218, 0.3);
+  color: $text-primary;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-color;
+  border-left: 1px solid #233554;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, $secondary-color, #3b82f6);
+  border-radius: 10px;
+  
+  &:hover {
+    background: linear-gradient(180deg, #3b82f6, $secondary-color);
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+// Focus Styles
+:focus-visible {
+  outline: 2px solid $secondary-color;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+// Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Utility Classes
+.text-gradient {
+  background: linear-gradient(135deg, #3b82f6, #64ffda);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+// Loading Animation
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(100, 255, 218, 0.2),
+                0 0 10px rgba(100, 255, 218, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.4),
+                0 0 30px rgba(100, 255, 218, 0.3);
+  }
+}
+
+// Ant Design Overrides
+:global {
+  // Card
+  .ant-card {
+    &-bordered {
+      border-color: rgba(100, 255, 218, 0.1);
+    }
+  }
+  
+  // Button
+  .ant-btn {
+    &-primary {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border: none;
+      
+      &:hover {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+      }
+    }
+    
+    &-ghost {
+      border-color: $text-secondary;
+      color: $text-secondary;
+      
+      &:hover {
+        border-color: $secondary-color;
+        color: $secondary-color;
+        background: rgba(100, 255, 218, 0.05);
+      }
+    }
+  }
+  
+  // Input
+  .ant-input,
+  .ant-input-affix-wrapper {
+    &:hover {
+      border-color: rgba(100, 255, 218, 0.3);
+    }
+    
+    &:focus,
+    &-focused {
+      border-color: $secondary-color;
+      box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.1);
+    }
+  }
+  
+  // Modal
+  .ant-modal {
+    &-content {
+      background: #112240;
+      border: 1px solid rgba(100, 255, 218, 0.1);
+    }
+    
+    &-header {
+      background: #112240;
+      border-bottom-color: rgba(100, 255, 218, 0.1);
+    }
+    
+    &-title {
+      color: $text-primary;
+    }
+    
+    &-close {
+      color: $text-secondary;
+      
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+  
+  // Tag
+  .ant-tag {
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  
+  // Progress
+  .ant-progress {
+    &-bg {
+      border-radius: 4px;
+    }
+  }
+  
+  // Tooltip
+  .ant-tooltip {
+    &-inner {
+      background: #112240;
+      color: $text-primary;
+      border: 1px solid rgba(100, 255, 218, 0.2);
+    }
+    
+    &-arrow-content {
+      background: #112240;
+    }
+  }
+  
+  // Divider
+  .ant-divider {
+    &-horizontal {
+      margin: 24px 0;
+    }
+  }
+  
+  // Empty
+  .ant-empty {
+    &-description {
+      color: $text-secondary;
+    }
+  }
+}
+
+// Responsive Utilities
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+  
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+// Print Styles
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+// Accessibility
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// High Contrast Mode
+@media (prefers-contrast: high) {
+  body {
+    background: #000;
+    color: #fff;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}
+
+// Dark Mode Support (already dark, but for consistency)
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $bg-color;
+    color: $text-primary;
+  }
+}

@@ -1,27 +1,14 @@
 import React from 'react';
 import { Typography, Row, Col, Card, Progress, Segmented } from 'antd';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaHtml5, FaDocker, FaPython, FaFigma } from 'react-icons/fa';
-import { SiTypescript, SiTailwindcss, SiPostgresql, SiMongodb, SiAmazonaws, SiGraphql } from 'react-icons/si';
+import '@/assets/css/pages/Skills.scss';
 
 const { Title, Paragraph } = Typography;
 
+import { skills } from '@data/skillsData';
+
 const Skills = () => {
   const [filter, setFilter] = React.useState('All');
-
-  const skills = [
-    { name: 'React', icon: <FaReact size={40} color="#61DAFB" />, level: 95, category: 'Frontend' },
-    { name: 'TypeScript', icon: <SiTypescript size={40} color="#3178C6" />, level: 90, category: 'Frontend' },
-    { name: 'Node.js', icon: <FaNodeJs size={40} color="#339933" />, level: 85, category: 'Backend' },
-    { name: 'Tailwind', icon: <SiTailwindcss size={40} color="#06B6D4" />, level: 98, category: 'Frontend' },
-    { name: 'PostgreSQL', icon: <SiPostgresql size={40} color="#336791" />, level: 80, category: 'Backend' },
-    { name: 'Docker', icon: <FaDocker size={40} color="#2496ED" />, level: 70, category: 'Tools' },
-    { name: 'Figma', icon: <FaFigma size={40} color="#F24E1E" />, level: 92, category: 'Tools' },
-    { name: 'Python', icon: <FaPython size={40} color="#3776AB" />, level: 75, category: 'Backend' },
-    { name: 'MongoDB', icon: <SiMongodb size={40} color="#47A248" />, level: 85, category: 'Backend' },
-    { name: 'AWS', icon: <SiAmazonaws size={40} color="#FF9900" />, level: 65, category: 'Tools' },
-    { name: 'GraphQL', icon: <SiGraphql size={40} color="#E10098" />, level: 80, category: 'Backend' }
-  ];
 
   const filteredSkills = filter === 'All' ? skills : skills.filter(s => s.category === filter);
 
@@ -31,57 +18,154 @@ const Skills = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      style={{ padding: '50px 0', maxWidth: 1200, margin: '0 auto' }}
+      className="skills-container"
     >
-      <div style={{ textAlign: 'center', marginBottom: 50 }}>
-        <Title level={1} style={{ color: '#ccd6f6' }}>Kỹ Năng Của Tôi</Title>
-        <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto' }}>
-          Danh sách các công cụ, ngôn ngữ và công nghệ tôi sử dụng để tạo ra các sản phẩm kỹ thuật số mạnh mẽ.
-        </Paragraph>
-        
-        <div style={{ marginTop: 30 }}>
+      <div className="skills-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <Title level={1} className="skills-title">Kỹ Năng Của Tôi</Title>
+          <Paragraph className="skills-description">
+            Danh sách các công cụ, ngôn ngữ và công nghệ tôi sử dụng để tạo ra các sản phẩm kỹ thuật số mạnh mẽ.
+          </Paragraph>
+          
+          <div className="skills-filter">
             <Segmented
-                options={['All', 'Frontend', 'Backend', 'Tools']}
-                value={filter}
-                onChange={setFilter}
-                style={{ background: '#112240', color: '#8892b0', padding: 5 }}
+              options={['All', 'Frontend', 'Backend', 'Tools']}
+              value={filter}
+              onChange={setFilter}
+              size="large"
+              className="custom-segmented"
             />
-        </div>
+          </div>
+        </motion.div>
       </div>
 
       <Row gutter={[24, 24]}>
         {filteredSkills.map((skill, index) => (
-          <Col xs={24} sm={12} md={8} lg={6} key={index}>
+          <Col xs={24} sm={12} md={8} lg={6} key={skill.name}>
             <motion.div
-                layout
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3 }}
+              layout
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              whileHover={{ y: -10 }}
             >
-                <Card
-                    style={{ background: '#112240', border: 'none', borderRadius: 12 }}
-                    styles={{ body: { padding: 25 } }}
+              <Card className="skill-card">
+                {/* Animated Background Gradient */}
+                <div 
+                  className="skill-card-bg" 
+                  style={{ background: `linear-gradient(135deg, ${skill.color}15, transparent)` }}
+                ></div>
+                
+                {/* Skill Icon */}
+                <motion.div 
+                  className="skill-icon-wrapper"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
                 >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 15 }}>
-                        <div style={{ background: 'rgba(255,255,255,0.05)', padding: 10, borderRadius: 8 }}>
-                            {skill.icon}
-                        </div>
-                        <span style={{ color: '#8892b0', fontWeight: 'bold' }}>{skill.level}%</span>
-                    </div>
-                    
-                    <Title level={4} style={{ color: '#ccd6f6', marginTop: 10, marginBottom: 15 }}>{skill.name}</Title>
-                    
+                  <div className="skill-icon" style={{ color: skill.color }}>
+                    {skill.icon}
+                  </div>
+                  <div 
+                    className="skill-icon-glow" 
+                    style={{ boxShadow: `0 0 40px ${skill.color}40` }}
+                  ></div>
+                </motion.div>
+                
+                {/* Skill Details */}
+                <div className="skill-details">
+                  <div className="skill-header">
+                    <Title level={4} className="skill-name">{skill.name}</Title>
+                    <span className="skill-percentage">{skill.level}%</span>
+                  </div>
+                  
+                  {/* Progress Bar */}
+                  <div className="skill-progress-wrapper">
                     <Progress 
-                        percent={skill.level} 
-                        showInfo={false} 
-                        strokeColor={{ '0%': '#3b82f6', '100%': '#64ffda' }} 
-                        trailColor="#233554"
+                      percent={skill.level} 
+                      showInfo={false} 
+                      strokeColor={{
+                        '0%': skill.color,
+                        '100%': '#64ffda'
+                      }}
+                      trailColor="rgba(255, 255, 255, 0.05)"
+                      strokeWidth={8}
+                      className="skill-progress"
                     />
-                </Card>
+                  </div>
+                  
+                  {/* Skill Level Indicator */}
+                  <div className="skill-level">
+                    {skill.level >= 90 ? '🌟 Expert' : 
+                     skill.level >= 75 ? '⭐ Advanced' : 
+                     '✨ Intermediate'}
+                  </div>
+                </div>
+                
+                {/* Hover Effect Circle */}
+                <div className="hover-circle" style={{ background: skill.color }}></div>
+              </Card>
             </motion.div>
           </Col>
         ))}
       </Row>
+      
+      {/* Skill Statistics */}
+      <motion.div 
+        className="skills-stats"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <Row gutter={[32, 32]}>
+          <Col xs={24} sm={8}>
+            <div className="stat-card">
+              <motion.div 
+                className="stat-number"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", duration: 0.8 }}
+              >
+                {skills.length}+
+              </motion.div>
+              <div className="stat-label">Công Nghệ</div>
+            </div>
+          </Col>
+          <Col xs={24} sm={8}>
+            <div className="stat-card">
+              <motion.div 
+                className="stat-number"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", duration: 0.8, delay: 0.1 }}
+              >
+                5+
+              </motion.div>
+              <div className="stat-label">Năm Kinh Nghiệm</div>
+            </div>
+          </Col>
+          <Col xs={24} sm={8}>
+            <div className="stat-card">
+              <motion.div 
+                className="stat-number"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", duration: 0.8, delay: 0.2 }}
+              >
+                50+
+              </motion.div>
+              <div className="stat-label">Dự Án Hoàn Thành</div>
+            </div>
+          </Col>
+        </Row>
+      </motion.div>
     </motion.div>
   );
 };
