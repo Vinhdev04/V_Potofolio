@@ -3,7 +3,7 @@ import { Typography, Row, Col, Card, Tag, Button, Empty } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EyeOutlined, GithubOutlined } from '@ant-design/icons';
 import ProjectModal from '../components/ProjectModal';
-import '@/assets/css/pages/Projects.scss';
+import '@/assets/css/Projects.scss';
 import { projects } from '@data/projectsData';
 
 const { Title, Paragraph } = Typography;

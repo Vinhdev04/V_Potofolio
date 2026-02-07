@@ -1,0 +1,159 @@
+@use "@/assets/css/variables.scss" as *;
+
+.footer {
+  background-color: $bg-color;
+  color: $text-secondary;
+  padding: 50px 20px 20px;
+  font-family: $font-mono;
+  border-top: 1px solid lighten($bg-color, 5%);
+  margin-top: auto;
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-brand {
+    .brand-title {
+      color: $text-primary;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .brand-desc {
+      color: $text-secondary;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+  }
+
+  .footer-title {
+    color: $text-primary;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: $secondary-color;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    a {
+      color: $text-secondary;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      &:hover {
+        color: $secondary-color;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+
+    .social-btn {
+      color: $text-secondary;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid $text-secondary;
+      border-radius: 50%;
+      
+      &:hover {
+        color: $secondary-color;
+        border-color: $secondary-color;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: $text-secondary;
+      
+      .anticon {
+        color: $secondary-color;
+        font-size: 1.1rem;
+      }
+      
+      span {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid lighten($bg-color, 5%);
+    text-align: center;
+    
+    .copyright {
+      color: $text-secondary;
+      font-size: 0.85rem;
+      
+      span {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px 20px;
+    text-align: center;
+
+    .footer-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .footer-links a:hover {
+      padding-left: 0;
+      transform: translateY(-2px);
+    }
+
+    .brand-desc {
+      margin: 0 auto;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+    
+    .contact-info .contact-item {
+      justify-content: center;
+    }
+  }
+}

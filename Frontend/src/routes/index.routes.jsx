@@ -54,10 +54,6 @@ export const router = createBrowserRouter([
         element: <SuspenseWrapper><Contact /></SuspenseWrapper>,
       },
       {
-        path: 'certificates',
-        element: <SuspenseWrapper><Certificates /></SuspenseWrapper>,
-      },
-      {
         path: '*',
         element: <NotFound />,
       },

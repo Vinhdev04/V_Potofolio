@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Row, Col, Card, Tag, Button } from 'antd';
 import { motion } from 'framer-motion';
 import { SafetyCertificateOutlined, LinkOutlined, TrophyOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import '@/assets/css/pages/Certificates.scss';
+import '@/assets/css/Certificates.scss';
 import { certificates } from '@data/certificatesData';
 
 const { Title, Paragraph, Text } = Typography;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Row, Col, Card, Progress, Segmented } from 'antd';
 import { motion } from 'framer-motion';
-import '@/assets/css/pages/Skills.scss';
+import '@/assets/css/Skills.scss';
 
 const { Title, Paragraph } = Typography;
 

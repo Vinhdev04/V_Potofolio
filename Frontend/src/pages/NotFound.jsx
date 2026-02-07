@@ -3,7 +3,7 @@ import { Button, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HomeOutlined, RocketOutlined } from '@ant-design/icons';
-import '@/assets/css/pages/NotFound.scss';
+import '@/assets/css/NotFound.scss';
 
 const { Title, Paragraph } = Typography;
 

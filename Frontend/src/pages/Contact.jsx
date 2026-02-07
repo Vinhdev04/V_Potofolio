@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Form, Input, Button, Row, Col, Card, message } from 'antd';
 import { motion } from 'framer-motion';
 import { SendOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined, GithubOutlined, LinkedinOutlined, TwitterOutlined } from '@ant-design/icons';
-import '@/assets/css/pages/Contact.scss';
+import '@/assets/css/Contact.scss';
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Card, Tag } from 'antd';
 import { motion } from 'framer-motion';
 import { AuditOutlined, CalendarOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import '@/assets/css/pages/Experience.scss';
+import '@/assets/css/Experience.scss';
 
 import { experiences } from '@data/experienceData';
 

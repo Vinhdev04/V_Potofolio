@@ -1,53 +1,90 @@
 import React from 'react';
-import { Layout, Row, Col, Typography, Space } from 'antd';
-import { GithubOutlined, FacebookFilled, MailOutlined, PhoneOutlined } from '@ant-design/icons';
+import { Layout, Row, Col, Typography, Space, Tooltip } from 'antd';
+import { Link } from 'react-router-dom';
+import { 
+  GithubOutlined, 
+  FacebookFilled, 
+  MailOutlined, 
+  PhoneOutlined, 
+  RightOutlined,
+  HeartFilled
+} from '@ant-design/icons';
+import { socialLinks, contactInfo } from '@/data/socialData';
+import '@/assets/css/Footer.scss';
 
 const { Footer: AntFooter } = Layout;
-const { Text, Title, Link } = Typography;
+const { Text, Title } = Typography;
 
 const Footer = () => {
   return (
-    <AntFooter style={{ background: '#020c1b', color: '#8892b0', padding: '50px 50px 20px' }}>
-      <Row gutter={[32, 32]} justify="center">
-        <Col xs={24} md={8}>
-          <Title level={4} style={{ color: '#ccd6f6' }}>Vinhdev04</Title>
-          <Text style={{ color: '#8892b0' }}>
-            Xây dựng trải nghiệm web hiện đại, hiệu suất cao và có khả năng mở rộng.
-          </Text>
-        </Col>
-        
-        <Col xs={24} md={8}>
-          <Title level={5} style={{ color: '#ccd6f6' }}>Liên Kết</Title>
-          <Space direction="vertical">
-            <Link href="#about-section" style={{ color: '#8892b0' }}>Về Tôi</Link>
-            <Link href="#projects-section" style={{ color: '#8892b0' }}>Dự Án</Link>
-            <Link href="#contact-section" style={{ color: '#8892b0' }}>Liên Hệ</Link>
-          </Space>
-        </Col>
+    <AntFooter className="footer">
+      <div className="footer-container">
+        <Row gutter={[32, 32]}>
+          {/* Brand Section */}
+          <Col xs={24} md={8} lg={9}>
+            <div className="footer-brand">
+              <Title level={3} className="brand-title">Vinhdev04</Title>
+              <Text className="brand-desc" display="block">
+                Chuyên xây dựng các ứng dụng web hiện đại, hiệu suất cao và trải nghiệm người dùng tối ưu. Luôn cập nhật công nghệ mới nhất để mang lại giá trị tốt nhất.
+              </Text>
+              
+              <div className="social-links" style={{ marginTop: '20px' }}>
+                {socialLinks.map((social, index) => (
+                  <Tooltip title={social.name} key={index}>
+                    <a 
+                      href={social.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-btn"
+                    >
+                      <social.icon />
+                    </a>
+                  </Tooltip>
+                ))}
+              </div>
+            </div>
+          </Col>
+          
+          {/* Quick Links */}
+          <Col xs={24} sm={12} md={8} lg={7}>
+            <Title level={5} className="footer-title">Liên Kết Nhanh</Title>
+            <div className="footer-links">
+              <Link to="/about"><RightOutlined style={{ fontSize: '10px' }} /> Về Tôi</Link>
+              <Link to="/projects"><RightOutlined style={{ fontSize: '10px' }} /> Dự Án</Link>
+              <Link to="/skills"><RightOutlined style={{ fontSize: '10px' }} /> Kỹ Năng</Link>
+              <Link to="/experience"><RightOutlined style={{ fontSize: '10px' }} /> Kinh Nghiệm</Link>
+              <Link to="/certificates"><RightOutlined style={{ fontSize: '10px' }} /> Chứng Chỉ</Link>
+            </div>
+          </Col>
 
-        <Col xs={24} md={8}>
-          <Title level={5} style={{ color: '#ccd6f6' }}>Kết Nối</Title>
-          <Space direction="vertical">
-            <Space>
-                <GithubOutlined /> <Link href="https://github.com/Vinhdev04/" target="_blank" style={{ color: '#8892b0' }}>GitHub</Link>
-            </Space>
-            <Space>
-                <FacebookFilled /> <Link href="https://www.facebook.com/i.padygamy1210" target="_blank" style={{ color: '#8892b0' }}>Facebook</Link>
-            </Space>
-            <Space>
-                <PhoneOutlined /> <Text style={{ color: '#8892b0' }}>0352032375</Text>
-            </Space>
-            <Space>
-                <MailOutlined /> <Text style={{ color: '#8892b0' }}>PCV.FED@GMAIL.COM</Text>
-            </Space>
-          </Space>
-        </Col>
-      </Row>
-      
-      <div style={{ textAlign: 'center', marginTop: 40, borderTop: '1px solid #233554', paddingTop: 20 }}>
-        <Text style={{ color: '#8892b0' }}>
-          © {new Date().getFullYear()} Vinhdev04. All Rights Reserved.
-        </Text>
+          {/* Contact Info */}
+          <Col xs={24} sm={12} md={8} lg={8}>
+            <Title level={5} className="footer-title">Thông Tin Liên Hệ</Title>
+            <div className="contact-info">
+              <div className="contact-item">
+                <PhoneOutlined />
+                <Text>{contactInfo.phone}</Text>
+              </div>
+              <div className="contact-item">
+                <MailOutlined />
+                <Text>{contactInfo.email}</Text>
+              </div>
+              <div className="contact-item">
+                <GithubOutlined />
+                <a href={socialLinks[0].url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                  github.com/Vinhdev04
+                </a>
+              </div>
+            </div>
+          </Col>
+        </Row>
+        
+        {/* Footer Bottom */}
+        <div className="footer-bottom">
+          <Text className="copyright">
+            © {new Date().getFullYear()} Designed & Built by <span>Vinhdev04</span> with <HeartFilled style={{ color: '#e25555' }} />
+          </Text>
+        </div>
       </div>
     </AntFooter>
   );
