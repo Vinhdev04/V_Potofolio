@@ -32,12 +32,13 @@ const Footer = () => {
                 {socialLinks.map((social, index) => (
                   <Tooltip title={social.name} key={index}>
                     <a 
-                      href={social.url} 
+                      href={social.link} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="social-btn"
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                     >
-                      <social.icon />
+                      {React.cloneElement(social.icon, { size: 20 })}
                     </a>
                   </Tooltip>
                 ))}
@@ -71,7 +72,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <GithubOutlined />
-                <a href={socialLinks[0].url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                <a href={socialLinks.find(s => s.name === 'GitHub')?.link} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
                   github.com/Vinhdev04
                 </a>
               </div>

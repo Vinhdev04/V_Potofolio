@@ -134,7 +134,7 @@ const Home = () => {
                   transition={{ duration: 3, repeat: Infinity }}
                 >
                   <div className="card-icon">💻</div>
-                  <div className="card-text">Full Stack Dev</div>
+                  <div className="card-text">Frontend Dev</div>
                 </motion.div>
                 
                 <motion.div 
@@ -143,7 +143,7 @@ const Home = () => {
                   transition={{ duration: 2.5, repeat: Infinity }}
                 >
                   <div className="card-icon">🚀</div>
-                  <div className="card-text">React Expert</div>
+                  <div className="card-text">React Dev</div>
                 </motion.div>
               </div>
             </motion.div>

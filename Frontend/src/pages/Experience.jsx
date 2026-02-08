@@ -172,7 +172,7 @@ const Experience = () => {
               viewport={{ once: true }}
               transition={{ type: "spring", duration: 0.8, delay: 0.1 }}
             >
-              5+
+              1+
             </motion.div>
             <div className="summary-label">Năm Kinh Nghiệm</div>
           </div>
@@ -185,7 +185,7 @@ const Experience = () => {
               viewport={{ once: true }}
               transition={{ type: "spring", duration: 0.8, delay: 0.2 }}
             >
-              50+
+              15+
             </motion.div>
             <div className="summary-label">Dự Án</div>
           </div>

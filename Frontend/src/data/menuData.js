@@ -6,5 +6,6 @@ export const menuItems = [
   { key: '5', label: 'Experience', path: '/experience' },
   { key: '7', label: 'Certificates', path: '/certificates' },
   { key: '8', label: 'Blog', path: '/blog' },
+  { key: '9', label: 'Socials', path: '/socials' },
   { key: '6', label: 'Contact', path: '/contact' },
 ];

@@ -14,6 +14,7 @@ const Contact = lazy(() => import('@/pages/Contact'));
 const Certificates = lazy(() => import('@/pages/Certificates'));
 const Blog = lazy(() => import('@/pages/Blog'));
 const BlogDetail = lazy(() => import('@/pages/BlogDetail'));
+const Socials = lazy(() => import('@/pages/Socials'));
 
 const SuspenseWrapper = ({ children }) => (
   <Suspense fallback={<LoadingScreen />}>
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: 'blog/:id',
         element: <SuspenseWrapper><BlogDetail /></SuspenseWrapper>,
+      },
+      {
+        path: 'socials',
+        element: <SuspenseWrapper><Socials /></SuspenseWrapper>,
       },
       {
         path: 'contact',

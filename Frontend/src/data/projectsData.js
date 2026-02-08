@@ -26,8 +26,27 @@ import vocab from '@/assets/images/vocabulary-search.png';
 import weather from '@/assets/images/weather-app.png';
 import xPadGame from '@/assets/images/xPadGame.png';
 import jobFinder from '@/assets/images/jobFinderHUB.png';
+import appFlutter from '@/assets/images/app-flutter.jpg';
 
 export const projects = [
+  {
+    title: 'App Healthy | Mobile App',
+    subtitle: 'Ứng Dụng Chăm Sóc Sức Khỏe Toàn Diện',
+    description: 'Ứng dụng Flutter giúp người dùng theo dõi và quản lý các chỉ số sức khỏe hàng ngày như bước đi, lượng nước uống, cân nặng.',
+    tags: ['Flutter', 'Firebase', 'Mobile App', 'Dart'],
+    category: 'Mobile Apps',
+    image: appFlutter,
+    role: 'Mobile Developer',
+    timeline: 'Ongoing',
+    challenge: 'Xây dựng ứng dụng đa nền tảng mượt mà và tích hợp theo dõi thời gian thực.',
+    solution: 'Sử dụng Flutter framework và Firebase Authentication để quản lý người dùng.',
+    features: [
+      { title: 'Tracking', desc: 'Theo dõi bước chân, nước uống.' },
+      { title: 'Profile', desc: 'Quản lý thông tin sức khỏe cá nhân.' }
+    ],
+    demoLink: '#',
+    repoLink: 'https://github.com/Vinhdev04/App_Healthy.git'
+  },
   {
     title: 'Pet UI | Mobile App',
     subtitle: 'Ứng Dụng Chăm Sóc Thú Cưng',

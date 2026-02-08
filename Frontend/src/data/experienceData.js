@@ -1,44 +1,44 @@
 export const experiences = [
     {
-      title: 'Senior Frontend Engineer',
-      company: 'TechCorp Solutions',
-      date: '2021 - Hiện tại',
+      title: 'Frontend Developer Intern',
+      company: 'Công ty Công nghệ ABC (Dự kiến)',
+      date: '2024 - Hiện tại',
+      color: '#64ffda',
+      location: 'TP. Hồ Chí Minh',
+      type: 'Internship',
+      responsibilities: [
+        'Tham gia phát triển giao diện người dùng sử dụng ReactJS và Ant Design.',
+        'Hỗ trợ tối ưu hóa hiệu suất website và cải thiện trải nghiệm người dùng (UX).',
+        'Học hỏi quy trình làm việc Agile/Scrum và cách quản lý source code với Git.'
+      ],
+      technologies: ['ReactJS', 'Ant Design', 'Git', 'Jira']
+    },
+    {
+      title: 'Freelance Web Developer',
+      company: 'Tự do',
+      date: '2023 - Hiện tại',
       color: '#3b82f6',
-      location: 'TP. Hồ Chí Minh',
-      type: 'Full-time',
-      responsibilities: [
-        'Thiết kế và dẫn dắt phát triển dashboard micro-frontend phục vụ hơn 50k người dùng hàng ngày.',
-        'Cải thiện điểm Core Web Vitals thêm 40% thông qua code splitting và tối ưu hóa tài nguyên.',
-        'Hướng dẫn nhóm 4 lập trình viên trẻ và thiết lập các hướng dẫn review code.'
-      ],
-      technologies: ['React', 'TypeScript', 'GraphQL', 'AWS']
-    },
-    {
-      title: 'UI Developer',
-      company: 'Creative StartUp Inc',
-      date: '2019 - 2021',
-      color: '#d946ef',
       location: 'Remote',
-      type: 'Full-time',
+      type: 'Freelance',
       responsibilities: [
-        'Phát triển và duy trì hệ thống thiết kế đa nền tảng được sử dụng trên 3 sản phẩm chính.',
-        'Hợp tác chặt chẽ với các nhà thiết kế UX để chuyển đổi các bản thiết kế Figma thành các component React hoàn hảo.',
-        'Triển khai các tiêu chuẩn truy cập WCAG 2.1 AA trên toàn bộ trang web tiếp thị chính.'
+        'Thiết kế và xây dựng landing page cho các shop bán hàng online.',
+        'Xây dựng các dự án cá nhân để rèn luyện kỹ năng ReactJS, Node.js.',
+        'Tìm hiểu và áp dụng các công nghệ mới như Next.js, Tailwind CSS vào dự án thực tế.'
       ],
-      technologies: ['React', 'Figma', 'Storybook', 'Tailwind']
+      technologies: ['ReactJS', 'Node.js', 'Tailwind CSS', 'Next.js']
     },
     {
-      title: 'Junior Web Developer',
-      company: 'Digital Agency XY',
-      date: '2018 - 2019',
-      color: '#10b981',
+      title: 'Thành viên Ban Chuyên Môn CLB IT',
+      company: 'Đại học HUTECH',
+      date: '2022 - 2023',
+      color: '#a855f7',
       location: 'TP. Hồ Chí Minh',
-      type: 'Full-time',
+      type: 'Hoạt động ngoại khóa',
       responsibilities: [
-        'Xây dựng các trang landing page đáp ứng cho nhiều khách hàng khác nhau sử dụng HTML5, SCSS và JavaScript.',
-        'Tối ưu hóa các trang web khách hàng hiện có để đáp ứng di động và SEO.',
-        'Hỗ trợ các nhiệm vụ tích hợp backend sử dụng PHP và MySQL.'
+        'Tham gia tổ chức các buổi workshop chia sẻ kiến thức lập trình cho sinh viên.',
+        'Hỗ trợ các bạn sinh viên khóa dưới tiếp cận với lập trình Web cơ bản.',
+        'Tham gia các cuộc thi Hackathon cấp trường để rèn luyện kỹ năng làm việc nhóm.'
       ],
-      technologies: ['HTML/CSS', 'JavaScript', 'PHP', 'MySQL']
+      technologies: ['Teamwork', 'Training', 'Event Organizing', 'C++']
     }
   ];
