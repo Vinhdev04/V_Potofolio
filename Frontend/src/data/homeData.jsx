@@ -14,21 +14,21 @@ export const techStack = [
 
 export const expertiseData = [
   { 
-    title: 'Tối Ưu Hóa Frontend', 
-    desc: 'Các kỹ thuật nâng cao để giảm kích thước bundle, cải thiện Core Web Vitals và đảm bảo animation 60fps.', 
-    icon: '⚡',
+    title: 'Phát Triển Frontend', 
+    desc: 'Xây dựng giao diện responsive với ReactJS, Tailwind CSS và Ant Design. Tối ưu trải nghiệm người dùng.', 
+    icon: '💻',
     color: '#64ffda'
   },
   { 
-    title: 'Thiết Kế Hệ Thống', 
-    desc: 'Kiến trúc microservices mở rộng và hệ thống backend serverless có khả năng xử lý đồng thời cao.', 
-    icon: '🗄️',
+    title: 'Kiến Thức Backend', 
+    desc: 'Hiểu biết cơ bản về Node.js, Express và cách thiết kế RESTful API để kết nối với Frontend.', 
+    icon: '⚙️',
     color: '#3b82f6'
   },
   { 
-    title: 'Hạ Tầng Đám Mây', 
-    desc: 'Triển khai và điều phối các ứng dụng container hóa sử dụng Docker, Kubernetes và các dịch vụ AWS.', 
-    icon: '☁️',
+    title: 'Học Tập & Nghiên Cứu', 
+    desc: 'Luôn cập nhật các công nghệ mới, rèn luyện kỹ năng giải quyết vấn đề và tư duy thuật toán.', 
+    icon: '📚',
     color: '#a855f7'
   }
 ];

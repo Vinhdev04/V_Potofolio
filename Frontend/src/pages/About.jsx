@@ -49,9 +49,9 @@ const About = () => {
                         <img src={avatarImg} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                     <Title level={3} style={{ color: '#ccd6f6', marginBottom: 5 }}>Phạm Công Vinh</Title>
-                    <Text style={{ color: '#3b82f6', fontSize: '1.1rem', fontWeight: 500 }}>Senior Fullstack Developer</Text>
+                    <Text style={{ color: '#3b82f6', fontSize: '1.1rem', fontWeight: 500 }}>Frontend Developer (Intern/Fresher)</Text>
                     <Paragraph style={{ color: '#8892b0', marginTop: 15, fontSize: '0.95rem' }}>
-                        10+ năm kinh nghiệm xây dựng các ứng dụng web quy mô lớn, hiệu năng cao và bảo mật.
+                        Sinh viên năm cuối đam mê lập trình Web, chuyên về ReactJS và Frontend Technologies. Sẵn sàng học hỏi và cống hiến.
                     </Paragraph>
                     
                     <div style={{ marginTop: 25, display: 'flex', flexDirection: 'column', gap: 15, alignItems: 'flex-start', paddingLeft: 10 }}>
@@ -83,12 +83,12 @@ const About = () => {
                     Về Tôi
                 </Title>
                 <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                    Là một Senior Fullstack Developer với hơn 10 năm kinh nghiệm, tôi chuyên thiết kế và xây dựng các hệ thống web phức tạp, có khả năng mở rộng cao. 
-                    Tôi am hiểu sâu sắc về Clean Code, SOLID principles và Design Patterns.
+                    Xin chào! Tôi là sinh viên năm cuối chuyên ngành Kỹ thuật Phần mềm. Tôi có niềm đam mê mãnh liệt với Lập trình Web, đặc biệt là Frontend Development. 
+                    Tôi luôn tìm tòi, học hỏi các công nghệ mới như ReactJS, Next.js để tạo ra những giao diện người dùng đẹp mắt và trải nghiệm mượt mà.
                 </Paragraph>
                 <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                    Mục tiêu của tôi là tạo ra những sản phẩm công nghệ không chỉ hoạt động tốt mà còn mang lại trải nghiệm người dùng tuyệt vời, 
-                    đồng thời tối ưu hóa chi phí và hiệu suất vận hành cho doanh nghiệp.
+                    Mục tiêu của tôi là trở thành một Fullstack Developer chuyên nghiệp. Tôi đang tìm kiếm cơ hội thực tập (Internship) hoặc vị trí Fresher để áp dụng kiến thức đã học vào thực tế, 
+                    đồng thời rèn luyện kỹ năng làm việc nhóm và quy trình phát triển phần mềm chuyên nghiệp.
                 </Paragraph>
 
                 {/* Experience Section */}

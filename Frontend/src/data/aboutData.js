@@ -1,34 +1,32 @@
 export const experiences = [
     {
-      role: 'Senior Fullstack Developer',
-      company: 'TechSolutions Corp',
-      period: '2021 - Present',
+      role: 'Frontend Developer Intern',
+      company: 'Công ty Công nghệ ABC (Dự kiến)',
+      period: '2024 - Present',
       description: [
-        'Dẫn dắt đội ngũ 5 developers phát triển nền tảng E-commerce quy mô lớn phục vụ 100k+ người dùng.',
-        'Thiết kế kiến trúc Microservices sử dụng Node.js và Docker, giảm 40% thời gian downtime.',
-        'Tối ưu hóa hiệu suất React Frontend, cải thiện Core Web Vitals và tăng tốc độ tải trang lên 30%.',
-        'Tích hợp CI/CD pipelines với Jenkins và AWS, tự động hóa quy trình deployment.'
+        'Tham gia phát triển giao diện người dùng sử dụng ReactJS và Ant Design.',
+        'Hỗ trợ tối ưu hóa hiệu suất website và cải thiện trải nghiệm người dùng (UX).',
+        'Học hỏi quy trình làm việc Agile/Scrum và cách quản lý source code với Git.'
       ]
     },
     {
-      role: 'Fullstack Developer',
-      company: 'Innovate Software',
-      period: '2018 - 2021',
+      role: 'Freelance Web Developer',
+      company: 'Tự do',
+      period: '2023 - Present',
       description: [
-        'Phát triển các ứng dụng web SPA sử dụng ReactJS, Redux và Node.js.',
-        'Xây dựng RESTful APIs và tích hợp với cơ sở dữ liệu MongoDB và PostgreSQL.',
-        'Tham gia vào quy trình Agile/Scrum, code review và mentoring cho junior developers.',
-        'Triển khai giải pháp thanh toán trực tuyến tích hợp Stripe và PayPal.'
+        'Thiết kế và xây dựng landing page cho các shop bán hàng online.',
+        'Xây dựng các dự án cá nhân để rèn luyện kỹ năng ReactJS, Node.js.',
+        'Tìm hiểu và áp dụng các công nghệ mới như Next.js, Tailwind CSS vào dự án thực tế.'
       ]
     },
     {
-      role: 'Junior Web Developer',
-      company: 'Creative Agency',
-      period: '2016 - 2018',
+      role: 'Thành viên CLB IT',
+      company: 'Đại học HUTECH',
+      period: '2022 - 2023',
       description: [
-        'Chuyển đổi thiết kế PSD/Figma sang HTML5/CSS3/JavaScript với độ chính xác cao.',
-        'Phát triển các theme WordPress tùy chỉnh và plugin cho khách hàng.',
-        'Hỗ trợ bảo trì và nâng cấp các website hiện có, đảm bảo tính tương thích trên mọi thiết bị.',
+        'Tham gia tổ chức các buổi workshop chia sẻ kiến thức lập trình cho sinh viên.',
+        'Hỗ trợ các bạn sinh viên khóa dưới tiếp cận với lập trình Web cơ bản.',
+        'Tham gia các cuộc thi Hackathon cấp trường để rèn luyện kỹ năng làm việc nhóm.'
       ]
     }
 ];
@@ -37,14 +35,13 @@ export const education = [
     {
       school: 'Đại Học Công Nghệ TP.HCM (HUTECH)',
       degree: 'Kỹ Sư Công Nghệ Phần Mềm',
-      year: '2012 - 2016',
-      description: 'Tốt nghiệp loại Giỏi. GPA: 3.6/4.0',
+      year: '2021 - Present (Năm cuối)',
+      description: 'GPA hiện tại: 3.2/4.0. Dự kiến tốt nghiệp: 2025.',
     }
 ];
 
 export const skills = {
-    "Frontend": ["ReactJS", "Next.js", "TypeScript", "Redux", "Tailwind CSS", "Ant Design", "SASS/SCSS"],
-    "Backend": ["Node.js", "Express", "NestJS", "Python", "Django", "GraphQL"],
-    "Database": ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
-    "DevOps & Tools": ["Docker", "Kubernetes", "AWS", "Git/GitHub", "CI/CD", "Jira"]
+    "Frontend": ["ReactJS", "JavaScript (ES6+)", "HTML5/CSS3", "Tailwind CSS", "Ant Design", "Bootstrap"],
+    "Backend": ["Node.js (Basic)", "Express", "MongoDB", "RESTful API"],
+    "Tools & Others": ["Git/GitHub", "VS Code", "Figma (Basic)", "Postman", "Vercel/Netlify"]
 };

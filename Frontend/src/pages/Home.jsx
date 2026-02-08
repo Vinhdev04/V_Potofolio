@@ -52,11 +52,11 @@ const Home = () => {
               </motion.div>
               
               <Title level={1} className="hero-title">
-                Xây Dựng <span className="highlight-text">Trải Nghiệm Web</span> Có Khả Năng Mở Rộng
+                Xây Dựng <span className="highlight-text">Giao Diện Web</span> Hiện Đại & Tối Ưu
               </Title>
               
               <Paragraph className="hero-description">
-                Tôi là một Full Stack Engineer chuyên về các ứng dụng React hiệu năng cao, kiến trúc cloud-native và tạo ra giao diện người dùng hoàn hảo.
+                Tôi là sinh viên năm cuối chuyên ngành Kỹ thuật Phần mềm, tập trung phát triển các ứng dụng ReactJS với trải nghiệm người dùng mượt mà và giao diện đẹp mắt.
               </Paragraph>
               
               <Space size="middle" className="hero-buttons">
