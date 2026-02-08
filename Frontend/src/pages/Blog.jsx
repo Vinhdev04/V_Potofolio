@@ -5,6 +5,8 @@ import { CalendarOutlined, ClockCircleOutlined, PlayCircleFilled, EyeOutlined, A
 import { useNavigate } from 'react-router-dom';
 import '@/assets/css/Blog.scss';
 import { blogPosts, tiktokVideos } from '@/data/blogData';
+import FloatingQuote from '@/components/FloatingQuote';
+import { quotesData } from '@/data/homeData';
 
 const { Title, Paragraph } = Typography;
 
@@ -136,6 +138,7 @@ const TikTokGrid = () => {
 };
 
 const Blog = () => {
+  const quote = quotesData[6];
   const [activeTab, setActiveTab] = useState('articles');
 
   const items = [
@@ -158,7 +161,18 @@ const Blog = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className="blog-container"
+      style={{ position: 'relative' }}
     >
+      <FloatingQuote 
+        text={quote.text} 
+        author={quote.author} 
+        color={quote.color} 
+        style={{ 
+          top: '120px', 
+          right: '20px', 
+          zIndex: 10
+        }} 
+      />
       <div className="blog-header">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

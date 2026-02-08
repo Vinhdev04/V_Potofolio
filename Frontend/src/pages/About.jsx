@@ -7,10 +7,13 @@ import avatarImg from '@/assets/images/avt.png';
 const { Title, Paragraph, Text } = Typography;
 
 import { experiences, education, skills } from '@data/aboutData';
+import { contactInfo, socialLinks } from '@/data/socialData';
+import FloatingQuote from '@/components/FloatingQuote';
+import { quotesData } from '@/data/homeData';
 
 const About = () => {
+  const quote = quotesData[1];
   const handleDownloadCV = () => {
-    // In a real scenario, this would link to a real PDF file
     message.success('Đang tải xuống CV...');
     // Fake download for demo
     setTimeout(() => {
@@ -21,14 +24,29 @@ const About = () => {
     }, 1000);
   };
 
+  const githubUrl = socialLinks.find(s => s.name === 'GitHub')?.link;
+  const linkedinUrl = socialLinks.find(s => s.name === 'LinkedIn')?.link;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      style={{ padding: '50px 0', maxWidth: 1200, margin: '0 auto' }}
+      style={{ padding: '50px 0', maxWidth: 1200, margin: '0 auto', position: 'relative' }}
     >
+      {quote && (
+        <FloatingQuote 
+          text={quote.text} 
+          author={quote.author} 
+          color={quote.color} 
+          style={{ 
+            top: '100px', 
+            right: '-140px', 
+            zIndex: 10
+          }} 
+        />
+      )}
       <Row gutter={[48, 48]}>
         {/* Left Column: Profile Card */}
         <Col xs={24} lg={8}>
@@ -55,12 +73,12 @@ const About = () => {
                     </Paragraph>
                     
                     <div style={{ marginTop: 25, display: 'flex', flexDirection: 'column', gap: 15, alignItems: 'flex-start', paddingLeft: 10 }}>
-                        <SpaceIcon icon={<EnvironmentOutlined />} text="TP. Hồ Chí Minh, Việt Nam" />
-                        <SpaceIcon icon={<MailOutlined />} text="vinhdev04@example.com" />
-                        <SpaceIcon icon={<PhoneOutlined />} text="+84 909 123 456" />
-                        <SpaceIcon icon={<GlobalOutlined />} text="https://vinhdev.com" />
-                        <SpaceIcon icon={<GithubOutlined />} text="github.com/Vinhdev04" />
-                        <SpaceIcon icon={<LinkedinOutlined />} text="linkedin.com/in/vinhdev04" />
+                        <SpaceIcon icon={<EnvironmentOutlined />} text={contactInfo.location} />
+                        <SpaceIcon icon={<MailOutlined />} text={contactInfo.email} />
+                        <SpaceIcon icon={<PhoneOutlined />} text={contactInfo.phone} />
+                        <SpaceIcon icon={<GlobalOutlined />} text="vinhdev04.github.io" link={contactInfo.website} />
+                        <SpaceIcon icon={<GithubOutlined />} text="github.com/Vinhdev04" link={githubUrl} />
+                        <SpaceIcon icon={<LinkedinOutlined />} text="linkedin.com/in/..." link={linkedinUrl} />
                     </div>
 
                     <Button 
@@ -163,10 +181,16 @@ const About = () => {
 };
 
 // Helper component for icon + text
-const SpaceIcon = ({ icon, text }) => (
+const SpaceIcon = ({ icon, text, link }) => (
     <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#8892b0' }}>
         <span style={{ color: '#3b82f6', fontSize: '1.2rem' }}>{icon}</span>
-        <Text style={{ color: '#8892b0' }}>{text}</Text>
+        {link ? (
+            <a href={link} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                <Text style={{ color: '#8892b0', cursor: 'pointer' }} underline>{text}</Text>
+            </a>
+        ) : (
+            <Text style={{ color: '#8892b0' }}>{text}</Text>
+        )}
     </div>
 );
 

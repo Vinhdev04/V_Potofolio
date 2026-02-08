@@ -2,7 +2,8 @@ import React, { Suspense, lazy } from 'react';
 import { Typography, Button, Space, Row, Col, Card, Divider, Spin } from 'antd';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { techStack, expertiseData } from '@/data/homeData';
+import { techStack, expertiseData, quotesData } from '@/data/homeData';
+import FloatingQuote from '@/components/FloatingQuote';
 import avatarImg from '@/assets/images/avt.png';
 import '@/assets/css/Home.scss';
 
@@ -23,6 +24,7 @@ const SectionLoader = () => (
 
 const Home = () => {
   const navigate = useNavigate();
+  const quote = quotesData[0];
 
   return (
     <motion.div
@@ -31,7 +33,18 @@ const Home = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className="home-container"
+      style={{ position: 'relative' }}
     >
+      <FloatingQuote 
+        text={quote.text} 
+        author={quote.author} 
+        color={quote.color} 
+        style={{ 
+          top: '120px', 
+          right: '5%', 
+          zIndex: 20
+        }} 
+      />
       {/* Hero Section */}
       <div className="hero-section">
         <Row gutter={[32, 32]} align="middle">
@@ -145,6 +158,8 @@ const Home = () => {
                   <div className="card-icon">🚀</div>
                   <div className="card-text">React Dev</div>
                 </motion.div>
+
+                {/* Floating Quotes removed per request */}
               </div>
             </motion.div>
           </Col>

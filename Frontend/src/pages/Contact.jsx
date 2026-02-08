@@ -1,13 +1,17 @@
 import React from 'react';
 import { Typography, Form, Input, Button, Row, Col, Card, message } from 'antd';
 import { motion } from 'framer-motion';
-import { SendOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined, GithubOutlined, LinkedinOutlined, TwitterOutlined } from '@ant-design/icons';
+import { SendOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { socialLinks as socialLinksData, contactInfo as contactInfoData } from '@/data/socialData';
 import '@/assets/css/Contact.scss';
+import FloatingQuote from '@/components/FloatingQuote';
+import { quotesData } from '@/data/homeData';
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;
 
 const Contact = () => {
+  const quote = quotesData[8];
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -20,31 +24,30 @@ const Contact = () => {
     {
       icon: <MailOutlined />,
       title: 'Email',
-      value: 'PCV.FED@GMAIL.COM',
-      link: 'mailto:PCV.FED@GMAIL.COM',
+      value: contactInfoData.email,
+      link: `mailto:${contactInfoData.email}`,
       color: '#64ffda'
     },
     {
       icon: <PhoneOutlined />,
       title: 'Điện Thoại',
-      value: '0352032375',
-      link: 'tel:0352032375',
+      value: contactInfoData.phone,
+      link: `tel:${contactInfoData.phone}`,
       color: '#3b82f6'
     },
     {
       icon: <EnvironmentOutlined />,
       title: 'Địa Chỉ',
-      value: 'TP. Hồ Chí Minh, Việt Nam',
+      value: contactInfoData.location,
       link: null,
       color: '#a855f7'
     }
   ];
 
-  const socialLinks = [
-    { icon: <GithubOutlined />, name: 'Github', link: '#', color: '#fff' },
-    { icon: <LinkedinOutlined />, name: 'LinkedIn', link: '#', color: '#0077b5' },
-    { icon: <TwitterOutlined />, name: 'Twitter', link: '#', color: '#1da1f2' }
-  ];
+  // Filter main social links
+  const socialLinks = socialLinksData.filter(item => 
+    ['GitHub', 'LinkedIn', 'Facebook', 'Zalo'].includes(item.name)
+  );
 
   return (
     <motion.div
@@ -53,7 +56,20 @@ const Contact = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
       className="contact-container"
+      style={{ position: 'relative' }}
     >
+      {quote && (
+        <FloatingQuote 
+          text={quote.text} 
+          author={quote.author} 
+          color={quote.color} 
+          style={{ 
+            top: '80px', 
+            right: '20px', 
+            zIndex: 10
+          }} 
+        />
+      )}
       <div className="contact-header">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -128,8 +144,8 @@ const Contact = () => {
               </div>
             </div>
             
-            {/* Decorative Quote */}
-            <div className="contact-quote">
+            {/* Decorative Quote removed per request */}
+            <div className="contact-quote" style={{ display: 'none' }}>
               <div className="quote-icon">"</div>
               <Paragraph className="quote-text">
                 Hãy cùng nhau xây dựng điều gì đó tuyệt vời!

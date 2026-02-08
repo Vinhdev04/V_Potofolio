@@ -2,12 +2,15 @@ import React from 'react';
 import { Typography, Row, Col, Card, Progress, Segmented } from 'antd';
 import { motion } from 'framer-motion';
 import '@/assets/css/Skills.scss';
+import FloatingQuote from '@/components/FloatingQuote';
+import { quotesData } from '@/data/homeData';
 
 const { Title, Paragraph } = Typography;
 
 import { skills } from '@data/skillsData';
 
 const Skills = () => {
+  const quote = quotesData[3];
   const [filter, setFilter] = React.useState('All');
 
   const filteredSkills = filter === 'All' ? skills : skills.filter(s => s.category === filter);
@@ -19,7 +22,20 @@ const Skills = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className="skills-container"
+      style={{ position: 'relative' }}
     >
+      {quote && (
+        <FloatingQuote 
+          text={quote.text} 
+          author={quote.author} 
+          color={quote.color} 
+          style={{ 
+            top: '100px', 
+            left: '20px', 
+            zIndex: 10
+          }} 
+        />
+      )}
       <div className="skills-header">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

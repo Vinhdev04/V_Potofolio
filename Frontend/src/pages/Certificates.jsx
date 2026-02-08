@@ -4,10 +4,13 @@ import { motion } from 'framer-motion';
 import { SafetyCertificateOutlined, LinkOutlined, TrophyOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import '@/assets/css/Certificates.scss';
 import { certificates } from '@data/certificatesData';
+import FloatingQuote from '@/components/FloatingQuote';
+import { quotesData } from '@/data/homeData';
 
 const { Title, Paragraph, Text } = Typography;
 
 const Certificates = () => {
+  const quote = quotesData[5];
 
   return (
     <motion.div
@@ -16,7 +19,18 @@ const Certificates = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className="certificates-container"
+      style={{ position: 'relative' }}
     >
+      <FloatingQuote 
+        text={quote.text} 
+        author={quote.author} 
+        color={quote.color} 
+        style={{ 
+          top: '100px', 
+          right: '20px', 
+          zIndex: 10
+        }} 
+      />
       {/* Header */}
       <div className="certificates-header">
         <motion.div

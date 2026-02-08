@@ -5,10 +5,13 @@ import { EyeOutlined, GithubOutlined } from '@ant-design/icons';
 import ProjectModal from '../components/ProjectModal';
 import '@/assets/css/Projects.scss';
 import { projects } from '@data/projectsData';
+import FloatingQuote from '@/components/FloatingQuote';
+import { quotesData } from '@/data/homeData';
 
 const { Title, Paragraph } = Typography;
 
 const Projects = () => {
+  const quote = quotesData[2];
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState('All');
   const [visibleCount, setVisibleCount] = useState(6);
@@ -30,7 +33,20 @@ const Projects = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className="projects-container"
+      style={{ position: 'relative' }}
     >
+      {quote && (
+        <FloatingQuote 
+          text={quote.text} 
+          author={quote.author} 
+          color={quote.color} 
+          style={{ 
+            top: '150px', 
+            left: '20px', 
+            zIndex: 10
+          }} 
+        />
+      )}
       <div className="projects-header">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

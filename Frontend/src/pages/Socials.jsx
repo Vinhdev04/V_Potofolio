@@ -3,11 +3,14 @@ import { Row, Col, Typography, Card, Button } from 'antd';
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaUsers } from 'react-icons/fa';
 import { socialLinks } from '@/data/socialData';
+import FloatingQuote from '@/components/FloatingQuote';
+import { quotesData } from '@/data/homeData';
 import '@/assets/css/Socials.scss';
 
 const { Title, Paragraph } = Typography;
 
 const Socials = () => {
+  const quote = quotesData[7];
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -30,7 +33,17 @@ const Socials = () => {
   };
 
   return (
-    <div className="socials-container">
+    <div className="socials-container" style={{ position: 'relative' }}>
+      <FloatingQuote 
+        text={quote.text} 
+        author={quote.author} 
+        color={quote.color} 
+        style={{ 
+          top: '100px', 
+          right: '20px', 
+          zIndex: 10
+        }} 
+      />
       <motion.div
         className="socials-header"
         initial={{ opacity: 0, y: -20 }}

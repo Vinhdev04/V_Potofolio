@@ -81,7 +81,7 @@ const SocialFloatingButtons = () => {
             shape="circle"
             size="large"
             icon={<MailFilled />}
-            href="mailto:hello@vinh.dev"
+            href="mailto:pcv.fed@gmail.com"
             style={{
               width: 50,
               height: 50,

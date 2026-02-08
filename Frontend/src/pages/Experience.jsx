@@ -5,10 +5,13 @@ import { AuditOutlined, CalendarOutlined, CheckCircleOutlined } from '@ant-desig
 import '@/assets/css/Experience.scss';
 
 import { experiences } from '@data/experienceData';
+import FloatingQuote from '@/components/FloatingQuote';
+import { quotesData } from '@/data/homeData';
 
 const { Title, Text, Paragraph } = Typography;
 
 const Experience = () => {
+  const quote = quotesData[4];
 
   return (
     <motion.div
@@ -17,7 +20,20 @@ const Experience = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className="experience-container"
+      style={{ position: 'relative' }}
     >
+      {quote && (
+        <FloatingQuote 
+          text={quote.text} 
+          author={quote.author} 
+          color={quote.color} 
+          style={{ 
+            top: '120px', 
+            right: '20px', 
+            zIndex: 10
+          }} 
+        />
+      )}
       {/* Header */}
       <div className="experience-header">
         <motion.div
