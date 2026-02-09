@@ -1,8 +1,8 @@
 export const experiences = [
     {
       title: 'Frontend Developer Intern',
-      company: 'Công ty Công nghệ ABC (Dự kiến)',
-      date: '2024 - Hiện tại',
+      company: 'Dự kiến',
+      date: '2026 - Hiện tại',
       color: '#64ffda',
       location: 'TP. Hồ Chí Minh',
       type: 'Internship',
@@ -14,31 +14,33 @@ export const experiences = [
       technologies: ['ReactJS', 'Ant Design', 'Git', 'Jira']
     },
     {
-      title: 'Freelance Web Developer',
-      company: 'Tự do',
-      date: '2023 - Hiện tại',
+      title: 'DevPortfolio | Personal Project',
+      company: 'DevPortfolio',
+      date: '2024 - Hiện tại',
       color: '#3b82f6',
       location: 'Remote',
-      type: 'Freelance',
+      type: 'Personal Project',
       responsibilities: [
-        'Thiết kế và xây dựng landing page cho các shop bán hàng online.',
-        'Xây dựng các dự án cá nhân để rèn luyện kỹ năng ReactJS, Node.js.',
-        'Tìm hiểu và áp dụng các công nghệ mới như Next.js, Tailwind CSS vào dự án thực tế.'
+        'Xây dựng website portfolio cá nhân để định vị thương hiệu và giới thiệu dự án.',
+        'Thiết kế giao diện hiện đại với ReactJS, Ant Design và hiệu ứng Framer Motion.',
+        'Tối ưu hóa hiệu suất (Performance), SEO và trải nghiệm người dùng (UX).'
       ],
-      technologies: ['ReactJS', 'Node.js', 'Tailwind CSS', 'Next.js']
+      technologies: ['ReactJS', 'Ant Design', 'Framer Motion', 'Vite'],
+      link: 'https://github.com/Vinhdev04/V_Potofolio.git'
     },
     {
-      title: 'Thành viên Ban Chuyên Môn CLB IT',
-      company: 'Đại học HUTECH',
-      date: '2022 - 2023',
+      title: 'E-commerce Frontend Developer',
+      company: 'xPadGame',
+      date: '2023 - Hiện tại',
       color: '#a855f7',
-      location: 'TP. Hồ Chí Minh',
-      type: 'Hoạt động ngoại khóa',
+      location: 'Remote',
+      type: 'Personal Project',
       responsibilities: [
-        'Tham gia tổ chức các buổi workshop chia sẻ kiến thức lập trình cho sinh viên.',
-        'Hỗ trợ các bạn sinh viên khóa dưới tiếp cận với lập trình Web cơ bản.',
-        'Tham gia các cuộc thi Hackathon cấp trường để rèn luyện kỹ năng làm việc nhóm.'
+        'Phát triển trang thương mại điện tử chuyên về thiết bị game (Gaming Gear).',
+        'Xây dựng các tính năng: Giỏ hàng, Thanh toán, Lọc sản phẩm, Quản lý đơn hàng.',
+        'Tích hợp Redux để quản lý trạng thái và tối ưu hóa luồng dữ liệu.'
       ],
-      technologies: ['Teamwork', 'Training', 'Event Organizing', 'C++']
+      technologies: ['ReactJS', 'Redux', 'SCSS', 'Payment Integration'],
+      link: 'https://xpadgame.netlify.app/about'
     }
   ];
