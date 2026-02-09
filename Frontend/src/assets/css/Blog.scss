@@ -37,7 +37,7 @@
       margin-bottom: 40px;
       
       &::before {
-        border-bottom: 1px solid rgba($text-secondary, 0.2);
+        border-bottom: 1px solid var(--border-color-subtle);
       }
 
       .ant-tabs-tab {
@@ -67,8 +67,8 @@
 
   // Article Card Styles
   .article-card {
-    background: lighten($bg-color, 3%);
-    border: 1px solid rgba($text-secondary, 0.1);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color-subtle);
     border-radius: 12px;
     overflow: hidden;
     height: 100%;

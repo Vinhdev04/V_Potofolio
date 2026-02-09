@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Menu, Drawer, Button, Grid } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined, SunOutlined, MoonOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 import { menuItems } from '@/data/menuData';
+import { useTheme } from '@/context/ThemeContext';
 import '@/assets/css/layout.scss'; // Reuse existing styles
 
 const { Header } = Layout;
@@ -13,6 +14,7 @@ const Navbar = () => {
   const screens = useBreakpoint();
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   // Handle scroll effect
   useEffect(() => {
@@ -34,43 +36,60 @@ const Navbar = () => {
     label: <Link to={item.path} onClick={() => setDrawerVisible(false)}>{item.label}</Link>
   }));
 
+  const ThemeToggle = () => (
+    <Button
+      type="text"
+      icon={theme === 'dark' ? <SunOutlined style={{ color: 'var(--secondary-color)' }} /> : <MoonOutlined style={{ color: 'var(--secondary-color)' }} />}
+      onClick={toggleTheme}
+      className="theme-toggle-btn"
+      style={{ marginLeft: '1rem' }}
+    />
+  );
+
   return (
     <Header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="logo">VinhDev</div>
       
       {/* Desktop Menu */}
       {screens.md ? (
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          selectedKeys={[getSelectedKey()]}
-          items={menuItemsConfig}
-          style={{ flex: 1, minWidth: 0, justifyContent: 'flex-end', border: 'none' }}
-        />
+        <div style={{ display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'flex-end' }}>
+          <Menu
+            theme={theme === 'dark' ? 'dark' : 'light'}
+            mode="horizontal"
+            selectedKeys={[getSelectedKey()]}
+            items={menuItemsConfig}
+            style={{ minWidth: 0, border: 'none', background: 'transparent' }}
+          />
+          <ThemeToggle />
+        </div>
       ) : (
         /* Mobile Menu Button */
-        <Button 
-          type="text" 
-          icon={<MenuOutlined style={{ color: '#64ffda', fontSize: '20px' }} />} 
-          onClick={() => setDrawerVisible(true)}
-          className="mobile-menu-btn"
-        />
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+            <ThemeToggle />
+            <Button 
+            type="text" 
+            icon={<MenuOutlined style={{ color: 'var(--secondary-color)', fontSize: '20px' }} />} 
+            onClick={() => setDrawerVisible(true)}
+            className="mobile-menu-btn"
+            style={{ marginLeft: '10px' }}
+            />
+        </div>
       )}
 
       {/* Mobile Drawer */}
       <Drawer
-        title={<span style={{ color: '#64ffda', fontFamily: 'Fira Code' }}>Menu</span>}
+        title={<span style={{ color: 'var(--secondary-color)', fontFamily: 'Fira Code' }}>Menu</span>}
         placement="right"
         onClose={() => setDrawerVisible(false)}
         open={drawerVisible}
         styles={{ 
-          body: { padding: 0, background: '#112240' },
-          header: { background: '#0a192f', borderBottom: '1px solid #233554' }
+          body: { padding: 0, background: 'var(--bg-secondary)' },
+          header: { background: 'var(--bg-color)', borderBottom: '1px solid var(--text-secondary)' }
         }}
         width={250}
       >
         <Menu
-          theme="dark"
+          theme={theme === 'dark' ? 'dark' : 'light'}
           mode="vertical"
           selectedKeys={[getSelectedKey()]}
           items={menuItemsConfig}

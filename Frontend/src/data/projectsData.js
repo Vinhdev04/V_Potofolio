@@ -30,6 +30,26 @@ import appFlutter from '@/assets/images/app-flutter.jpg';
 
 export const projects = [
   {
+    title: 'DevPortfolio',
+    subtitle: 'Portfolio Cá Nhân',
+    description: 'Website cá nhân định vị thương hiệu, nơi giới thiệu chi tiết về Bản thân, Kỹ năng, Kinh nghiệm và các Dự án đã thực hiện. Hệ thống bao gồm các trang chức năng: Home, About, Projects, Contact với giao diện hiện đại, chuyên nghiệp.',
+    tags: ['ReactJS', 'Ant Design', 'SCSS', 'Framer Motion', 'Vite'],
+    category: 'Web Apps',
+    image: landingPage,
+    role: 'Frontend Developer (Personal)',
+    timeline: 'Ongoing',
+    challenge: 'Thể hiện đầy đủ thông tin cá nhân một cách trực quan, ấn tượng nhưng vẫn đảm bảo hiệu suất cao.',
+    solution: 'Thiết kế bố cục rõ ràng cho từng trang (About, Skills, Projects) và sử dụng Framer Motion cho hiệu ứng chuyển cảnh.',
+    features: [
+      { title: 'Home & About', desc: 'Intro ấn tượng, Bio chi tiết, Download CV, hiển thị Skills visual.' },
+      { title: 'Project Gallery', desc: 'Danh sách dự án có bộ lọc (Filter), xem chi tiết (Modal/Page).' },
+      { title: 'Contact & Socials', desc: 'Form liên hệ gửi Email trực tiếp, tích hợp mạng xã hội.' },
+      { title: 'System UX', desc: 'Dark/Light Mode, Responsive toàn diện, tối ưu SEO & Performance.' }
+    ],
+    demoLink: '#',
+    repoLink: 'https://github.com/Vinhdev04/V_Potofolio.git'
+  },
+  {
     title: 'App Healthy | Mobile App',
     subtitle: 'Ứng Dụng Chăm Sóc Sức Khỏe Toàn Diện',
     description: 'Ứng dụng Flutter giúp người dùng theo dõi và quản lý các chỉ số sức khỏe hàng ngày như bước đi, lượng nước uống, cân nặng.',
@@ -518,20 +538,22 @@ export const projects = [
   {
     title: 'Premium GameXbox',
     subtitle: 'Cửa Hàng Thiết Bị Game',
-    description: 'Website thương mại điện tử chuyên cung cấp tay cầm và phụ kiện chơi game cao cấp với giao diện Dark Mode ấn tượng.',
-    tags: ['React', 'Tailwind CSS', 'Redux'],
+    description: 'Xây dựng website thương mại điện tử chuyên bán tay cầm chơi game và phụ kiện gaming. Thiết kế giao diện responsive, tương thích tốt trên Desktop và Mobile. Ứng dụng kiến trúc Frontend – Backend tách biệt, dễ mở rộng và bảo trì.',
+    tags: ['ReactJS', 'SCSS/CSS', 'Antd', 'Nodejs', 'Prisma ORM', 'Mongodb'],
     category: 'E-commerce',
     image: xPadGame,
-    role: 'Frontend Developer',
-    timeline: '3 Tuần',
-    challenge: 'Xây dựng giao diện Dark Mode ấn tượng và trải nghiệm mua sắm mượt mà.',
-    solution: 'Sử dụng Tailwind CSS cho styling và Redux quản lý giỏ hàng.',
+    role: 'Frontend Developer (Personal)',
+    timeline: 'Ongoing',
+    challenge: 'Xây dựng hệ thống Fullstack với kiến trúc tách biệt và bảo mật.',
+    solution: 'Sử dụng JWT cho xác thực, Prisma ORM cho database và Ant Design cho giao diện.',
     features: [
-      { title: 'Dark UI', desc: 'Giao diện tối chuyên nghiệp.' },
-      { title: 'Product Filter', desc: 'Lọc sản phẩm thông minh.' }
+      { title: 'Auth', desc: 'Đăng ký/Đăng nhập JWT, Formik, Yup.' },
+      { title: 'Products', desc: 'Tìm kiếm, lọc theo giá, loại, nền tảng.' },
+      { title: 'User', desc: 'Quản lý thông tin, lịch sử mua hàng.' },
+      { title: 'API', desc: 'RESTful APIs cho User và Product.' }
     ],
     demoLink: '#',
-    repoLink: '#'
+    repoLink: 'https://github.com/Vinhdev04/Ecomerce-reactjs.git'
   },
   {
     title: 'Internship System',

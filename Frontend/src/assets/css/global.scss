@@ -1,9 +1,38 @@
 @use "@/assets/css/variables.scss" as *;
 
+:root {
+  // Dark Theme (Default)
+  --primary-color: #0a192f;
+  --secondary-color: #64ffda;
+  --text-primary: #ccd6f6;
+  --text-secondary: #8892b0;
+  --bg-color: #020c1b;
+  --bg-secondary: #112240;
+  --bg-card: #0a192f;
+  --bg-overlay: rgba(2, 12, 27, 0.85);
+  --border-color: #233554;
+  --border-color-subtle: rgba(136, 146, 176, 0.1);
+}
+
+[data-theme='light'] {
+  // Light Theme
+  --primary-color: #ffffff;
+  --secondary-color: #007bff;
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --bg-color: #f0f2f5;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-overlay: rgba(255, 255, 255, 0.85);
+  --border-color: #d9d9d9;
+  --border-color-subtle: rgba(0, 0, 0, 0.05);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
