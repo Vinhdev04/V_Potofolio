@@ -68,7 +68,7 @@ export const projects = [
     repoLink: 'https://github.com/Vinhdev04/App_Healthy.git'
   },
   {
-    title: 'Pet UI | Mobile App',
+    title: 'Pet UI',
     subtitle: 'Ứng Dụng Chăm Sóc Thú Cưng',
     description: 'Giao diện ứng dụng mobile giúp quản lý sức khỏe và lịch trình cho thú cưng với thiết kế hiện đại.',
     tags: ['React Native', 'UI Design', 'Figma'],
@@ -82,8 +82,8 @@ export const projects = [
       { title: 'Tracking', desc: 'Theo dõi sức khỏe thú cưng.' },
       { title: 'Reminder', desc: 'Nhắc nhở lịch tiêm phòng.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://pet-ui.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/pet-UI.git'
   },
   {
     title: 'Anti-Virus Mask Store',
@@ -100,8 +100,8 @@ export const projects = [
       { title: 'Responsive', desc: 'Tương thích mọi thiết bị.' },
       { title: 'Cart', desc: 'Giỏ hàng JavaScript thuần.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://anti-virus-mask-store.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/AntiVirus_Mask_Store.git'
   },
   {
     title: 'Create QR JS',
@@ -118,8 +118,8 @@ export const projects = [
       { title: 'Generator', desc: 'Tạo QR từ text/URL.' },
       { title: 'Download', desc: 'Tải xuống ảnh QR.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://create-qr-chi.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/CreateQR.git'
   },
   {
     title: 'Dictionary API',
@@ -136,8 +136,8 @@ export const projects = [
       { title: 'Search', desc: 'Tra cứu từ vựng.' },
       { title: 'Audio', desc: 'Phát âm chuẩn bản xứ.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://dictonary-api-fawn.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Dictonary-API.git'
   },
   {
     title: 'Doctor Hub',
@@ -154,8 +154,8 @@ export const projects = [
       { title: 'Booking', desc: 'Đặt lịch hẹn.' },
       { title: 'Profile', desc: 'Hồ sơ bác sĩ chi tiết.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://doctor-hubs.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/doctorHub.git'
   },
   {
     title: 'Ecommerce Fashion',
@@ -172,8 +172,8 @@ export const projects = [
       { title: 'Products', desc: 'Danh sách & Lọc sản phẩm.' },
       { title: 'Cart', desc: 'Thêm/Sửa/Xóa giỏ hàng.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://ecommerce-fashion-seven.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Ecommerce_Fashion.git'
   },
   {
     title: 'Education Page',
@@ -190,8 +190,8 @@ export const projects = [
       { title: 'Courses', desc: 'Giới thiệu khóa học nổi bật.' },
       { title: 'Testimonials', desc: 'Đánh giá học viên.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://education-page-eight.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Educate_page.git'
   },
   {
     title: 'F-Shop',
@@ -208,8 +208,8 @@ export const projects = [
       { title: 'Gallery', desc: 'Trưng bày sản phẩm đẹp mắt.' },
       { title: 'Filter', desc: 'Lọc theo hãng, size, giá.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://f-shop-seven.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/F_Shop.git'
   },
   {
     title: 'Password Generator',
@@ -226,8 +226,8 @@ export const projects = [
       { title: 'Custom', desc: 'Tùy chỉnh độ dài, ký tự.' },
       { title: 'Copy', desc: 'Sao chép nhanh vào clipboard.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://generate-password-a8mm.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/GeneratePassword.git'
   },
   {
     title: 'Guess Pictures',
@@ -244,8 +244,8 @@ export const projects = [
       { title: 'Quiz', desc: 'Câu hỏi trắc nghiệm hình ảnh.' },
       { title: 'Score', desc: 'Tính điểm và xếp hạng.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://guess-pictures.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/GuessPictures.git'
   },
   {
     title: 'Man City Web',
@@ -262,8 +262,8 @@ export const projects = [
       { title: 'News', desc: 'Cập nhật tin tức CLB.' },
       { title: 'Players', desc: 'Danh sách cầu thủ.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://web-mancity.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/ManCity-Web.git'
   },
   {
     title: 'Music Player',
@@ -280,8 +280,8 @@ export const projects = [
       { title: 'Playlist', desc: 'Danh sách bài hát.' },
       { title: 'Controls', desc: 'Điều khiển nhạc đầy đủ.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://music-player-two-kappa.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Music_Player.git'
   },
   {
     title: 'OG Inform',
@@ -316,8 +316,8 @@ export const projects = [
       { title: 'Timer', desc: 'Đếm ngược thời gian làm bài.' },
       { title: 'Result', desc: 'Hiển thị kết quả chi tiết.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://quiz-app-js-rho.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/QuizAppJS.git'
   },
   {
     title: 'Software M4S',
@@ -334,8 +334,8 @@ export const projects = [
       { title: 'Features', desc: 'Tính năng nổi bật.' },
       { title: 'Pricing', desc: 'Bảng giá dịch vụ.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://software-m4-3scb.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/SoftwareM4.git'
   },
   {
     title: 'Softy Pinko',
@@ -352,8 +352,8 @@ export const projects = [
       { title: 'Diary', desc: 'Nhật ký hàng ngày.' },
       { title: 'Gallery', desc: 'Album ảnh.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://softy-pinko-two.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Softy_Pinko.git'
   },
   {
     title: 'RPS Game',
@@ -370,8 +370,8 @@ export const projects = [
       { title: 'Game', desc: 'Chế độ chơi đơn.' },
       { title: 'Score', desc: 'Lưu điểm số.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://stone-paper-scissors-weld.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Stone-Paper-Scissors.git'
   },
   {
     title: 'Tic Tac Toe',
@@ -388,8 +388,8 @@ export const projects = [
       { title: 'Multiplayer', desc: 'Chơi 2 người trên cùng máy.' },
       { title: 'Reset', desc: 'Chơi lại ván mới.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://tic-tac-toe-js-wheat.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/tic-tac-toe-js.git'
   },
   {
     title: 'Toast Message',
@@ -406,8 +406,8 @@ export const projects = [
       { title: 'Types', desc: 'Success, Error, Warning.' },
       { title: 'Auto-close', desc: 'Tự động đóng sau 3s.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://toast-message-three.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Toast_Message.git'
   },
   {
     title: 'Todo JS',
@@ -424,7 +424,7 @@ export const projects = [
       { title: 'CRUD', desc: 'Thêm, sửa, xóa công việc.' },
       { title: 'Save', desc: 'Lưu vào Local Storage.' }
     ],
-    demoLink: '#',
+    demoLink: 'https://todo-list-eta-gray-74.vercel.app/',
     repoLink: '#'
   },
   {
@@ -442,8 +442,8 @@ export const projects = [
       { title: 'Filter', desc: 'Lọc công việc đã xong/chưa xong.' },
       { title: 'Edit', desc: 'Chỉnh sửa trực tiếp.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://todoapps-reactjs.netlify.app/',
+    repoLink: 'https://github.com/Vinhdev04/todoList-ReactJS.git'
   },
   {
     title: 'V-Real Estate',
@@ -460,8 +460,8 @@ export const projects = [
       { title: 'Search', desc: 'Tìm kiếm theo khu vực, giá.' },
       { title: 'Map', desc: 'Xem vị trí trên bản đồ.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://vreal-estate.netlify.app/',
+    repoLink: 'https://github.com/Vinhdev04/V_Real-Estate.git'
   },
   {
     title: 'Valorant Game',
@@ -478,8 +478,8 @@ export const projects = [
       { title: 'Agents', desc: 'Chi tiết kỹ năng từng tướng.' },
       { title: 'Weapons', desc: 'Thông số súng.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://valorant-game-pi.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/ValorantGame.git'
   },
   {
     title: 'Vocabulary Search',
@@ -496,7 +496,7 @@ export const projects = [
       { title: 'Instant', desc: 'Kết quả hiện ngay khi gõ.' },
       { title: 'History', desc: 'Lưu lịch sử tra cứu.' }
     ],
-    demoLink: '#',
+    demoLink: 'https://vocabulary-search.vercel.app/',
     repoLink: '#'
   },
   {
@@ -514,8 +514,8 @@ export const projects = [
       { title: 'Current', desc: 'Nhiệt độ, độ ẩm hiện tại.' },
       { title: 'Forecast', desc: 'Dự báo các ngày tới.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://weather-app-ten-psi-16.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/weather-app.git'
   },
   {
     title: 'xPadGame',
@@ -532,8 +532,8 @@ export const projects = [
       { title: 'Checkout', desc: 'Thanh toán trực tuyến.' },
       { title: 'Admin', desc: 'Trang quản trị đơn hàng.' }
     ],
-    demoLink: '#',
-    repoLink: '#'
+    demoLink: 'https://xpadgame.netlify.app/about',
+    repoLink: 'https://github.com/Vinhdev04/Ecomerce-reactjs.git'
   },
   {
     title: 'Job Finder HUB',
@@ -550,7 +550,97 @@ export const projects = [
       { title: 'Jobs', desc: 'Tìm kiếm việc làm.' },
       { title: 'CV', desc: 'Tạo và quản lý CV.' }
     ],
-    demoLink: '#',
+    demoLink: 'https://jobfinderhubb.netlify.app/',
     repoLink: '#'
+  },
+  {
+    title: 'Login Form',
+    subtitle: 'Mẫu Đăng Nhập',
+    description: 'Các mẫu giao diện đăng nhập/đăng ký đẹp mắt và hiện đại.',
+    tags: ['HTML/CSS', 'UI Design', 'Form'],
+    category: 'Web Apps',
+    image: landingPage, // Sử dụng ảnh tạm
+    role: 'Frontend Developer',
+    timeline: '2 Ngày',
+    challenge: 'Tạo form validation và hiệu ứng chuyển đổi giữa Login/Register.',
+    solution: 'Sử dụng CSS thuần và một chút JS.',
+    features: [
+      { title: 'Validation', desc: 'Kiểm tra định dạng email/pass.' },
+      { title: 'Animation', desc: 'Hiệu ứng chuyển tab mượt mà.' }
+    ],
+    demoLink: 'https://login-form-1rsw.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/LoginForm.git'
+  },
+  {
+    title: 'Landing Page 03',
+    subtitle: 'Trang Đích Mẫu 3',
+    description: 'Mẫu Landing Page hiện đại phục vụ mục đích giới thiệu sản phẩm.',
+    tags: ['HTML/CSS', 'Responsive', 'Landing Page'],
+    category: 'Web Apps',
+    image: landingPage,
+    role: 'Frontend Developer',
+    timeline: '3 Ngày',
+    challenge: 'Tối ưu hóa layout cho mọi thiết bị.',
+    solution: 'Sử dụng Flexbox và Grid system.',
+    features: [
+      { title: 'Hero', desc: 'Banner giới thiệu ấn tượng.' },
+      { title: 'Responsive', desc: 'Tương thích mobile/desktop.' }
+    ],
+    demoLink: 'https://landing-page-03-rho.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Landing_Page_03.git'
+  },
+  {
+    title: 'Landing Page 02',
+    subtitle: 'Trang Đích Mẫu 2',
+    description: 'Một mẫu Landing Page khác với phong cách thiết kế tối giản.',
+    tags: ['HTML/CSS', 'UI/UX', 'Landing Page'],
+    category: 'Web Apps',
+    image: landingPage,
+    role: 'Frontend Developer',
+    timeline: '3 Ngày',
+    challenge: 'Tạo điểm nhấn với typography và whitespace.',
+    solution: 'Áp dụng nguyên tắc thiết kế tối giản.',
+    features: [
+      { title: 'Minimal', desc: 'Thiết kế sạch sẽ, dễ đọc.' },
+      { title: 'Fast', desc: 'Tốc độ tải trang nhanh.' }
+    ],
+    demoLink: 'https://landing-page-02-nine.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Landing_page_02.git'
+  },
+  {
+    title: 'Landing Page Collection',
+    subtitle: 'Bộ Sưu Tập Landing Page',
+    description: 'Tổng hợp các mẫu Landing Page đa dạng cho nhiều mục đích sử dụng.',
+    tags: ['HTML/CSS', 'Collection', 'Responsive'],
+    category: 'Web Apps',
+    image: landingPage,
+    role: 'Frontend Developer',
+    timeline: '1 Tuần',
+    challenge: 'Xây dựng cấu trúc code có thể tái sử dụng cho nhiều mẫu.',
+    solution: 'Tạo các component CSS chung.',
+    features: [
+      { title: 'Variety', desc: 'Nhiều phong cách thiết kế.' },
+      { title: 'Flexible', desc: 'Dễ dàng tùy chỉnh.' }
+    ],
+    demoLink: 'https://landing-page-eta-beryl.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/Landing_page.git'
+  },
+  {
+    title: 'The Band',
+    subtitle: 'Trang Web Ban Nhạc',
+    description: 'Website giới thiệu ban nhạc, tour diễn và bán vé (dựa trên w3_band).',
+    tags: ['HTML/CSS', 'Classic', 'Music'],
+    category: 'Web Apps',
+    image: landingPage, // Tạm dùng ảnh này
+    role: 'Frontend Developer',
+    timeline: '4 Ngày',
+    challenge: 'Thực hành các kỹ thuật layout cơ bản.',
+    solution: 'Code thuần HTML/CSS theo mẫu w3schools.',
+    features: [
+      { title: 'Tour', desc: 'Lịch diễn và đặt vé.' },
+      { title: 'Music', desc: 'Nghe thử các bài hát.' }
+    ],
+    demoLink: 'https://bandmusic-five.vercel.app/',
+    repoLink: 'https://github.com/Vinhdev04/w3_band.git'
   }
 ];
