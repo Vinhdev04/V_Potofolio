@@ -1,6 +1,42 @@
 import responsiveCert from '@/assets/images/certification/responsive.png';
+import geminiCert from '@/assets/images/certification/geminiCertifiedStudent.pdf';
+import geminiImg from '@/assets/images/certification/geminiCertificateStudent.png';
+import geminiEducatorImg from '@/assets/images/certification/geminiCertificateEducator.png';
 
 export const certificates = [
+    {
+      title: 'Gemini Certified Educator',
+      issuer: 'Google for Education',
+      date: '2026',
+      description: 'Chứng nhận khả năng ứng dụng Gemini và AI để nâng cao hiệu quả giảng dạy và học tập.',
+      skills: ['AI in Education', 'Gemini', 'Teaching Innovation'],
+      link: 'https://pdf.credential.net/07vqqwtr_1770648679165.pdf',
+      image: geminiEducatorImg,
+      level: 'Professional',
+      color: '#4285f4'
+    },
+    {
+      title: 'Gemini Certified Student',
+      issuer: 'Google',
+      date: '2024',
+      description: 'Chứng chỉ công nhận khả năng ứng dụng Gemini để giải quyết vấn đề và tối ưu hóa quy trình phát triển phần mềm.',
+      skills: ['Generative AI', 'Prompt Engineering', 'Gemini'],
+      link: 'https://pdf.credential.net/58wzpusb_1770647337317.pdf',
+      image: geminiImg,
+      level: 'Advanced',
+      color: '#8b5cf6'
+    },
+    {
+      title: 'Responsive Web Design',
+      issuer: 'FreeCodeCamp',
+      date: '2021',
+      description: 'Chứng chỉ về thiết kế web đáp ứng sử dụng HTML5 và CSS3 hiện đại.',
+      skills: ['Responsive Design', 'CSS Grid', 'Flexbox'],
+      link: 'https://www.freecodecamp.org/certification/fcc3ceb7e9c-b01f-488e-a485-459e145e2ffb/responsive-web-design',
+      level: 'Intermediate',
+      color: '#f59e0b',
+      image: responsiveCert
+    },
     {
       title: 'Meta Frontend Developer Professional Certificate',
       issuer: 'Coursera - Meta',
@@ -30,16 +66,5 @@ export const certificates = [
       link: '#',
       level: 'Intermediate',
       color: '#a855f7'
-    },
-    {
-      title: 'Responsive Web Design',
-      issuer: 'FreeCodeCamp',
-      date: '2021',
-      description: 'Chứng chỉ về thiết kế web đáp ứng sử dụng HTML5 và CSS3 hiện đại.',
-      skills: ['Responsive Design', 'CSS Grid', 'Flexbox'],
-      link: '#',
-      level: 'Intermediate',
-      color: '#f59e0b',
-      image: responsiveCert
     }
   ];
