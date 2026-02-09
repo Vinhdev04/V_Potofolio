@@ -12,8 +12,8 @@ export const certificates = [
       skills: ['AI in Education', 'Gemini', 'Teaching Innovation'],
       link: 'https://pdf.credential.net/07vqqwtr_1770648679165.pdf',
       image: geminiEducatorImg,
-      level: 'Professional',
-      color: '#4285f4'
+      level: 'Advanced',
+      color: '#8b5cf6'
     },
     {
       title: 'Gemini Certified Student',
@@ -23,8 +23,8 @@ export const certificates = [
       skills: ['Generative AI', 'Prompt Engineering', 'Gemini'],
       link: 'https://pdf.credential.net/58wzpusb_1770647337317.pdf',
       image: geminiImg,
-      level: 'Advanced',
-      color: '#8b5cf6'
+      level: 'Professional',
+      color: '#4285f4'
     },
     {
       title: 'Responsive Web Design',
