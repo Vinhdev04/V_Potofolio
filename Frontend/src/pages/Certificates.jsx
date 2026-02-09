@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Row, Col, Card, Tag, Button } from 'antd';
+import { Typography, Row, Col, Card, Tag, Button, Image } from 'antd';
 import { motion } from 'framer-motion';
 import { SafetyCertificateOutlined, LinkOutlined, TrophyOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import '@/assets/css/Certificates.scss';
@@ -91,6 +91,18 @@ const Certificates = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Certificate Image */}
+                {cert.image && (
+                  <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                    <Image
+                      src={cert.image}
+                      alt={cert.title}
+                      height={150}
+                      style={{ objectFit: 'contain', borderRadius: '8px', border: `1px solid ${cert.color}` }}
+                    />
+                  </div>
+                )}
 
                 {/* Description */}
                 <Paragraph className="certificate-description">

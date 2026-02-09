@@ -6,7 +6,7 @@ import avatarImg from '@/assets/images/avt.png';
 
 const { Title, Paragraph, Text } = Typography;
 
-import { experiences, education, skills } from '@data/aboutData';
+import { experiences, education, skills, additionalInfo } from '@data/aboutData';
 import { contactInfo, socialLinks } from '@/data/socialData';
 import FloatingQuote from '@/components/FloatingQuote';
 import { quotesData } from '@/data/homeData';
@@ -67,9 +67,9 @@ const About = () => {
                         <img src={avatarImg} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                     <Title level={3} style={{ color: '#ccd6f6', marginBottom: 5 }}>Phạm Công Vinh</Title>
-                    <Text style={{ color: '#3b82f6', fontSize: '1.1rem', fontWeight: 500 }}>Frontend Developer (Intern/Fresher)</Text>
+                    <Text style={{ color: '#3b82f6', fontSize: '1.1rem', fontWeight: 500 }}>Frontend Developer (Intern)</Text>
                     <Paragraph style={{ color: '#8892b0', marginTop: 15, fontSize: '0.95rem' }}>
-                        Sinh viên năm cuối đam mê lập trình Web, chuyên về ReactJS và Frontend Technologies. Sẵn sàng học hỏi và cống hiến.
+                        Sinh viên năm cuối ngành Công nghệ Phần mềm tại Đại học HUTECH.
                     </Paragraph>
                     
                     <div style={{ marginTop: 25, display: 'flex', flexDirection: 'column', gap: 15, alignItems: 'flex-start', paddingLeft: 10 }}>
@@ -81,15 +81,26 @@ const About = () => {
                         <SpaceIcon icon={<LinkedinOutlined />} text="linkedin.com/in/..." link={linkedinUrl} />
                     </div>
 
-                    <Button 
-                        type="primary" 
-                        block 
-                        icon={<DownloadOutlined />} 
-                        style={{ marginTop: 30, height: 45, background: '#3b82f6', fontWeight: 600 }}
-                        onClick={handleDownloadCV}
-                    >
-                        Tải CV (PDF)
-                    </Button>
+                    <div style={{ marginTop: 30, display: 'flex', gap: 10 }}>
+                        <Button 
+                            type="primary" 
+                            block 
+                            icon={<DownloadOutlined />} 
+                            style={{ height: 45, background: '#3b82f6', fontWeight: 600, flex: 1 }}
+                            onClick={handleDownloadCV}
+                        >
+                            Tải CV
+                        </Button>
+                        <Button 
+                            block 
+                            icon={<span style={{ fontSize: '1.2rem', display: 'flex' }}>🎵</span>} 
+                            style={{ height: 45, background: '#000000', borderColor: '#000000', color: '#fff', fontWeight: 600, flex: 1 }}
+                            href="https://www.tiktok.com/@devcraftt"
+                            target="_blank"
+                        >
+                            TikTok
+                        </Button>
+                    </div>
                 </div>
             </Card>
         </Col>
@@ -98,21 +109,19 @@ const About = () => {
         <Col xs={24} lg={16}>
             <Card style={{ background: '#112240', border: 'none', borderRadius: 16 }} styles={{ body: { padding: 40 } }}>
                 <Title level={2} style={{ color: '#ccd6f6', marginTop: 0, borderBottom: '2px solid #233554', paddingBottom: 15, marginBottom: 25 }}>
-                    Về Tôi
+                    Mục Tiêu Nghề Nghiệp
                 </Title>
                 <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                    Xin chào! Tôi là sinh viên năm cuối chuyên ngành Kỹ thuật Phần mềm. Tôi có niềm đam mê mãnh liệt với Lập trình Web, đặc biệt là Frontend Development. 
-                    Tôi luôn tìm tòi, học hỏi các công nghệ mới như ReactJS, Next.js để tạo ra những giao diện người dùng đẹp mắt và trải nghiệm mượt mà.
+                    Sinh viên năm cuối ngành Công nghệ Phần mềm tại Đại học Công Nghệ TP.HCM. Có nền tảng vững chắc về HTML, CSS, JavaScript và ReactJS.
                 </Paragraph>
                 <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                    Mục tiêu của tôi là trở thành một Fullstack Developer chuyên nghiệp. Tôi đang tìm kiếm cơ hội thực tập (Internship) hoặc vị trí Fresher để áp dụng kiến thức đã học vào thực tế, 
-                    đồng thời rèn luyện kỹ năng làm việc nhóm và quy trình phát triển phần mềm chuyên nghiệp.
+                    Định hướng phát triển thành FullStack Developer chuyên nghiệp, làm chủ các giải pháp AI trong tương lai, luôn chủ động học hỏi và cập nhật công nghệ mới.
                 </Paragraph>
 
                 {/* Experience Section */}
                 <div style={{ marginTop: 40 }}>
                     <Title level={3} style={{ color: '#ccd6f6', display: 'flex', alignItems: 'center', gap: 10 }}>
-                        <span style={{ color: '#64ffda' }}>01.</span> Kinh Nghiệm Làm Việc
+                        <span style={{ color: '#64ffda' }}>01.</span> Dự Án Trong Quá Trình Học Tập
                     </Title>
                     <Timeline 
                         items={experiences.map((exp, index) => ({
@@ -120,13 +129,27 @@ const About = () => {
                             children: (
                                 <div style={{ paddingBottom: 20 }}>
                                     <Title level={4} style={{ color: '#e6f1ff', margin: 0 }}>{exp.role}</Title>
-                                    <Text style={{ color: '#3b82f6', fontSize: '1rem', fontWeight: 500 }}>@{exp.company}</Text>
+                                    {exp.link ? (
+                                        <a href={exp.link} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+                                            <Text style={{ color: '#3b82f6', fontSize: '1rem', fontWeight: 500, cursor: 'pointer' }} underline>@{exp.company}</Text>
+                                        </a>
+                                    ) : (
+                                        <Text style={{ color: '#3b82f6', fontSize: '1rem', fontWeight: 500 }}>@{exp.company}</Text>
+                                    )}
                                     <div style={{ color: '#8892b0', marginBottom: 10, fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: 5 }}>
                                         <CalendarOutlined /> {exp.period}
                                     </div>
                                     <ul style={{ paddingLeft: 20, color: '#8892b0' }}>
                                         {exp.description.map((desc, i) => (
-                                            <li key={i} style={{ marginBottom: 5 }}>{desc}</li>
+                                            <li key={i} style={{ marginBottom: 5 }}>
+                                                {desc.split(/(https?:\/\/[^\s]+)/g).map((part, index) => 
+                                                    part.match(/(https?:\/\/[^\s]+)/g) ? (
+                                                        <a key={index} href={part} target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'underline' }}>
+                                                            {part}
+                                                        </a>
+                                                    ) : part
+                                                )}
+                                            </li>
                                         ))}
                                     </ul>
                                 </div>
@@ -171,6 +194,16 @@ const About = () => {
                             </Col>
                         ))}
                     </Row>
+                </div>
+
+                {/* Additional Info Section */}
+                <div style={{ marginTop: 40 }}>
+                    <Title level={3} style={{ color: '#ccd6f6', display: 'flex', alignItems: 'center', gap: 10 }}>
+                        <span style={{ color: '#64ffda' }}>04.</span> {additionalInfo.title}
+                    </Title>
+                    <Paragraph style={{ color: '#8892b0', fontSize: '1rem', lineHeight: 1.8 }}>
+                        {additionalInfo.content}
+                    </Paragraph>
                 </div>
 
             </Card>

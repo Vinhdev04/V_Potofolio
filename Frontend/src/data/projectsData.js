@@ -1,32 +1,32 @@
-import petUi from '@/assets/images/PETui.png';
-import antiVirus from '@/assets/images/anti-virus-mask-store.png';
-import createQr from '@/assets/images/create-qr-js.png';
-import dictionary from '@/assets/images/dictonary-api.png';
-import doctorHub from '@/assets/images/doctor-hub.png';
-import fashion from '@/assets/images/ecommerce-fashion.png';
-import education from '@/assets/images/education-page.png';
-import fShop from '@/assets/images/f-shop.png';
-import passwordGen from '@/assets/images/generatepassword-js.png';
-import guessPic from '@/assets/images/guess-pictures-js.png';
-import landingPage from '@/assets/images/landing-page-02.png';
-import manCity from '@/assets/images/man-city-web.png';
+import petUi from '@/assets/images/Project/PETui.png';
+import antiVirus from '@/assets/images/Project/anti-virus-mask-store.png';
+import createQr from '@/assets/images/Project/create-qr-js.png';
+import dictionary from '@/assets/images/Project/dictonary-api.png';
+import doctorHub from '@/assets/images/Project/doctor-hub.png';
+import fashion from '@/assets/images/Project/ecommerce-fashion.png';
+import education from '@/assets/images/Project/education-page.png';
+import fShop from '@/assets/images/Project/f-shop.png';
+import passwordGen from '@/assets/images/Project/generatepassword-js.png';
+import guessPic from '@/assets/images/Project/guess-pictures-js.png';
+import landingPage from '@/assets/images/Project/landing-page-02.png';
+import manCity from '@/assets/images/Project/man-city-web.png';
 import musicPlayer from '@/assets/images/music-player.png';
-import ogInform from '@/assets/images/oginform.png';
-import quizApp from '@/assets/images/quiz-app-js.png';
-import softwareM4s from '@/assets/images/software-m4s.png';
-import softyPinko from '@/assets/images/softy-pinko.png';
-import rps from '@/assets/images/stone-paper-scissors.png';
-import ticTacToe from '@/assets/images/tic-tac-toe.png';
-import toastMsg from '@/assets/images/toast-message.png';
-import todoJs from '@/assets/images/todo-js.png';
-import todoReact from '@/assets/images/todoList.png';
-import vRealEstate from '@/assets/images/vRealEstate.png';
-import valorant from '@/assets/images/valorant-game.png';
-import vocab from '@/assets/images/vocabulary-search.png';
-import weather from '@/assets/images/weather-app.png';
-import xPadGame from '@/assets/images/xPadGame.png';
-import jobFinder from '@/assets/images/jobFinderHUB.png';
-import appFlutter from '@/assets/images/app-flutter.jpg';
+import ogInform from '@/assets/images/Project/oginform.png';
+import quizApp from '@/assets/images/Project/quiz-app-js.png';
+import softwareM4s from '@/assets/images/Project/software-m4s.png';
+import softyPinko from '@/assets/images/Project/softy-pinko.png';
+import rps from '@/assets/images/Project/stone-paper-scissors.png';
+import ticTacToe from '@/assets/images/Project/tic-tac-toe.png';
+import toastMsg from '@/assets/images/Project/toast-message.png';
+import todoJs from '@/assets/images/Project/todo-js.png';
+import todoReact from '@/assets/images/Project/todoList.png';
+import vRealEstate from '@/assets/images/Project/vRealEstate.png';
+import valorant from '@/assets/images/Project/valorant-game.png';
+import vocab from '@/assets/images/Project/vocabulary-search.png';
+import weather from '@/assets/images/Project/weather-app.png';
+import xPadGame from '@/assets/images/Project/xPadGame.png';
+import jobFinder from '@/assets/images/Project/jobFinderHUB.png';
+import appFlutter from '@/assets/images/Project/app-flutter.jpg';
 
 export const projects = [
   {
@@ -98,43 +98,43 @@ export const projects = [
     solution: 'Sử dụng Bootstrap để đẩy nhanh quá trình phát triển giao diện.',
     features: [
       { title: 'Responsive', desc: 'Tương thích mọi thiết bị.' },
-      { title: 'Đặt hàng nhanh', desc: 'Form đặt hàng tối giản.' }
+      { title: 'Cart', desc: 'Giỏ hàng JavaScript thuần.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'QR Code Generator',
+    title: 'Create QR JS',
     subtitle: 'Công Cụ Tạo Mã QR',
-    description: 'Ứng dụng tạo mã QR code từ văn bản hoặc đường dẫn URL, cho phép tải xuống hình ảnh QR.',
-    tags: ['JavaScript', 'API', 'DOM'],
-    category: 'Tools',
+    description: 'Ứng dụng tạo mã QR code nhanh chóng từ văn bản hoặc liên kết nhập vào.',
+    tags: ['JavaScript', 'API', 'Tool'],
+    category: 'Web Apps',
     image: createQr,
     role: 'Frontend Developer',
     timeline: '3 Ngày',
-    challenge: 'Xử lý dữ liệu nhập vào và tạo mã QR realtime.',
-    solution: 'Sử dụng thư viện qrcode.js để tạo mã nhanh chóng.',
+    challenge: 'Tích hợp thư viện tạo QR code và xử lý dữ liệu đầu vào.',
+    solution: 'Sử dụng thư viện qrcode.js để tạo mã QR động.',
     features: [
-      { title: 'Tạo QR', desc: 'Hỗ trợ Text và URL.' },
-      { title: 'Download', desc: 'Tải mã QR về máy.' }
+      { title: 'Generator', desc: 'Tạo QR từ text/URL.' },
+      { title: 'Download', desc: 'Tải xuống ảnh QR.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
     title: 'Dictionary API',
-    subtitle: 'Từ Điển Trực Tuyến',
-    description: 'Ứng dụng tra cứu từ điển sử dụng API miễn phí, hỗ trợ phát âm và ví dụ câu.',
-    tags: ['React', 'Rest API', 'Axios'],
+    subtitle: 'Từ Điển Tiếng Anh Online',
+    description: 'Ứng dụng tra cứu từ điển sử dụng API miễn phí, hỗ trợ phát âm và ví dụ minh họa.',
+    tags: ['JavaScript', 'API', 'Fetch'],
     category: 'Web Apps',
     image: dictionary,
     role: 'Frontend Developer',
-    timeline: '1 Tuần',
-    challenge: 'Hiển thị dữ liệu phức tạp từ API một cách rõ ràng.',
-    solution: 'Thiết kế layout thẻ từ vựng khoa học.',
+    timeline: '5 Ngày',
+    challenge: 'Xử lý dữ liệu JSON phức tạp từ API từ điển.',
+    solution: 'Tối ưu hóa việc gọi API và hiển thị kết quả rõ ràng.',
     features: [
-      { title: 'Tra từ', desc: 'Tìm kiếm nghĩa của từ.' },
-      { title: 'Phát âm', desc: 'Nghe cách đọc chuẩn.' }
+      { title: 'Search', desc: 'Tra cứu từ vựng.' },
+      { title: 'Audio', desc: 'Phát âm chuẩn bản xứ.' }
     ],
     demoLink: '#',
     repoLink: '#'
@@ -142,157 +142,139 @@ export const projects = [
   {
     title: 'Doctor Hub',
     subtitle: 'Đặt Lịch Khám Bệnh',
-    description: 'Nền tảng kết nối bệnh nhân và bác sĩ, hỗ trợ đặt lịch khám và tư vấn trực tuyến.',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    description: 'Giao diện ứng dụng đặt lịch khám bệnh với bác sĩ, xem hồ sơ và đánh giá.',
+    tags: ['ReactJS', 'UI/UX', 'Medical'],
     category: 'Web Apps',
     image: doctorHub,
-    role: 'Full Stack Developer',
-    timeline: '3 Tháng',
-    challenge: 'Quản lý lịch khám và hồ sơ bệnh án bảo mật.',
-    solution: 'Xây dựng hệ thống xác thực và phân quyền chặt chẽ.',
+    role: 'Frontend Developer',
+    timeline: '2 Tuần',
+    challenge: 'Thiết kế giao diện tin cậy và dễ sử dụng cho bệnh nhân.',
+    solution: 'Sử dụng màu xanh y tế và layout sạch sẽ.',
     features: [
-      { title: 'Booking', desc: 'Đặt lịch khám dễ dàng.' },
+      { title: 'Booking', desc: 'Đặt lịch hẹn.' },
       { title: 'Profile', desc: 'Hồ sơ bác sĩ chi tiết.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Fashion Ecommerce',
-    subtitle: 'Shop Thời Trang Online',
-    description: 'Website thương mại điện tử chuyên về thời trang với trải nghiệm mua sắm hiện đại.',
-    tags: ['React', 'Redux', 'Firebase'],
-    category: 'E-commerce',
+    title: 'Ecommerce Fashion',
+    subtitle: 'Cửa Hàng Thời Trang',
+    description: 'Website bán quần áo thời trang với đầy đủ tính năng: danh mục, chi tiết sản phẩm, giỏ hàng.',
+    tags: ['ReactJS', 'Redux', 'E-commerce'],
+    category: 'Web Apps',
     image: fashion,
     role: 'Frontend Developer',
-    timeline: '2 Tháng',
-    challenge: 'Tích hợp giỏ hàng và thanh toán.',
-    solution: 'Sử dụng Redux quản lý state giỏ hàng.',
+    timeline: '3 Tuần',
+    challenge: 'Quản lý trạng thái giỏ hàng và dữ liệu sản phẩm lớn.',
+    solution: 'Sử dụng Redux Toolkit để quản lý state toàn cục.',
     features: [
-      { title: 'Shopping Cart', desc: 'Thêm sửa xóa sản phẩm.' },
-      { title: 'Filter', desc: 'Lọc sản phẩm theo danh mục.' }
+      { title: 'Products', desc: 'Danh sách & Lọc sản phẩm.' },
+      { title: 'Cart', desc: 'Thêm/Sửa/Xóa giỏ hàng.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Education Platform',
-    subtitle: 'Nền Tảng Giáo Dục',
-    description: 'Landing page giới thiệu các khóa học trực tuyến với giao diện sáng sủa, thu hút học viên.',
-    tags: ['HTML/CSS', 'Responsive', 'Animation'],
+    title: 'Education Page',
+    subtitle: 'Landing Page Giáo Dục',
+    description: 'Trang giới thiệu khóa học trực tuyến với thiết kế hiện đại và thu hút.',
+    tags: ['HTML/CSS', 'Responsive', 'Landing Page'],
     category: 'Web Apps',
     image: education,
     role: 'Frontend Developer',
-    timeline: '1 Tuần',
-    challenge: 'Trình bày thông tin khóa học hấp dẫn.',
-    solution: 'Sử dụng CSS Grid và Flexbox cho layout.',
+    timeline: '4 Ngày',
+    challenge: 'Tạo ấn tượng đầu tiên tốt cho người học.',
+    solution: 'Sử dụng hình ảnh chất lượng cao và bố cục hợp lý.',
     features: [
-      { title: 'Course List', desc: 'Danh sách khóa học nổi bật.' },
-      { title: 'Teachers', desc: 'Thông tin giảng viên.' }
+      { title: 'Courses', desc: 'Giới thiệu khóa học nổi bật.' },
+      { title: 'Testimonials', desc: 'Đánh giá học viên.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
     title: 'F-Shop',
-    subtitle: 'Cửa Hàng Nội Thất',
-    description: 'Website bán đồ nội thất với phong cách thiết kế tối giản, tập trung vào hình ảnh sản phẩm.',
-    tags: ['Vue.js', 'Vuex', 'SCSS'],
-    category: 'E-commerce',
+    subtitle: 'Shop Giày Sneaker',
+    description: 'Website bán giày Sneaker với giao diện dark mode cực chất.',
+    tags: ['ReactJS', 'SCSS', 'Shopping'],
+    category: 'Web Apps',
     image: fShop,
     role: 'Frontend Developer',
-    timeline: '1.5 Tháng',
-    challenge: 'Tối ưu hóa hình ảnh sản phẩm chất lượng cao.',
-    solution: 'Sử dụng kỹ thuật Lazy Loading cho hình ảnh.',
+    timeline: '2 Tuần',
+    challenge: 'Thiết kế giao diện đậm chất thể thao và cá tính.',
+    solution: 'Sử dụng tông màu tối và hình ảnh sản phẩm nổi bật.',
     features: [
-      { title: 'Gallery', desc: 'Thư viện ảnh đẹp mắt.' },
-      { title: 'Cart', desc: 'Giỏ hàng tiện lợi.' }
+      { title: 'Gallery', desc: 'Trưng bày sản phẩm đẹp mắt.' },
+      { title: 'Filter', desc: 'Lọc theo hãng, size, giá.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
     title: 'Password Generator',
-    subtitle: 'Tạo Mật Khẩu Ngẫu Nhiên',
-    description: 'Công cụ giúp người dùng tạo ra các mật khẩu mạnh với nhiều tùy chọn ký tự khác nhau.',
-    tags: ['JavaScript', 'Algorithm', 'Security'],
-    category: 'Tools',
+    subtitle: 'Tạo Mật Khẩu An Toàn',
+    description: 'Công cụ tạo mật khẩu ngẫu nhiên với các tùy chọn độ dài, ký tự đặc biệt.',
+    tags: ['JavaScript', 'Tool', 'Security'],
+    category: 'Web Apps',
     image: passwordGen,
-    role: 'Developer',
+    role: 'Frontend Developer',
     timeline: '2 Ngày',
-    challenge: 'Đảm bảo tính ngẫu nhiên và độ mạnh của mật khẩu.',
-    solution: 'Áp dụng các thuật toán random an toàn.',
+    challenge: 'Đảm bảo tính ngẫu nhiên và bảo mật của mật khẩu.',
+    solution: 'Sử dụng Math.random() kết hợp với các bộ ký tự.',
     features: [
-      { title: 'Customizable', desc: 'Tùy chọn độ dài, ký tự.' },
+      { title: 'Custom', desc: 'Tùy chỉnh độ dài, ký tự.' },
       { title: 'Copy', desc: 'Sao chép nhanh vào clipboard.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Guess The Picture',
-    subtitle: 'Trò Chơi Đoán Hình',
-    description: 'Mini-game tương tác, người chơi đoán tên vật thể qua các hình ảnh bị che mờ hoặc gợi ý.',
-    tags: ['JavaScript', 'Game Logic', 'DOM'],
-    category: 'Games',
+    title: 'Guess Pictures',
+    subtitle: 'Game Đoán Hình',
+    description: 'Trò chơi đoán tên đồ vật qua hình ảnh, giúp học từ vựng tiếng Anh.',
+    tags: ['JavaScript', 'Game', 'Education'],
+    category: 'Web Apps',
     image: guessPic,
     role: 'Game Developer',
     timeline: '1 Tuần',
     challenge: 'Tạo logic game thú vị và quản lý điểm số.',
-    solution: 'Xây dựng state machine đơn giản cho game.',
+    solution: 'Xây dựng mảng dữ liệu câu hỏi phong phú.',
     features: [
-      { title: 'Levels', desc: 'Nhiều cấp độ khó.' },
-      { title: 'Score', desc: 'Tính điểm realtime.' }
+      { title: 'Quiz', desc: 'Câu hỏi trắc nghiệm hình ảnh.' },
+      { title: 'Score', desc: 'Tính điểm và xếp hạng.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Modern Landing Page',
-    subtitle: 'Trang Giới Thiệu Sản Phẩm',
-    description: 'Mẫu Landing Page hiện đại với các hiệu ứng scroll và animation mượt mà.',
-    tags: ['HTML5', 'Sass', 'GSAP'],
-    category: 'Web Apps',
-    image: landingPage,
-    role: 'Frontend Developer',
-    timeline: '5 Ngày',
-    challenge: 'Tạo ấn tượng thị giác mạnh mẽ.',
-    solution: 'Sử dụng GSAP cho các hiệu ứng chuyển động.',
-    features: [
-      { title: 'Hero Section', desc: 'Banner ấn tượng.' },
-      { title: 'Features', desc: 'Grid tính năng đẹp mắt.' }
-    ],
-    demoLink: '#',
-    repoLink: '#'
-  },
-  {
-    title: 'Man City Fan Club',
-    subtitle: 'Website CLB Manchester City',
-    description: 'Trang tin tức và thông tin cầu thủ dành cho người hâm mộ câu lạc bộ Man City.',
-    tags: ['Bootstrap', 'jQuery', 'HTML'],
+    title: 'Man City Web',
+    subtitle: 'Fanpage Manchester City',
+    description: 'Website tin tức và thông tin cầu thủ của CLB Manchester City.',
+    tags: ['HTML/CSS', 'Fanpage', 'Football'],
     category: 'Web Apps',
     image: manCity,
     role: 'Frontend Developer',
-    timeline: '2 Tuần',
-    challenge: 'Cập nhật tin tức và lịch thi đấu.',
-    solution: 'Layout dạng tạp chí thể thao.',
+    timeline: '3 Ngày',
+    challenge: 'Thể hiện tình yêu bóng đá qua giao diện.',
+    solution: 'Sử dụng màu xanh truyền thống của Man City.',
     features: [
-      { title: 'Players', desc: 'Danh sách cầu thủ.' },
-      { title: 'News', desc: 'Tin tức mới nhất.' }
+      { title: 'News', desc: 'Cập nhật tin tức CLB.' },
+      { title: 'Players', desc: 'Danh sách cầu thủ.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
     title: 'Music Player',
-    subtitle: 'Trình Phát Nhạc UI',
-    description: 'Giao diện máy nghe nhạc sành điệu với các chức năng phát, tạm dừng, chuyển bài cơ bản.',
-    tags: ['JavaScript', 'Audio API', 'CSS'],
-    category: 'Tools',
+    subtitle: 'Trình Phát Nhạc',
+    description: 'Ứng dụng nghe nhạc với giao diện đẹp, hỗ trợ play/pause, next/prev bài hát.',
+    tags: ['JavaScript', 'Audio API', 'UI'],
+    category: 'Web Apps',
     image: musicPlayer,
-    role: 'Developer',
+    role: 'Frontend Developer',
     timeline: '1 Tuần',
-    challenge: 'Xử lý audio stream và thanh tiến trình.',
+    challenge: 'Xử lý logic phát nhạc và đồng bộ thanh tiến trình.',
     solution: 'Sử dụng HTML5 Audio API.',
     features: [
       { title: 'Playlist', desc: 'Danh sách bài hát.' },
@@ -303,18 +285,18 @@ export const projects = [
   },
   {
     title: 'OG Inform',
-    subtitle: 'Form Đăng Ký Thông Tin',
-    description: 'Mẫu form thu thập thông tin người dùng với validate dữ liệu chặt chẽ.',
-    tags: ['HTML', 'CSS', 'Form Validation'],
-    category: 'UI Components',
+    subtitle: 'Trang Tin Tức Game',
+    description: 'Blog chia sẻ tin tức, thủ thuật về các tựa game hot hiện nay.',
+    tags: ['ReactJS', 'Blog', 'Gaming'],
+    category: 'Web Apps',
     image: ogInform,
-    role: 'Frontend Developer',
-    timeline: '2 Ngày',
-    challenge: 'Xử lý validation form phức tạp.',
-    solution: 'Viết custom validator tái sử dụng được.',
+    role: 'Content Creator',
+    timeline: 'Ongoing',
+    challenge: 'Tối ưu trải nghiệm đọc và tốc độ tải trang.',
+    solution: 'Sử dụng Next.js (nếu có) hoặc tối ưu React.',
     features: [
-      { title: 'Validation', desc: 'Kiểm tra lỗi nhập liệu.' },
-      { title: 'Responsive', desc: 'Hiển thị tốt trên mobile.' }
+      { title: 'Posts', desc: 'Bài viết chi tiết.' },
+      { title: 'Categories', desc: 'Phân loại game.' }
     ],
     demoLink: '#',
     repoLink: '#'
@@ -322,71 +304,71 @@ export const projects = [
   {
     title: 'Quiz App',
     subtitle: 'Ứng Dụng Trắc Nghiệm',
-    description: 'Ứng dụng thi trắc nghiệm trực tuyến với bộ đếm giờ và tính điểm tự động.',
-    tags: ['JavaScript', 'Local Storage', 'JSON'],
+    description: 'App thi trắc nghiệm online với bộ đếm thời gian và tính điểm tự động.',
+    tags: ['JavaScript', 'Quiz', 'Logic'],
     category: 'Web Apps',
     image: quizApp,
-    role: 'Developer',
-    timeline: '1 Tuần',
-    challenge: 'Quản lý ngân hàng câu hỏi và trạng thái thi.',
-    solution: 'Lưu trữ tiến độ vào Local Storage.',
+    role: 'Frontend Developer',
+    timeline: '4 Ngày',
+    challenge: 'Xử lý logic chuyển câu hỏi và tính kết quả.',
+    solution: 'Lưu trữ câu trả lời tạm thời và so sánh đáp án.',
     features: [
-      { title: 'Timer', desc: 'Đếm ngược thời gian.' },
-      { title: 'Result', desc: 'Xem kết quả ngay lập tức.' }
+      { title: 'Timer', desc: 'Đếm ngược thời gian làm bài.' },
+      { title: 'Result', desc: 'Hiển thị kết quả chi tiết.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
     title: 'Software M4S',
-    subtitle: 'Giải Pháp Phần Mềm M4S',
-    description: 'Trang giới thiệu sản phẩm phần mềm doanh nghiệp với giao diện chuyên nghiệp.',
-    tags: ['React', 'Tailwind CSS'],
+    subtitle: 'Landing Page Phần Mềm',
+    description: 'Trang giới thiệu sản phẩm phần mềm quản lý bán hàng.',
+    tags: ['HTML/CSS', 'Bootstrap', 'Business'],
     category: 'Web Apps',
     image: softwareM4s,
     role: 'Frontend Developer',
-    timeline: '2 Tuần',
-    challenge: 'Truyền tải thông tin kỹ thuật một cách dễ hiểu.',
-    solution: 'Sử dụng các biểu đồ và icon minh họa.',
+    timeline: '5 Ngày',
+    challenge: 'Trình bày tính năng phần mềm rõ ràng, thuyết phục.',
+    solution: 'Sử dụng các section giới thiệu tính năng và lợi ích.',
     features: [
-      { title: 'Dashboard', desc: 'Giao diện quản trị.' },
-      { title: 'Analytics', desc: 'Phân tích dữ liệu.' }
+      { title: 'Features', desc: 'Tính năng nổi bật.' },
+      { title: 'Pricing', desc: 'Bảng giá dịch vụ.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
     title: 'Softy Pinko',
-    subtitle: 'Thiết Kế UI Soft',
-    description: 'Giao diện web với phong cách thiết kế mềm mại, tông màu hồng chủ đạo.',
-    tags: ['UI/UX', 'CSS3', 'Design'],
-    category: 'UI Components',
+    subtitle: 'Blog Cá Nhân Hồng',
+    description: 'Blog cá nhân với tông màu hồng chủ đạo, nhẹ nhàng và nữ tính.',
+    tags: ['HTML/CSS', 'Design', 'Blog'],
+    category: 'Web Apps',
     image: softyPinko,
-    role: 'Designer',
+    role: 'Frontend Developer',
     timeline: '3 Ngày',
-    challenge: 'Phối màu sắc hài hòa.',
-    solution: 'Sử dụng bảng màu pastel.',
+    challenge: 'Phối màu hồng sao cho không bị sến.',
+    solution: 'Sử dụng các sắc độ hồng pastel dịu mắt.',
     features: [
-      { title: 'Soft UI', desc: 'Phong cách nhẹ nhàng.' },
-      { title: 'Animations', desc: 'Hiệu ứng hover tinh tế.' }
+      { title: 'Diary', desc: 'Nhật ký hàng ngày.' },
+      { title: 'Gallery', desc: 'Album ảnh.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Rock Paper Scissors',
-    subtitle: 'Oẳn Tù Tì',
-    description: 'Game Oẳn Tù Tì kinh điển thi đấu với máy tính.',
-    tags: ['JavaScript', 'Game Logic'],
-    category: 'Games',
+    title: 'RPS Game',
+    subtitle: 'Kéo Búa Bao',
+    description: 'Game Kéo Búa Bao cổ điển đấu với máy tính.',
+    tags: ['JavaScript', 'Game', 'Fun'],
+    category: 'Web Apps',
     image: rps,
-    role: 'Developer',
-    timeline: '2 Ngày',
-    challenge: 'Tạo logic AI đơn giản cho máy.',
-    solution: 'Sử dụng Math.random() cho nước đi của máy.',
+    role: 'Game Developer',
+    timeline: '1 Ngày',
+    challenge: 'Tạo AI đơn giản cho máy tính.',
+    solution: 'Random lựa chọn của máy tính.',
     features: [
-      { title: 'Scoreboard', desc: 'Bảng điểm.' },
-      { title: 'Effects', desc: 'Hiệu ứng thắng thua.' }
+      { title: 'Game', desc: 'Chế độ chơi đơn.' },
+      { title: 'Score', desc: 'Lưu điểm số.' }
     ],
     demoLink: '#',
     repoLink: '#'
@@ -394,106 +376,106 @@ export const projects = [
   {
     title: 'Tic Tac Toe',
     subtitle: 'Cờ Caro',
-    description: 'Game Cờ Caro (Tic Tac Toe) cho 2 người chơi hoặc đấu với máy.',
-    tags: ['React', 'Game Algorithm'],
-    category: 'Games',
+    description: 'Game Cờ Caro (X/O) huyền thoại, hỗ trợ 2 người chơi.',
+    tags: ['ReactJS', 'Game', 'Logic'],
+    category: 'Web Apps',
     image: ticTacToe,
-    role: 'Developer',
-    timeline: '3 Ngày',
-    challenge: 'Xác định điều kiện thắng thua.',
-    solution: 'Thuật toán kiểm tra các hàng, cột, chéo.',
+    role: 'Game Developer',
+    timeline: '2 Ngày',
+    challenge: 'Xác định người thắng cuộc theo các đường.',
+    solution: 'Thuật toán kiểm tra win condition.',
     features: [
-      { title: '2 Players', desc: 'Chế độ 2 người chơi.' },
-      { title: 'Reset', desc: 'Chơi lại nhanh chóng.' }
+      { title: 'Multiplayer', desc: 'Chơi 2 người trên cùng máy.' },
+      { title: 'Reset', desc: 'Chơi lại ván mới.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Toast Notification',
-    subtitle: 'Thư Viện Thông Báo',
-    description: 'Module hiển thị thông báo toast message tùy chỉnh (Success, Error, Warning).',
-    tags: ['JavaScript', 'CSS Animation'],
-    category: 'UI Components',
+    title: 'Toast Message',
+    subtitle: 'Thông Báo UI',
+    description: 'Component hiển thị thông báo (Toast) đẹp mắt, có thể tái sử dụng.',
+    tags: ['HTML/CSS', 'JavaScript', 'UI Component'],
+    category: 'Web Apps',
     image: toastMsg,
     role: 'Frontend Developer',
-    timeline: '2 Ngày',
-    challenge: 'Quản lý nhiều thông báo cùng lúc.',
-    solution: 'Xây dựng queue quản lý hiển thị.',
+    timeline: '1 Ngày',
+    challenge: 'Xử lý hiệu ứng xuất hiện và biến mất mượt mà.',
+    solution: 'Sử dụng CSS Animation và setTimeout.',
     features: [
-      { title: 'Types', desc: 'Đủ các loại thông báo.' },
-      { title: 'Auto-dismiss', desc: 'Tự động tắt sau vài giây.' }
+      { title: 'Types', desc: 'Success, Error, Warning.' },
+      { title: 'Auto-close', desc: 'Tự động đóng sau 3s.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Todo List JS',
+    title: 'Todo JS',
     subtitle: 'Quản Lý Công Việc (JS)',
-    description: 'Ứng dụng Todo đơn giản viết bằng thuần JavaScript.',
-    tags: ['Vanilla JS', 'DOM Manipulation'],
-    category: 'Tools',
+    description: 'Ứng dụng Todo List đơn giản viết bằng JavaScript thuần.',
+    tags: ['JavaScript', 'DOM', 'Local Storage'],
+    category: 'Web Apps',
     image: todoJs,
-    role: 'Developer',
-    timeline: '3 Ngày',
+    role: 'Frontend Developer',
+    timeline: '2 Ngày',
     challenge: 'Thao tác DOM hiệu quả.',
-    solution: 'Tối ưu hóa các event listener.',
+    solution: 'Tối ưu hóa các selector và event listener.',
     features: [
-      { title: 'CRUD', desc: 'Thêm, sửa, xóa task.' },
-      { title: 'Filter', desc: 'Lọc task đã xong.' }
+      { title: 'CRUD', desc: 'Thêm, sửa, xóa công việc.' },
+      { title: 'Save', desc: 'Lưu vào Local Storage.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Todo List React',
-    subtitle: 'Quản Lý Công Việc Pro',
-    description: 'Phiên bản nâng cấp của Todo App sử dụng ReactJS và Redux.',
-    tags: ['ReactJS', 'Redux', 'Ant Design'],
+    title: 'Todo React',
+    subtitle: 'Quản Lý Công Việc (React)',
+    description: 'Ứng dụng Todo List nâng cao viết bằng ReactJS.',
+    tags: ['ReactJS', 'State', 'Hooks'],
     category: 'Web Apps',
     image: todoReact,
     role: 'Frontend Developer',
-    timeline: '2 Tháng',
-    challenge: 'Quản lý state phức tạp.',
-    solution: 'Sử dụng Redux Toolkit.',
+    timeline: '3 Ngày',
+    challenge: 'Quản lý state phức tạp hơn.',
+    solution: 'Sử dụng useState và useEffect.',
     features: [
-      { title: 'Drag & Drop', desc: 'Kéo thả công việc.' },
-      { title: 'Statistics', desc: 'Thống kê tiến độ.' }
+      { title: 'Filter', desc: 'Lọc công việc đã xong/chưa xong.' },
+      { title: 'Edit', desc: 'Chỉnh sửa trực tiếp.' }
     ],
-    demoLink: 'https://todoapps-reactjs.netlify.app/',
-    repoLink: 'https://github.com/Vinhdev04/todo-reactjs.git'
+    demoLink: '#',
+    repoLink: '#'
   },
   {
-    title: 'vReal Estate',
-    subtitle: 'Bất Động Sản Trực Tuyến',
-    description: 'Nền tảng giao dịch bất động sản với bản đồ tích hợp.',
-    tags: ['MERN Stack', 'Google Maps API'],
+    title: 'V-Real Estate',
+    subtitle: 'Bất Động Sản',
+    description: 'Website môi giới bất động sản với tính năng tìm kiếm và bản đồ.',
+    tags: ['ReactJS', 'Real Estate', 'Map'],
     category: 'Web Apps',
     image: vRealEstate,
-    role: 'Full Stack Developer',
-    timeline: '1 Tháng',
-    challenge: 'Tích hợp bản đồ và tìm kiếm địa điểm.',
+    role: 'Frontend Developer',
+    timeline: 'Ongoing',
+    challenge: 'Tích hợp bản đồ và lọc dữ liệu bất động sản.',
     solution: 'Sử dụng Google Maps API.',
     features: [
-      { title: 'Map View', desc: 'Xem nhà trên bản đồ.' },
-      { title: 'Real-time', desc: 'Cập nhật tin đăng tức thì.' }
+      { title: 'Search', desc: 'Tìm kiếm theo khu vực, giá.' },
+      { title: 'Map', desc: 'Xem vị trí trên bản đồ.' }
     ],
-    demoLink: 'https://vreal-estate.netlify.app/',
-    repoLink: 'https://github.com/Vinhdev04/V_Real-Estate.git'
+    demoLink: '#',
+    repoLink: '#'
   },
   {
-    title: 'Valorant Wiki',
-    subtitle: 'Thông Tin Game Valorant',
-    description: 'Wiki tra cứu thông tin về các Agent, súng và bản đồ trong game Valorant.',
-    tags: ['React', 'API', 'Gaming'],
+    title: 'Valorant Game',
+    subtitle: 'Valorant Wiki',
+    description: 'Trang thông tin về các Agent và vũ khí trong game Valorant.',
+    tags: ['ReactJS', 'API', 'Gaming'],
     category: 'Web Apps',
     image: valorant,
     role: 'Frontend Developer',
-    timeline: '2 Tuần',
-    challenge: 'Lấy dữ liệu từ API bên thứ 3.',
-    solution: 'Sử dụng Valorant-API.',
+    timeline: '1 Tuần',
+    challenge: 'Hiển thị thông tin chi tiết và hình ảnh đẹp.',
+    solution: 'Sử dụng API Valorant không chính thức.',
     features: [
-      { title: 'Agents', desc: 'Chi tiết kỹ năng nhân vật.' },
+      { title: 'Agents', desc: 'Chi tiết kỹ năng từng tướng.' },
       { title: 'Weapons', desc: 'Thông số súng.' }
     ],
     demoLink: '#',
@@ -502,17 +484,17 @@ export const projects = [
   {
     title: 'Vocabulary Search',
     subtitle: 'Tra Cứu Từ Vựng',
-    description: 'Công cụ tìm kiếm từ vựng tiếng Anh nhanh chóng.',
-    tags: ['JavaScript', 'Dictionary API'],
-    category: 'Tools',
+    description: 'Công cụ tra cứu từ vựng tiếng Anh nhanh chóng.',
+    tags: ['JavaScript', 'Search', 'Data'],
+    category: 'Web Apps',
     image: vocab,
-    role: 'Developer',
-    timeline: '4 Ngày',
-    challenge: 'Tìm kiếm nhanh (Instant Search).',
-    solution: 'Kỹ thuật Debounce ô tìm kiếm.',
+    role: 'Frontend Developer',
+    timeline: '3 Ngày',
+    challenge: 'Tìm kiếm realtime nhanh chóng.',
+    solution: 'Tối ưu thuật toán tìm kiếm chuỗi.',
     features: [
       { title: 'Instant', desc: 'Kết quả hiện ngay khi gõ.' },
-      { title: 'Audio', desc: 'Nghe phát âm.' }
+      { title: 'History', desc: 'Lưu lịch sử tra cứu.' }
     ],
     demoLink: '#',
     repoLink: '#'
@@ -520,55 +502,53 @@ export const projects = [
   {
     title: 'Weather App',
     subtitle: 'Dự Báo Thời Tiết',
-    description: 'Ứng dụng xem thời tiết hiện tại và dự báo 7 ngày tới cho mọi thành phố.',
-    tags: ['React', 'OpenWeatherMap'],
-    category: 'Tools',
+    description: 'Ứng dụng xem thời tiết hiện tại và dự báo 7 ngày tới.',
+    tags: ['ReactJS', 'Weather API', 'Geolocation'],
+    category: 'Web Apps',
     image: weather,
     role: 'Frontend Developer',
-    timeline: '1 Tuần',
-    challenge: 'Xử lý dữ liệu thời tiết nhiều địa điểm.',
-    solution: 'Tích hợp OpenWeatherMap API.',
+    timeline: '4 Ngày',
+    challenge: 'Xử lý dữ liệu thời tiết và định vị người dùng.',
+    solution: 'Sử dụng OpenWeatherMap API.',
     features: [
-      { title: 'Forecast', desc: 'Dự báo chi tiết.' },
-      { title: 'Location', desc: 'Tự động định vị.' }
+      { title: 'Current', desc: 'Nhiệt độ, độ ẩm hiện tại.' },
+      { title: 'Forecast', desc: 'Dự báo các ngày tới.' }
     ],
     demoLink: '#',
     repoLink: '#'
   },
   {
-    title: 'Premium GameXbox',
-    subtitle: 'Cửa Hàng Thiết Bị Game',
-    description: 'Xây dựng website thương mại điện tử chuyên bán tay cầm chơi game và phụ kiện gaming. Thiết kế giao diện responsive, tương thích tốt trên Desktop và Mobile. Ứng dụng kiến trúc Frontend – Backend tách biệt, dễ mở rộng và bảo trì.',
-    tags: ['ReactJS', 'SCSS/CSS', 'Antd', 'Nodejs', 'Prisma ORM', 'Mongodb'],
-    category: 'E-commerce',
+    title: 'xPadGame',
+    subtitle: 'Cửa Hàng Game Gear',
+    description: 'E-commerce chuyên bán tay cầm và phụ kiện chơi game.',
+    tags: ['ReactJS', 'E-commerce', 'Payment'],
+    category: 'Web Apps',
     image: xPadGame,
-    role: 'Frontend Developer (Personal)',
+    role: 'Frontend Developer',
     timeline: 'Ongoing',
-    challenge: 'Xây dựng hệ thống Fullstack với kiến trúc tách biệt và bảo mật.',
-    solution: 'Sử dụng JWT cho xác thực, Prisma ORM cho database và Ant Design cho giao diện.',
+    challenge: 'Tích hợp thanh toán và quản lý đơn hàng.',
+    solution: 'Sử dụng Stripe hoặc PayPal sandbox.',
     features: [
-      { title: 'Auth', desc: 'Đăng ký/Đăng nhập JWT, Formik, Yup.' },
-      { title: 'Products', desc: 'Tìm kiếm, lọc theo giá, loại, nền tảng.' },
-      { title: 'User', desc: 'Quản lý thông tin, lịch sử mua hàng.' },
-      { title: 'API', desc: 'RESTful APIs cho User và Product.' }
+      { title: 'Checkout', desc: 'Thanh toán trực tuyến.' },
+      { title: 'Admin', desc: 'Trang quản trị đơn hàng.' }
     ],
     demoLink: '#',
-    repoLink: 'https://github.com/Vinhdev04/Ecomerce-reactjs.git'
+    repoLink: '#'
   },
   {
-    title: 'Internship System',
-    subtitle: 'Hệ Thống Tìm Kiếm Thực Tập',
-    description: 'Nền tảng kết nối sinh viên với doanh nghiệp, hỗ trợ tìm kiếm cơ hội thực tập và việc làm phù hợp.',
-    tags: ['React', 'TypeScript', 'TailwindCSS'],
+    title: 'Job Finder HUB',
+    subtitle: 'Tìm Việc Làm IT',
+    description: 'Cổng thông tin việc làm chuyên ngành IT, kết nối nhà tuyển dụng và ứng viên.',
+    tags: ['ReactJS', 'NodeJS', 'Recruitment'],
     category: 'Web Apps',
     image: jobFinder,
-    role: 'Full Stack Developer',
-    timeline: '1 Tháng',
-    challenge: 'Xây dựng hệ thống tìm kiếm và lọc việc làm hiệu quả.',
-    solution: 'Tối ưu hóa query tìm kiếm và giao diện thân thiện.',
+    role: 'Fullstack Developer',
+    timeline: 'Ongoing',
+    challenge: 'Xây dựng hệ thống matching ứng viên phù hợp.',
+    solution: 'Sử dụng thuật toán gợi ý việc làm.',
     features: [
-      { title: 'Job Search', desc: 'Tìm kiếm theo ngành nghề.' },
-      { title: 'Application', desc: 'Nộp CV trực tuyến.' }
+      { title: 'Jobs', desc: 'Tìm kiếm việc làm.' },
+      { title: 'CV', desc: 'Tạo và quản lý CV.' }
     ],
     demoLink: '#',
     repoLink: '#'

@@ -1,3 +1,5 @@
+import responsiveCert from '@/assets/images/certification/responsive.png';
+
 export const certificates = [
     {
       title: 'Meta Frontend Developer Professional Certificate',
@@ -37,6 +39,7 @@ export const certificates = [
       skills: ['Responsive Design', 'CSS Grid', 'Flexbox'],
       link: '#',
       level: 'Intermediate',
-      color: '#f59e0b'
+      color: '#f59e0b',
+      image: responsiveCert
     }
   ];
