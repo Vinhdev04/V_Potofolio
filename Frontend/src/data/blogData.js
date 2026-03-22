@@ -219,6 +219,127 @@ export const blogPosts = [
         "Sự thanh lịch của một cấu trúc mã là trụ cột cho tính bền vững của sinh thái mạng toàn cầu." 🚀
       </p>
     `
+  },
+  {
+    id: 6,
+    title: 'Giải Mã DOCTYPE: "Lời Khai Báo" Quyền Lực Trong HTML',
+    excerpt: 'Tại sao mọi file HTML đều phải bắt đầu bằng <!DOCTYPE html>? Tìm hiểu sự khác biệt giữa Standards Mode và Quirks Mode.',
+    date: '2024-03-24',
+    readTime: '4 min read',
+    category: 'HTML Cơ Bản',
+    image: 'https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    tags: ['html'],
+    level: 'Cơ bản',
+    content: `
+      <p class="intro-text">
+        Bạn có bao giờ thắc mắc tại sao dòng code đầu tiên trong mọi dự án web luôn là <code class="highlight-pink">&lt;!DOCTYPE html&gt;</code>? 
+        Nó không phải là một thẻ HTML, mà là một <strong>"lời khai báo"</strong> gửi tới trình duyệt để thiết lập luật chơi.
+      </p>
+
+      <h2 class="section-title">1. DOCTYPE là gì?</h2>
+      <p>DOCTYPE (Document Type Declaration) là hướng dẫn cho trình duyệt web về phiên bản HTML mà trang web đang sử dụng.</p>
+      
+      <div class="code-reset-block">
+        <div class="code-label">Khai báo chuẩn HTML5</div>
+        <pre class="code-pre"><code><span class="prop">&lt;!DOCTYPE</span> <span class="val">html</span><span class="prop">&gt;</span></code></pre>
+      </div>
+
+      <div class="example-highlight-box">
+        <p><strong>Thông điệp ngầm:</strong> "Này trình duyệt, tớ là tài liệu HTML5, hãy đọc tớ theo tiêu chuẩn hiện đại nhất nhé!"</p>
+      </div>
+
+      <h2 class="section-title">2. Tại sao cần khai báo?</h2>
+      <p>Nếu thiếu dòng này, trình duyệt sẽ rơi vào trạng thái "bối rối" và kích hoạt các chế độ hiển thị khác nhau.</p>
+      
+      <div class="comparison-grid">
+        <div class="box-card content-box-card">
+          <h4 class="card-title red"><i class="fa-solid fa-triangle-exclamation"></i> Quirks Mode (Thiếu DOCTYPE)</h4>
+          <p>Trình duyệt hiển thị trang web theo kiểu cũ (tương thích ngược với IE5). Gây lỗi bố cục, sai lệch font chữ và kích thước Box Model.</p>
+        </div>
+        <div class="box-card border-box-card">
+          <h4 class="card-title green"><i class="fa-solid fa-check-circle"></i> Standards Mode (Có DOCTYPE)</h4>
+          <p>Đảm bảo trang web hiển thị đúng theo tiêu chuẩn W3C trên mọi trình duyệt hiện đại (Chrome, Edge, Safari...).</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">3. Quy tắc "Dòng Số 1"</h2>
+      <ul class="box-model-list">
+        <li class="list-item-hover">
+          <span class="icon-box blue"><i class="fa-solid fa-info-circle"></i></span>
+          <div>Luôn đặt ở dòng đầu tiên của file, trước cả thẻ <code>&lt;html&gt;</code>.</div>
+        </li>
+        <li class="list-item-hover">
+          <span class="icon-box yellow"><i class="fa-solid fa-bolt"></i></span>
+          <div>Không phân biệt chữ hoa chữ thường (Case-insensitive).</div>
+        </li>
+      </ul>
+
+      <hr class="divider">
+      
+      <p class="closing-text">
+        Hãy luôn bắt đầu file HTML của bạn đúng cách để tránh những rắc rối không đáng có! 🚀
+      </p>
+    `
+  },
+  {
+    id: 7,
+    title: 'Học HTML: Nền tảng cốt lõi - Bài 1: Doctype',
+    excerpt: 'Tìm hiểu sâu hơn về DOCTYPE, tại sao nó là "lời khai báo" quan trọng nhất cho trình duyệt và cách nó ngăn chặn Quirks Mode.',
+    date: '2024-03-25',
+    readTime: '6 min read',
+    category: 'HTML Cơ Bản',
+    image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    tags: ['html'],
+    level: 'Cơ bản',
+    content: `
+      <p class="intro-text">
+        Tiếp tục chuỗi bài học về HTML nền tảng, hôm nay chúng ta sẽ đi sâu vào câu hỏi: <strong>Doctype là gì? Tại sao cần khai báo &lt;!DOCTYPE html&gt;?</strong>
+      </p>
+
+      <h2 class="section-title">1. DOCTYPE là gì?</h2>
+      <div class="space-y-4 text-slate-600 leading-relaxed">
+          <p>
+              <span class="font-semibold text-slate-900">DOCTYPE</span> (Document Type Declaration) không phải là một thẻ HTML. Nó là một <span class="text-blue-600 italic">"lời khai báo"</span> gửi tới trình duyệt.
+          </p>
+          
+          <div class="code-reset-block">
+              <div class="code-label">HTML5</div>
+              <pre class="code-pre"><code><span class="prop">&lt;!DOCTYPE</span> <span class="val">html</span><span class="prop">&gt;</span></code></pre>
+          </div>
+
+          <div class="example-highlight-box accent-border">
+              <p class="italic">"Này trình duyệt, tớ là tài liệu HTML5, hãy đọc tớ theo tiêu chuẩn hiện đại nhất nhé!"</p>
+          </div>
+      </div>
+
+      <h2 class="section-title">2. Tại sao cần khai báo?</h2>
+      <p>Việc khai báo DOCTYPE quyết định cách trình duyệt "hiểu" và render trang web của bạn.</p>
+
+      <div class="comparison-grid">
+          <div class="box-card content-box-card">
+              <h4 class="card-title red"><i class="fa-solid fa-xmark"></i> Nếu THIẾU: Quirks Mode</h4>
+              <p>Trình duyệt rơi vào <strong>Quirks Mode</strong> (Chế độ lạ lùng). Nó sẽ hiển thị trang web theo kiểu cũ, gây lỗi bố cục, sai lệch font chữ và kích thước.</p>
+          </div>
+
+          <div class="box-card border-box-card">
+              <h4 class="card-title green"><i class="fa-solid fa-check"></i> Nếu CÓ: Standards Mode</h4>
+              <p>Trình duyệt chạy <strong>Standards Mode</strong> (Chế độ chuẩn). Đảm bảo giao diện đồng nhất trên mọi trình duyệt hiện đại (Chrome, Edge, Safari...).</p>
+          </div>
+      </div>
+
+      <div class="bg-slate-900 text-white p-6 rounded-2xl text-center shadow-lg mt-8">
+          <p class="text-sm uppercase tracking-widest text-blue-400 font-bold mb-2">💡 Ghi nhớ nhanh</p>
+          <p class="text-lg italic">
+              "Hãy luôn đặt Doctype ở dòng số 1 của mọi file HTML để tránh những rắc rối không đáng có!"
+          </p>
+      </div>
+
+      <hr class="divider">
+      
+      <p class="closing-text">
+          Chúc các bạn nắm vững nền tảng để xây dựng những trang web chuyên nghiệp! 🚀
+      </p>
+    `
   }
 ];
 
