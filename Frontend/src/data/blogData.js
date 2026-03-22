@@ -66,6 +66,8 @@ export const blogPosts = [
 
       <div id="interactive-box-model"></div>
 
+      <div class="tiktok-embed-container" data-video-id="7604184715272228113"></div>
+
       <h2 class="section-title">1. Cấu phẫu một chiếc "Hộp"</h2>
       <p>Mọi phần tử trên HTML đều là một hình chữ nhật. Chiếc hộp này được cấu tạo từ 4 lớp từ trong ra ngoài:</p>
       
@@ -175,5 +177,13 @@ export const tiktokVideos = [
     thumbnail: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=600&fit=crop',
     views: '12K',
     link: 'https://www.tiktok.com/@devcraftt/video/7591434813689580801?is_from_webapp=1&sender_device=pc&web_id=7576100077330253320'
+  },
+  {
+    id: 5,
+    title: 'CSS Box Model – Toàn tập giải ngố',
+    videoId: '7604184715272228113',
+    thumbnail: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=400&h=600&fit=crop',
+    views: '20.5K',
+    link: 'https://www.tiktok.com/@devcraftt/video/7604184715272228113?is_from_webapp=1&sender_device=pc&web_id=7619667361486833153'
   }
 ];
