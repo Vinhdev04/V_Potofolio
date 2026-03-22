@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { blogPosts } from '@/data/blogData';
 import BoxModelInteractive from '@/components/blog/BoxModelInteractive';
 import TikTokEmbed from '@/components/blog/TikTokEmbed';
+import RelatedPosts from '@/components/blog/RelatedPosts';
 import '@/assets/css/Blog.scss';
 
 const { Title } = Typography;
@@ -47,12 +48,12 @@ const BlogDetail = () => {
             dangerouslySetInnerHTML={{ __html: firstPart }} 
           />
           <BoxModelInteractive />
-          <TikTokEmbed videoId="7604184715272228113" />
           <div 
             className="blog-content"
             style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#ccd6f6' }}
             dangerouslySetInnerHTML={{ __html: secondPart + thirdPart }} 
           />
+          <TikTokEmbed videoId="7604184715272228113" />
         </>
       );
     }
@@ -99,6 +100,8 @@ const BlogDetail = () => {
       />
 
       {renderContent()}
+      
+      <RelatedPosts currentPostId={post.id} />
       
       <Divider style={{ borderColor: 'rgba(136, 146, 176, 0.2)', margin: '40px 0' }} />
       

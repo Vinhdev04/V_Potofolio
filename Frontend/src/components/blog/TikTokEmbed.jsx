@@ -15,19 +15,28 @@ const TikTokEmbed = ({ videoId }) => {
   }, [videoId]);
 
   return (
-    <div className="tiktok-embed-wrapper" style={{ margin: '30px 0', display: 'flex', justifyContent: 'center' }}>
-      <blockquote 
-        className="tiktok-embed" 
-        cite={`https://www.tiktok.com/video/${videoId}`} 
-        data-video-id={videoId} 
-        style={{ maxWidth: '605px', minWidth: '325px' }}
-      >
-        <section>
-          <a target="_blank" title="tiktok" href={`https://www.tiktok.com/video/${videoId}`}>
-            Đang tải video TikTok...
-          </a>
-        </section>
-      </blockquote>
+    <div className="tiktok-embed-wrapper" style={{ margin: '40px 0', display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <div style={{ 
+        width: '100%', 
+        maxWidth: '400px', 
+        borderRadius: '16px', 
+        overflow: 'hidden', 
+        border: '1px solid rgba(100, 255, 218, 0.1)',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.4)'
+      }}>
+        <blockquote 
+          className="tiktok-embed" 
+          cite={`https://www.tiktok.com/video/${videoId}`} 
+          data-video-id={videoId} 
+          style={{ width: '100%', margin: 0 }}
+        >
+          <section>
+            <a target="_blank" title="tiktok" href={`https://www.tiktok.com/video/${videoId}`}>
+              Đang tải video TikTok...
+            </a>
+          </section>
+        </blockquote>
+      </div>
     </div>
   );
 };
