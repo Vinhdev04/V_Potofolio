@@ -337,7 +337,75 @@ export const blogPosts = [
       <hr class="divider">
       
       <p class="closing-text">
-          Chúc các bạn nắm vững nền tảng để xây dựng những trang web chuyên nghiệp! 🚀
+        Chúc các bạn nắm vững nền tảng để xây dựng những trang web chuyên nghiệp! 🚀
+      </p>
+    `
+  },
+  {
+    id: 8,
+    title: 'Phân biệt LocalStorage, SessionStorage & Cookies',
+    excerpt: 'Ba cơ chế lưu trữ dữ liệu phổ biến nhất trên trình duyệt. Hiểu rõ sự khác biệt để lựa chọn giải pháp tối ưu và an toàn nhất cho ứng dụng web của bạn.',
+    date: '2024-03-26',
+    readTime: '6 min read',
+    category: 'Web Storage API',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    tiktokId: 6,
+    tags: ['js', 'web-storage'],
+    level: 'Cơ bản',
+    content: `
+      <p class="intro-text">
+        Ba cơ chế lưu trữ dữ liệu phổ biến nhất trên trình duyệt. Hiểu rõ sự khác biệt để lựa chọn giải pháp tối ưu và an toàn nhất cho ứng dụng web của bạn.
+      </p>
+
+      <h2 class="section-title">1. Bảng So Sánh Nhanh</h2>
+      <div class="comparison-grid">
+          <div class="box-card content-box-card">
+              <h4 class="card-title blue">LocalStorage</h4>
+              <p>Dung lượng lớn (~5MB - 10MB), vĩnh viễn (đến khi xóa thủ công), không gửi kèm request.</p>
+          </div>
+          <div class="box-card border-box-card">
+              <h4 class="card-title green">SessionStorage</h4>
+              <p>Dung lượng lớn (~5MB), tạm thời (mất khi đóng tab), không gửi kèm request.</p>
+          </div>
+      </div>
+      
+      <div class="example-highlight-box mt-4">
+          <h4 class="card-title orange">Cookies</h4>
+          <p>Dung lượng rất nhỏ (~4KB), do dev set thời gian sống, tự động gửi kèm mỗi HTTP Request lên Server.</p>
+      </div>
+
+      <h2 class="section-title">2. Chi Tiết & Ứng Dụng</h2>
+      
+      <div class="box-card border-box-card mb-4">
+          <h4 class="card-title blue"><i class="fa-solid fa-hard-drive"></i> LocalStorage</h4>
+          <ul class="box-model-list">
+              <li class="list-item-hover">Lưu giao diện (Dark/Light mode).</li>
+              <li class="list-item-hover">Giỏ hàng (Khi chưa đăng nhập).</li>
+              <li class="list-item-hover"><span class="text-red-500">Cảnh báo:</span> Không lưu mật khẩu, Token nhạy cảm vì dễ bị XSS.</li>
+          </ul>
+      </div>
+
+      <div class="box-card border-box-card mb-4">
+          <h4 class="card-title green"><i class="fa-solid fa-clock"></i> SessionStorage</h4>
+          <ul class="box-model-list">
+              <li class="list-item-hover">Form đăng ký nhiều bước (Multi-step).</li>
+              <li class="list-item-hover">Lưu trạng thái bộ lọc tìm kiếm tạm thời.</li>
+          </ul>
+      </div>
+
+      <div class="box-card border-box-card">
+          <h4 class="card-title orange"><i class="fa-solid fa-cookie"></i> Cookies</h4>
+          <ul class="box-model-list">
+              <li class="list-item-hover">Quản lý phiên đăng nhập (Session ID).</li>
+              <li class="list-item-hover">Xác thực người dùng (Auth Token).</li>
+              <li class="list-item-hover"><span class="text-green-500">Bảo mật:</span> Chống XSS bằng cờ HttpOnly và chống CSRF bằng SameSite.</li>
+          </ul>
+      </div>
+
+      <hr class="divider">
+      
+      <p class="closing-text">
+        Hãy lựa chọn giải pháp lưu trữ phù hợp để tối ưu hiệu năng và bảo mật cho ứng dụng của bạn! 🚀
       </p>
     `
   }
@@ -383,5 +451,13 @@ export const tiktokVideos = [
     thumbnail: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=400&h=600&fit=crop',
     views: '20.5K',
     link: 'https://www.tiktok.com/@devcraftt/video/7604184715272228113?is_from_webapp=1&sender_device=pc&web_id=7619667361486833153'
+  },
+  {
+    id: 6,
+    title: 'Cookie, Local Storage & Session Storage khác nhau thế nào?',
+    videoId: '7590799921607937281',
+    thumbnail: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=600&fit=crop',
+    views: '12.5K',
+    link: 'https://www.tiktok.com/@devcraftt/video/7590799921607937281?is_from_webapp=1&sender_device=pc&web_id=7619667361486833153'
   }
 ];
