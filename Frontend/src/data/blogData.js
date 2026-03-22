@@ -10,15 +10,81 @@ export const blogPosts = [
     tiktokId: 2,
     tags: ['react', 'js'],
     level: 'Nâng cao',
-    content: `
-      <p>React là một thư viện mạnh mẽ, nhưng nếu không chú ý đến hiệu suất, ứng dụng của bạn có thể trở nên chậm chạp. Dưới đây là các kỹ thuật quan trọng:</p>
-      <h3>1. Memoization với React.memo, useMemo và useCallback</h3>
-      <p>Tránh việc render lại không cần thiết bằng cách ghi nhớ các component và giá trị tính toán.</p>
-      <h3>2. Lazy Loading</h3>
-      <p>Sử dụng React.lazy và Suspense để chỉ tải các component khi cần thiết, giảm thời gian tải trang ban đầu.</p>
-      <h3>3. Code Splitting</h3>
-      <p>Chia nhỏ bundle của bạn thành các phần nhỏ hơn để trình duyệt có thể tải song song.</p>
-    `
+    isStructured: true,
+    content: [
+      {
+        type: 'header',
+        badge: 'React Mastery',
+        title_parts: [
+          { text: 'Tối ưu hóa ', gradient: '' },
+          { text: 'React Performance', gradient: 'from-cyan-400 to-blue-600' }
+        ],
+        description: 'Đưa ứng dụng React của bạn lên tầm cao mới với các kỹ thuật tối ưu hóa hiệu suất chuyên sâu.'
+      },
+      {
+        type: 'grid',
+        title: 'Kỹ thuật then chốt',
+        items: [
+          {
+            title: 'Memoization',
+            description: 'Ghi nhớ các giá trị và component để tránh render thừa.',
+            theme_gradient: 'from-blue-400 to-indigo-500',
+            icon: 'hard-drive',
+            icon_bg: 'bg-blue-50',
+            icon_color: 'text-blue-600',
+            blocks: [
+              {
+                type: 'app',
+                title: 'Công cụ',
+                bg: 'bg-blue-50/50',
+                border: 'border-blue-100',
+                title_color: 'text-blue-900',
+                text_color: 'text-blue-800',
+                list: ['React.memo', 'useMemo', 'useCallback']
+              }
+            ]
+          },
+          {
+            title: 'Lazy Loading',
+            description: 'Chỉ tải code khi người dùng thực sự cần đến.',
+            theme_gradient: 'from-purple-400 to-pink-500',
+            icon: 'clock',
+            icon_bg: 'bg-purple-50',
+            icon_color: 'text-purple-600',
+            blocks: [
+              {
+                type: 'feature',
+                title: 'Thực thi',
+                bg: 'bg-purple-50/50',
+                border: 'border-purple-100',
+                title_color: 'text-purple-900',
+                text_color: 'text-purple-800',
+                list: ['React.lazy', 'Suspense component']
+              }
+            ]
+          },
+          {
+            title: 'Code Splitting',
+            description: 'Chia nhỏ bundle để tăng tốc độ tải trang ban đầu.',
+            theme_gradient: 'from-orange-400 to-amber-500',
+            icon: 'cookie',
+            icon_bg: 'bg-orange-50',
+            icon_color: 'text-orange-600',
+            blocks: [
+              {
+                type: 'security',
+                title: 'Lợi ích',
+                bg: 'bg-green-50/50',
+                border: 'border-green-100',
+                title_color: 'text-green-900',
+                text_color: 'text-green-800',
+                list: ['Giảm Initial Bundle Size', 'Tăng điểm Core Web Vitals']
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     id: 2,
@@ -30,13 +96,63 @@ export const blogPosts = [
     image: 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     tags: ['js'],
     level: 'Trung bình',
-    content: `
-      <p>Clean Code không chỉ là viết code cho máy chạy, mà là viết cho con người đọc.</p>
-      <h3>1. Đặt tên biến có ý nghĩa</h3>
-      <p>Thay vì <code>const d = 10;</code>, hãy dùng <code>const daysSinceCreation = 10;</code>.</p>
-      <h3>2. Hàm nên làm một việc duy nhất</h3>
-      <p>Nguyên tắc Single Responsibility Principle (SRP) giúp hàm dễ test và bảo trì hơn.</p>
-    `
+    isStructured: true,
+    content: [
+      {
+        type: 'header',
+        badge: 'Software Craftsmanship',
+        title_parts: [
+          { text: 'Nghệ thuật ', gradient: '' },
+          { text: 'Clean Code', gradient: 'from-emerald-500 to-teal-700' },
+          { text: 'trong JavaScript', gradient: '' }
+        ],
+        description: 'Viết mã không chỉ để máy chạy, mà để con người có thể hiểu và bảo trì.'
+      },
+      {
+        type: 'grid',
+        title: 'Quy tắc vàng',
+        items: [
+          {
+            title: 'Naming',
+            description: 'Tên gọi là linh hồn của biến và hàm.',
+            theme_gradient: 'from-emerald-400 to-teal-600',
+            icon: 'hard-drive',
+            icon_bg: 'bg-emerald-50',
+            icon_color: 'text-emerald-600',
+            blocks: [
+              {
+                type: 'app',
+                title: 'Quy tắc',
+                bg: 'bg-emerald-50/50',
+                border: 'border-emerald-100',
+                title_color: 'text-emerald-900',
+                text_color: 'text-emerald-800',
+                list: ['Rõ ràng, mang tính mô tả', 'Tránh tên viết tắt vô nghĩa', 'Sử dụng camelCase']
+              }
+            ]
+          },
+          {
+            title: 'Functions',
+            description: 'Hàm nên làm một việc và làm thật tốt việc đó.',
+            theme_gradient: 'from-blue-400 to-cyan-500',
+            icon: 'clock',
+            icon_bg: 'bg-blue-50',
+            icon_color: 'text-blue-600',
+            blocks: [
+              {
+                type: 'feature',
+                title: 'SRP Principle',
+                bg: 'bg-blue-50/50',
+                border: 'border-blue-100',
+                title_color: 'text-blue-900',
+                text_color: 'text-blue-800',
+                list: ['Single Responsibility', 'Hàm ngắn gọn (dưới 20 dòng)', 'Ít tham số đầu vào']
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     id: 3,
@@ -49,15 +165,62 @@ export const blogPosts = [
     tiktokId: 4,
     tags: ['html', 'css', 'js', 'react'],
     level: 'Cơ bản',
-    content: `
-      <p>Trở thành Fullstack Developer là một hành trình dài. Dưới đây là lộ trình gợi ý:</p>
-      <h3>Frontend</h3>
-      <p>HTML, CSS, JavaScript, React/Vue/Angular.</p>
-      <h3>Backend</h3>
-      <p>Node.js, Python, Go, Database (SQL & NoSQL).</p>
-      <h3>DevOps</h3>
-      <p>Docker, CI/CD, AWS/Azure.</p>
-    `
+    isStructured: true,
+    content: [
+      {
+        type: 'header',
+        badge: 'Career Path 2024',
+        title_parts: [
+          { text: 'Lộ trình ', gradient: '' },
+          { text: 'Fullstack Developer', gradient: 'from-violet-600 to-indigo-600' }
+        ],
+        description: 'Bản đồ toàn diện để chinh phục thế giới lập trình từ con số 0.'
+      },
+      {
+        type: 'grid',
+        title: 'Các trụ cột chính',
+        items: [
+          {
+            title: 'Frontend',
+            description: 'Giao diện và trải nghiệm người dùng.',
+            theme_gradient: 'from-violet-400 to-fuchsia-500',
+            icon: 'hard-drive',
+            icon_bg: 'bg-violet-50',
+            icon_color: 'text-violet-600',
+            blocks: [
+              {
+                type: 'app',
+                title: 'Công nghệ',
+                bg: 'bg-violet-50/50',
+                border: 'border-violet-100',
+                title_color: 'text-violet-900',
+                text_color: 'text-violet-800',
+                list: ['HTML5, CSS3, JS (ES6+)', 'React / Vue / Angular', 'Tailwind CSS / Ant Design']
+              }
+            ]
+          },
+          {
+            title: 'Backend',
+            description: 'Xử lý logic, database và server.',
+            theme_gradient: 'from-indigo-400 to-blue-500',
+            icon: 'clock',
+            icon_bg: 'bg-indigo-50',
+            icon_color: 'text-indigo-600',
+            blocks: [
+              {
+                type: 'feature',
+                title: 'Nền tảng',
+                bg: 'bg-indigo-50/50',
+                border: 'border-indigo-100',
+                title_color: 'text-indigo-900',
+                text_color: 'text-indigo-800',
+                list: ['Node.js / Python / Go', 'SQL (Postgres) / NoSQL (Mongo)', 'REST API / GraphQL']
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     id: 4,

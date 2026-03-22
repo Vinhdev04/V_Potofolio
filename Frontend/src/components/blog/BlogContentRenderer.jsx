@@ -19,32 +19,37 @@ const BlogContentRenderer = ({ content }) => {
   }
 
   return (
-    <div className="flex flex-col gap-12 w-full">
+    <div className="flex flex-col gap-20 w-full relative">
+      {/* Background Dot Grid */}
+      <div className="absolute inset-0 z-[-1]" 
+           style={{ 
+             backgroundImage: 'radial-gradient(#e2e8f0 1.2px, transparent 1.2px)', 
+             backgroundSize: '24px 24px',
+             opacity: 0.6
+           }} 
+      />
+
       {content.map((section, idx) => {
         switch (section.type) {
           case 'header':
             return (
-              <div key={idx} className="text-center py-12 px-4 relative overflow-hidden bg-slate-50/50 rounded-3xl border border-slate-100">
-                {/* Background Blobs */}
-                <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-                
-                <div className="relative z-10">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-6 text-sm font-medium text-slate-600">
-                    <DatabaseOutlined className="text-teal-500" />
+              <div key={idx} className="text-center pt-24 pb-16 px-4 relative z-10">
+                <div className="max-w-4xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8 text-sm font-semibold text-slate-600 transition-transform hover:scale-105">
+                    <DatabaseOutlined className="text-teal-500 text-base" />
                     {section.badge}
                   </div>
-                  <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                  <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[1.1] text-slate-900">
                     {section.title_parts.map((part, pIdx) => (
-                      <span 
-                        key={pIdx} 
-                        className={part.gradient ? `bg-gradient-to-r ${part.gradient} bg-clip-text text-transparent` : ''}
-                      >
-                        {part.text}{pIdx < section.title_parts.length - 1 && <br />}
-                      </span>
+                      <React.Fragment key={pIdx}>
+                        <span className={part.gradient ? `bg-gradient-to-r ${part.gradient} bg-clip-text text-transparent` : ''}>
+                          {part.text}
+                        </span>
+                        {pIdx < section.title_parts.length - 1 && (pIdx % 2 === 0 ? ', ' : ' & ')}
+                      </React.Fragment>
                     ))}
                   </h1>
-                  <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                  <p className="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium">
                     {section.description}
                   </p>
                 </div>
@@ -53,46 +58,46 @@ const BlogContentRenderer = ({ content }) => {
 
           case 'table':
             return (
-              <section key={idx} className="bg-white/95 backdrop-blur-md border border-slate-200 shadow-sm rounded-3xl p-6 md:p-10 overflow-hidden">
-                <h2 className="text-2xl font-bold mb-8 flex items-center gap-3 text-slate-800">
-                  <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center">
-                    <HistoryOutlined className="text-indigo-600" />
+              <section key={idx} className="bg-white border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[32px] p-8 md:p-12 relative z-10">
+                <h2 className="text-3xl font-bold mb-10 flex items-center gap-3 text-slate-800">
+                  <div className="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center border border-indigo-100">
+                    <HistoryOutlined className="text-indigo-600 text-xl" />
                   </div>
                   {section.title}
                 </h2>
-                <div className="overflow-x-auto pb-4">
-                  <table className="w-full text-left border-collapse min-w-[800px]">
+                <div className="overflow-x-auto pb-4 custom-scrollbar">
+                  <table className="w-full text-left border-collapse min-w-[900px]">
                     <thead>
-                      <tr className="bg-slate-50/50 text-slate-500 text-xs uppercase tracking-widest border-b border-slate-100">
-                        <th className="p-5 font-bold">Đặc điểm</th>
+                      <tr className="bg-slate-50/80 text-slate-500 text-sm uppercase tracking-widest border-b-2 border-slate-100">
+                        <th className="p-6 font-bold first:rounded-tl-2xl">Đặc điểm</th>
                         {section.headers.map((h, hIdx) => (
-                          <th key={hIdx} className={`p-5 font-bold ${h.color}`}>{h.text}</th>
+                          <th key={hIdx} className={`p-6 font-bold ${h.color}`}>{h.text}</th>
                         ))}
                       </tr>
                     </thead>
-                    <tbody className="text-slate-700">
+                    <tbody className="text-slate-700 text-lg">
                       {section.rows.map((row, rIdx) => (
-                        <tr key={rIdx} className="border-b border-slate-50 hover:bg-slate-50/30 transition-colors">
-                          <td className="p-5 font-semibold text-slate-800">{row.label}</td>
+                        <tr key={rIdx} className="border-b border-slate-50 hover:bg-slate-50/40 transition-all group">
+                          <td className="p-6 font-semibold text-slate-800 group-hover:pl-8 transition-all">{row.label}</td>
                           {row.cells.map((cell, cIdx) => (
-                            <td key={cIdx} className="p-5">
+                            <td key={cIdx} className="p-6">
                               {cell.tag ? (
-                                <span className={`px-3 py-1 rounded-lg text-sm font-bold ${cell.tag.style}`}>
+                                <span className={`px-4 py-1.5 rounded-xl text-sm font-bold shadow-sm ${cell.tag.style}`}>
                                   {cell.text}
                                 </span>
                               ) : cell.isServer ? (
                                 <div className="flex flex-col">
-                                  <span className="text-orange-600 font-bold flex items-center gap-1">
-                                    <SendOutlined className="text-xs" /> {cell.text}
+                                  <span className="text-orange-600 font-bold flex items-center gap-2">
+                                    <SendOutlined className="text-base transform -rotate-45" /> {cell.text}
                                   </span>
                                 </div>
                               ) : cell.security ? (
                                 <div className="flex flex-col gap-1">
-                                  <span className="text-red-500 font-bold">{cell.text}</span>
-                                  {cell.subText && <span className="text-xs text-green-600 font-medium">{cell.subText}</span>}
+                                  <span className="text-rose-500 font-bold">{cell.text}</span>
+                                  {cell.subText && <span className="text-sm text-emerald-600 font-semibold">{cell.subText}</span>}
                                 </div>
                               ) : (
-                                cell.text
+                                <span className="text-slate-500 font-medium">{cell.text}</span>
                               )}
                             </td>
                           ))}
@@ -106,39 +111,39 @@ const BlogContentRenderer = ({ content }) => {
 
           case 'grid':
             return (
-              <div key={idx} className="w-full">
-                <h2 className="text-3xl font-bold text-center mb-12 text-slate-800">{section.title}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div key={idx} className="w-full relative z-10">
+                <h2 className="text-4xl font-bold text-center mb-16 text-slate-800 tracking-tight">{section.title}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                   {section.items.map((item, iIdx) => (
-                    <div key={iIdx} className="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                      <div className={`h-2 w-full bg-gradient-to-r ${item.theme_gradient}`} />
-                      <div className="p-8">
-                        <div className={`w-14 h-14 ${item.icon_bg} rounded-2xl flex items-center justify-center mb-6`}>
-                          {item.icon === 'hard-drive' && <DatabaseOutlined className={`text-2xl ${item.icon_color}`} />}
-                          {item.icon === 'clock' && <ClockCircleOutlined className={`text-2xl ${item.icon_color}`} />}
-                          {item.icon === 'cookie' && <CheckCircleOutlined className={`text-2xl ${item.icon_color}`} />}
+                    <div key={iIdx} className="bg-white border border-slate-200 rounded-[32px] overflow-hidden hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-3 transition-all duration-500 group">
+                      <div className={`h-2.5 w-full bg-gradient-to-r ${item.theme_gradient}`} />
+                      <div className="p-10">
+                        <div className={`w-16 h-16 ${item.icon_bg} rounded-[24px] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
+                          {item.icon === 'hard-drive' && <DatabaseOutlined className={`text-3xl ${item.icon_color}`} />}
+                          {item.icon === 'clock' && <ClockCircleOutlined className={`text-3xl ${item.icon_color}`} />}
+                          {item.icon === 'cookie' && <CheckCircleOutlined className={`text-3xl ${item.icon_color}`} />}
                         </div>
-                        <h3 className="text-2xl font-bold mb-4 text-slate-800">{item.title}</h3>
-                        <p className="text-slate-600 mb-8 leading-relaxed">{item.description}</p>
+                        <h3 className="text-3xl font-extrabold mb-4 text-slate-800 tracking-tight">{item.title}</h3>
+                        <p className="text-slate-500 mb-10 leading-relaxed text-lg font-medium">{item.description}</p>
                         
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-6">
                           {item.blocks.map((block, bIdx) => (
-                            <div key={bIdx} className={`${block.bg} p-5 rounded-2xl border ${block.border}`}>
-                              <h4 className={`font-bold ${block.title_color} mb-3 flex items-center gap-2`}>
-                                {block.type === 'app' && <InfoCircleOutlined />}
-                                {block.type === 'warn' && <WarningOutlined />}
-                                {block.type === 'security' && <SafetyCertificateOutlined />}
-                                {block.type === 'feature' && <InfoCircleOutlined />}
+                            <div key={bIdx} className={`${block.bg} p-6 rounded-[24px] border ${block.border} shadow-sm`}>
+                              <h4 className={`font-bold ${block.title_color} mb-4 flex items-center gap-2.5 text-base uppercase tracking-wider`}>
+                                {block.type === 'app' && <InfoCircleOutlined className="text-lg" />}
+                                {block.type === 'warn' && <WarningOutlined className="text-lg" />}
+                                {block.type === 'security' && <SafetyCertificateOutlined className="text-lg" />}
+                                {block.type === 'feature' && <InfoCircleOutlined className="text-lg" />}
                                 {block.title}
                               </h4>
-                              <ul className="space-y-2">
+                              <ul className="space-y-3">
                                 {block.list && block.list.map((li, lIdx) => (
-                                  <li key={lIdx} className={`text-sm flex items-start gap-2 ${block.text_color}`}>
-                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-current opacity-40" />
+                                  <li key={lIdx} className={`text-base flex items-start gap-3 ${block.text_color} font-medium`}>
+                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-current opacity-50 shrink-0" />
                                     {li}
                                   </li>
                                 ))}
-                                {block.text && <p className={`text-xs ${block.text_color}`}>{block.text}</p>}
+                                {block.text && <p className={`text-sm ${block.text_color} font-medium leading-relaxed`}>{block.text}</p>}
                               </ul>
                             </div>
                           ))}
