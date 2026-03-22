@@ -66,8 +66,6 @@ export const blogPosts = [
 
       <div id="interactive-box-model"></div>
 
-      <div class="tiktok-embed-container" data-video-id="7604184715272228113"></div>
-
       <h2 class="section-title">1. Cấu phẫu một chiếc "Hộp"</h2>
       <p>Mọi phần tử trên HTML đều là một hình chữ nhật. Chiếc hộp này được cấu tạo từ 4 lớp từ trong ra ngoài:</p>
       

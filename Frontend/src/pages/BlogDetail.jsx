@@ -5,7 +5,6 @@ import { ArrowLeftOutlined, CalendarOutlined, ClockCircleOutlined } from '@ant-d
 import { motion } from 'framer-motion';
 import { blogPosts } from '@/data/blogData';
 import BoxModelInteractive from '@/components/blog/BoxModelInteractive';
-import TikTokEmbed from '@/components/blog/TikTokEmbed';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import '@/assets/css/Blog.scss';
 
@@ -31,29 +30,21 @@ const BlogDetail = () => {
 
   const renderContent = () => {
     if (post.id === 4) {
-      // Split content to insert the interactive component and TikTok embed
-      const interactiveSplit = post.content.split('<div id="interactive-box-model"></div>');
-      const firstPart = interactiveSplit[0];
-      const remainingPart = interactiveSplit[1];
-      
-      const tiktokSplit = remainingPart.split('<div class="tiktok-embed-container" data-video-id="7604184715272228113"></div>');
-      const secondPart = tiktokSplit[0];
-      const thirdPart = tiktokSplit[1];
-
+      // Split content to insert the interactive component
+      const parts = post.content.split('<div id="interactive-box-model"></div>');
       return (
         <>
           <div 
             className="blog-content"
             style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#ccd6f6' }}
-            dangerouslySetInnerHTML={{ __html: firstPart }} 
+            dangerouslySetInnerHTML={{ __html: parts[0] }} 
           />
           <BoxModelInteractive />
           <div 
             className="blog-content"
             style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#ccd6f6' }}
-            dangerouslySetInnerHTML={{ __html: secondPart + thirdPart }} 
+            dangerouslySetInnerHTML={{ __html: parts[1] }} 
           />
-          <TikTokEmbed videoId="7604184715272228113" />
         </>
       );
     }
