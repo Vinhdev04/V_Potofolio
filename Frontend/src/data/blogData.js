@@ -7,6 +7,7 @@ export const blogPosts = [
     readTime: '5 min read',
     category: 'Tech',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    tiktokId: 2,
     content: `
       <p>React là một thư viện mạnh mẽ, nhưng nếu không chú ý đến hiệu suất, ứng dụng của bạn có thể trở nên chậm chạp. Dưới đây là các kỹ thuật quan trọng:</p>
       <h3>1. Memoization với React.memo, useMemo và useCallback</h3>
@@ -41,6 +42,7 @@ export const blogPosts = [
     readTime: '10 min read',
     category: 'Career',
     image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    tiktokId: 4,
     content: `
       <p>Trở thành Fullstack Developer là một hành trình dài. Dưới đây là lộ trình gợi ý:</p>
       <h3>Frontend</h3>
@@ -59,6 +61,7 @@ export const blogPosts = [
     readTime: '5 min read',
     category: 'CSS Cơ Bản',
     image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    tiktokId: 5,
     content: `
       <p class="intro-text">
         Bạn đã bao giờ set <code class="highlight-pink">width: 100px</code> cho một thẻ div, nhưng khi chạy lên nó lại to chà bá chưa? Nếu rồi, thì chào mừng bạn đến với cú lừa đầu đời mang tên CSS Box Model.
