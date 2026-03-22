@@ -13,7 +13,7 @@ import { socialLinks, contactInfo } from '@/data/socialData';
 import '@/assets/css/Footer.scss';
 
 const { Footer: AntFooter } = Layout;
-const { Text, Title } = Typography;
+const { Text, Title, Paragraph } = Typography;
 
 const Footer = () => {
   return (
