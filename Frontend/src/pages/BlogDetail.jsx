@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { blogPosts } from '@/data/blogData';
 import BoxModelInteractive from '@/components/blog/BoxModelInteractive';
 import RelatedPosts from '@/components/blog/RelatedPosts';
+import BlogContentRenderer from '@/components/blog/BlogContentRenderer';
 import '@/assets/css/Blog.scss';
 
 const { Title } = Typography;
@@ -29,6 +30,10 @@ const BlogDetail = () => {
   }
 
   const renderContent = () => {
+    if (post.isStructured) {
+      return <BlogContentRenderer content={post.content} />;
+    }
+
     if (post.id === 4) {
       // Split content to insert the interactive component
       const parts = post.content.split('<div id="interactive-box-model"></div>');
@@ -63,42 +68,47 @@ const BlogDetail = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       className="blog-detail-container"
-      style={{ padding: '120px 20px 50px', maxWidth: '800px', margin: '0 auto', color: '#8892b0' }}
+      style={{ padding: '120px 20px 50px', maxWidth: '1200px', margin: '0 auto', color: '#8892b0' }}
     >
-      <Button 
-        type="link" 
-        icon={<ArrowLeftOutlined />} 
-        onClick={() => navigate('/blog')}
-        style={{ marginBottom: '20px', paddingLeft: 0, color: '#64ffda', fontSize: '16px' }}
-      >
-        Quay lại Blog
-      </Button>
-      
-      <div className="blog-header" style={{ textAlign: 'left', marginBottom: '30px' }}>
-        <div className="blog-meta" style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>
-          <Tag color="#64ffda" style={{ color: '#0a192f', fontWeight: 'bold' }}>{post.category}</Tag>
-          <span><CalendarOutlined /> {post.date}</span>
-          <span><ClockCircleOutlined /> {post.readTime}</span>
-        </div>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <Button 
+          type="link" 
+          icon={<ArrowLeftOutlined />} 
+          onClick={() => navigate('/blog')}
+          style={{ marginBottom: '20px', paddingLeft: 0, color: '#64ffda', fontSize: '16px' }}
+        >
+          Quay lại Blog
+        </Button>
+        
+        <div className="blog-header" style={{ textAlign: 'left', marginBottom: '30px' }}>
+          <div className="blog-meta" style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <Tag color="#64ffda" style={{ color: '#0a192f', fontWeight: 'bold' }}>{post.category}</Tag>
+            <span><CalendarOutlined /> {post.date}</span>
+            <span><ClockCircleOutlined /> {post.readTime}</span>
+          </div>
 
-        <Title level={1} style={{ color: '#ccd6f6', marginBottom: '20px', fontSize: '2.5rem' }}>{post.title}</Title>
+          <Title level={1} style={{ color: '#ccd6f6', marginBottom: '20px', fontSize: '2.5rem' }}>{post.title}</Title>
+        </div>
       </div>
       
       <img 
         src={post.image} 
         alt={post.title} 
-        style={{ width: '100%', borderRadius: '12px', marginBottom: '40px', border: '1px solid rgba(100, 255, 218, 0.1)' }} 
+        style={{ width: '100%', borderRadius: '24px', marginBottom: '60px', border: '1px solid rgba(100, 255, 218, 0.1)', boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }} 
       />
 
-      {renderContent()}
+      <div className="w-full">
+        {renderContent()}
+      </div>
       
-      <RelatedPosts currentPostId={post.id} />
-      
-      <Divider style={{ borderColor: 'rgba(136, 146, 176, 0.2)', margin: '40px 0' }} />
-      
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <Title level={4} style={{ color: '#ccd6f6' }}>Chia sẻ bài viết này</Title>
-        {/* Social share buttons could go here */}
+      <div style={{ maxWidth: '1200px', margin: '80px auto 0' }}>
+        <RelatedPosts currentPostId={post.id} />
+        
+        <Divider style={{ borderColor: 'rgba(136, 146, 176, 0.2)', margin: '60px 0' }} />
+        
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <Title level={4} style={{ color: '#ccd6f6' }}>Chia sẻ bài viết này</Title>
+        </div>
       </div>
     </motion.div>
   );
