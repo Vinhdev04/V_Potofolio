@@ -50,6 +50,95 @@ export const blogPosts = [
       <h3>DevOps</h3>
       <p>Docker, CI/CD, AWS/Azure.</p>
     `
+  },
+  {
+    id: 4,
+    title: 'Giải Ngố CSS Box Model - "Trùm Cuối" Phỏng Vấn Frontend',
+    excerpt: 'Bạn đã bao giờ set width: 100px cho một thẻ div, nhưng khi chạy lên nó lại to chà bá chưa? Nếu rồi, thì chào mừng bạn đến với cú lừa đầu đời mang tên CSS Box Model.',
+    date: '2024-03-22',
+    readTime: '5 min read',
+    category: 'CSS Cơ Bản',
+    image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    content: `
+      <p class="text-xl leading-relaxed text-gray-500 mb-8">
+        Bạn đã bao giờ set <code>width: 100px</code> cho một thẻ div, nhưng khi chạy lên nó lại to chà bá chưa? Nếu rồi, thì chào mừng bạn đến với cú lừa đầu đời mang tên CSS Box Model.
+      </p>
+
+      <div id="interactive-box-model"></div>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">1. Cấu phẫu một chiếc "Hộp"</h2>
+      <p class="mb-4">Mọi phần tử trên HTML đều là một hình chữ nhật. Chiếc hộp này được cấu tạo từ 4 lớp từ trong ra ngoài:</p>
+      <ul class="space-y-3 mb-8 list-none pl-0">
+          <li class="flex items-start p-2 list-item-hover">
+              <span class="flex-shrink-0 h-6 w-6 rounded bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5"><i class="fa-solid fa-cube text-xs"></i></span>
+              <div><strong>Content (Lõi):</strong> Nơi chứa nội dung thực sự (chữ, hình ảnh). Kích thước của nó được quyết định bởi <code>width</code> và <code>height</code>.</div>
+          </li>
+          <li class="flex items-start p-2 list-item-hover">
+              <span class="flex-shrink-0 h-6 w-6 rounded bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5"><i class="fa-solid fa-compress text-xs"></i></span>
+              <div><strong>Padding (Lớp đệm):</strong> Không gian giữa Content và Border. Nó giống như lớp xốp chống sốc. Background của phần tử sẽ lan ra tận lớp này.</div>
+          </li>
+          <li class="flex items-start p-2 list-item-hover">
+              <span class="flex-shrink-0 h-6 w-6 rounded bg-yellow-100 text-yellow-600 flex items-center justify-center mr-3 mt-0.5"><i class="fa-regular fa-square text-xs"></i></span>
+              <div><strong>Border (Đường viền):</strong> Ranh giới của chiếc hộp.</div>
+          </li>
+          <li class="flex items-start p-2 list-item-hover">
+              <span class="flex-shrink-0 h-6 w-6 rounded bg-orange-100 text-orange-600 flex items-center justify-center mr-3 mt-0.5"><i class="fa-solid fa-arrows-up-down-left-right text-xs"></i></span>
+              <div><strong>Margin (Khoảng cách):</strong> Không gian bên ngoài cùng, dùng để đẩy chiếc hộp này ra xa các chiếc hộp khác xung quanh.</div>
+          </li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">2. "Điểm ăn tiền" khi phỏng vấn: box-sizing</h2>
+      <p class="mb-4">Câu hỏi kinh điển từ nhà tuyển dụng: <em>"Sự khác biệt giữa content-box và border-box là gì?"</em></p>
+      
+      <div class="grid sm:grid-cols-2 gap-6 mb-8">
+          <div class="bg-red-50 p-5 rounded-lg border border-red-100 transform transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <h4 class="font-bold text-red-800 mb-2 flex items-center"><i class="fa-solid fa-xmark mr-2"></i> content-box (Mặc định)</h4>
+              <p class="text-sm text-red-700 mb-4">Kích thước bạn set (width/height) CHỈ áp dụng cho phần Content. Nếu bạn thêm padding và border, tổng kích thước hộp sẽ phình to ra và phá vỡ layout.</p>
+              
+              <div class="bg-white p-3 rounded-md border border-red-200 font-mono text-sm">
+                  <div class="text-red-600 font-bold mb-2 border-b border-red-100 pb-1 text-xs uppercase tracking-wider">Công thức tính kích thước thực tế:</div>
+                  <div class="text-gray-800 leading-relaxed text-xs sm:text-sm">
+                      <span class="font-bold">Real_Width</span> = width + paddingX + borderX<br>
+                      <span class="font-bold">Real_Height</span> = height + paddingY + borderY
+                  </div>
+              </div>
+          </div>
+          <div class="bg-green-50 p-5 rounded-lg border border-green-100 transform transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <h4 class="font-bold text-green-800 mb-2 flex items-center"><i class="fa-solid fa-check mr-2"></i> border-box (Khuyên dùng)</h4>
+              <p class="text-sm text-green-700 mb-4">Kích thước bạn set là tổng kích thước của cả hộp (bao gồm cả content, padding, border). Trình duyệt sẽ tự động ép phần content nhỏ lại.</p>
+
+              <div class="bg-white p-3 rounded-md border border-green-200 font-mono text-sm">
+                  <div class="text-green-600 font-bold mb-2 border-b border-green-100 pb-1 text-xs uppercase tracking-wider">Công thức tính kích thước thực tế:</div>
+                  <div class="text-gray-800 leading-relaxed text-xs sm:text-sm">
+                      <span class="font-bold text-green-700">Real_Width</span> = width (đúng bằng CSS)<br>
+                      <span class="font-bold text-green-700">Real_Height</span> = height (đúng bằng CSS)
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="bg-gray-900 text-gray-100 p-5 rounded-lg shadow-inner mb-8 overflow-x-auto">
+          <div class="text-xs text-gray-400 mb-2 uppercase tracking-wider font-semibold">CSS Reset Chuẩn Thực Tế</div>
+          <pre class="font-mono text-sm leading-relaxed" style="color: #64ffda;"><code>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+      </div>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">3. Bẫy phỏng vấn: Margin Collapse</h2>
+      <p class="mb-4">Khi hai khối (block elements) đứng cạnh nhau theo chiều dọc, khoảng cách margin giữa chúng không được cộng dồn lại. Thay vào đó, chúng sẽ bị "hòa vào nhau" và lấy theo <strong>giá trị margin lớn hơn</strong>.</p>
+      
+      <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 hover:bg-blue-100 transition duration-300">
+          <p class="text-blue-800 m-0"><strong>Ví dụ:</strong> Khối A ở trên có <code>margin-bottom: 20px</code>. Khối B ở dưới có <code>margin-top: 30px</code>. Khoảng cách thực tế giữa A và B sẽ là <strong>30px</strong> (chứ không phải 50px).</p>
+      </div>
+
+      <hr class="my-8 border-gray-200">
+      
+      <p class="text-center font-medium text-gray-700">
+          Chúc các bạn ôn tập tốt và pass phỏng vấn thành công! 🚀
+      </p>
+    `
   }
 ];
 

@@ -4,6 +4,7 @@ import { Typography, Button, Tag, Divider } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
 import { blogPosts } from '@/data/blogData';
+import BoxModelInteractive from '@/components/blog/BoxModelInteractive';
 import '@/assets/css/Blog.scss';
 
 const { Title } = Typography;
@@ -25,6 +26,35 @@ const BlogDetail = () => {
       </div>
     );
   }
+
+  const renderContent = () => {
+    if (post.id === 4) {
+      // Split content to insert the interactive component
+      const parts = post.content.split('<div id="interactive-box-model"></div>');
+      return (
+        <>
+          <div 
+            className="blog-content"
+            style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#ccd6f6' }}
+            dangerouslySetInnerHTML={{ __html: parts[0] }} 
+          />
+          <BoxModelInteractive />
+          <div 
+            className="blog-content"
+            style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#ccd6f6' }}
+            dangerouslySetInnerHTML={{ __html: parts[1] }} 
+          />
+        </>
+      );
+    }
+    return (
+      <div 
+        className="blog-content"
+        style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#ccd6f6' }}
+        dangerouslySetInnerHTML={{ __html: post.content }} 
+      />
+    );
+  };
 
   return (
     <motion.div 
@@ -59,11 +89,7 @@ const BlogDetail = () => {
         style={{ width: '100%', borderRadius: '12px', marginBottom: '40px', border: '1px solid rgba(100, 255, 218, 0.1)' }} 
       />
 
-      <div 
-        className="blog-content"
-        style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#ccd6f6' }}
-        dangerouslySetInnerHTML={{ __html: post.content }} 
-      />
+      {renderContent()}
       
       <Divider style={{ borderColor: 'rgba(136, 146, 176, 0.2)', margin: '40px 0' }} />
       
