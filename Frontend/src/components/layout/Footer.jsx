@@ -23,22 +23,24 @@ const Footer = () => {
           {/* Brand Section */}
           <Col xs={24} md={8} lg={9}>
             <div className="footer-brand">
-              <Title level={3} className="brand-title">Vinhdev04</Title>
-              <Text className="brand-desc" display="block">
-                Chuyên xây dựng các ứng dụng web hiện đại, hiệu suất cao và trải nghiệm người dùng tối ưu. Luôn cập nhật công nghệ mới nhất để mang lại giá trị tốt nhất.
-              </Text>
+              <Title level={2} className="brand-title">
+                <span>Vinh</span>dev04
+              </Title>
+              <Paragraph className="brand-desc">
+                Chuyên xây dựng các ứng dụng web <strong>hiện đại</strong>, hiệu suất cao và trải nghiệm người dùng <strong>tối ưu</strong>. Luôn cập nhật công nghệ mới nhất để mang lại giá trị tốt nhất.
+              </Paragraph>
               
-              <div className="social-links" style={{ marginTop: '20px' }}>
+              <div className="social-links">
                 {socialLinks.map((social, index) => (
-                  <Tooltip title={social.name} key={index}>
+                  <Tooltip title={social.name} key={index} color={social.color}>
                     <a 
                       href={social.link} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="social-btn"
-                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+                      style={{ '--hover-color': social.color }}
                     >
-                      {React.cloneElement(social.icon, { size: 20 })}
+                      {social.icon}
                     </a>
                   </Tooltip>
                 ))}

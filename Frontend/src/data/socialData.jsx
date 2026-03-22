@@ -5,25 +5,13 @@ import { SiZalo } from 'react-icons/si';
 export const socialLinks = [
   {
     id: 1,
-    name: 'TikTok (Học tập)',
+    name: 'TikTok',
     handle: '@devcraftt',
     link: 'https://www.tiktok.com/@devcraftt?is_from_webapp=1&sender_device=pc',
     icon: <FaTiktok size={40} />,
-    color: '#000000',
+    color: '#FE2C55',
     description: 'Phục vụ học tập, chia sẻ kiến thức lập trình.',
     followers: '450',
-    statLabel: 'Followers',
-    category: 'Video ngắn'
-  },
-  {
-    id: 2,
-    name: 'TikTok (Giải trí)',
-    handle: '@congvinhhere',
-    link: 'https://www.tiktok.com/@congvinhhere?is_from_webapp=1&sender_device=pc',
-    icon: <FaTiktok size={40} />,
-    color: '#FE2C55',
-    description: 'Kênh TikTok giải trí cá nhân.',
-    followers: '2K+',
     statLabel: 'Followers',
     category: 'Video ngắn'
   },
@@ -38,30 +26,6 @@ export const socialLinks = [
     followers: '5K+',
     statLabel: 'Friends',
     category: 'Mạng xã hội'
-  },
-  {
-    id: 4,
-    name: 'Instagram',
-    handle: '@its_me_vinh',
-    link: 'https://www.instagram.com/its_me_vinh/',
-    icon: <FaInstagram size={40} />,
-    color: '#E4405F',
-    description: 'Những khoảnh khắc đời thường và behind-the-scenes.',
-    followers: '750',
-    statLabel: 'Followers',
-    category: 'Hình ảnh'
-  },
-  {
-    id: 5,
-    name: 'Locket',
-    handle: 'locket.cam',
-    link: 'https://locket.cam',
-    icon: <FaCamera size={40} />,
-    color: '#FFB800',
-    description: 'Chia sẻ khoảnh khắc với bạn bè thân thiết.',
-    followers: '30',
-    statLabel: 'Members',
-    category: 'Hình ảnh'
   },
   {
     id: 6,
@@ -101,26 +65,14 @@ export const socialLinks = [
   },
   {
     id: 9,
-    name: 'Gmail',
-    handle: 'pcv.fed@gmail.com',
-    link: 'mailto:pcv.fed@gmail.com',
+    name: 'Email',
+    handle: 'vinhpham.dev@gmail.com',
+    link: 'mailto:vinhpham.dev@gmail.com',
     icon: <FaEnvelope size={40} />,
-    color: '#EA4335',
-    description: 'Liên hệ trực tiếp qua Email cho công việc.',
-    followers: 'Contact Me',
-    statLabel: 'Via Email',
-    category: 'Liên hệ'
-  },
-  {
-    id: 10,
-    name: 'Zalo',
-    handle: '0352032375',
-    link: 'https://zalo.me/0352032375',
-    icon: <SiZalo size={40} />,
-    color: '#0068FF',
-    description: 'Nhắn tin hoặc gọi điện trực tiếp qua Zalo.',
-    followers: 'Contact Me',
-    statLabel: 'Via Zalo',
+    color: '#D44638',
+    description: 'Liên hệ công việc qua email.',
+    followers: '-',
+    statLabel: '-',
     category: 'Liên hệ'
   }
 ];
