@@ -143,6 +143,72 @@ export const blogPosts = [
           Chúc các bạn ôn tập tốt và pass phỏng vấn thành công! 🚀
       </p>
     `
+  },
+  {
+    id: 5,
+    title: 'Ngữ Nghĩa Học Trong HTML & Kiến Trúc Trải Nghiệm Web Hiện Đại',
+    excerpt: 'Phân tích tác động toàn diện từ SEO, Khả năng tiếp cận đến sự sẵn sàng cho kỷ nguyên AI thông qua Semantic HTML.',
+    date: '2024-03-23',
+    readTime: '8 min read',
+    category: 'HTML Ngữ Nghĩa',
+    image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    content: `
+      <p class="intro-text">
+        Trong khoa học máy tính, <strong>"ngữ nghĩa" (semantics)</strong> biểu thị ý nghĩa nội tại và mục đích cốt lõi của mã, tách biệt hoàn toàn khỏi hình thức hiển thị. 
+        <span class="highlight-pink">HTML Ngữ nghĩa (POSH)</span> không chỉ là code, nó là một triết lý kiến trúc khắt khe.
+      </p>
+
+      <h2 class="section-title">1. Nền Tảng Triết Học & Sự Tiến Hóa</h2>
+      <p>Sự ra đời của HTML5 đã vĩnh viễn thay đổi mô hình bằng cách giới thiệu các phần tử cấu trúc mang đậm tính ngữ nghĩa.</p>
+      
+      <div class="box-card border-box-card mb-8">
+        <h4 class="card-title green"><i class="fa-solid fa-check"></i> HTML5: Bước ngoặt 2014</h4>
+        <ul class="box-model-list">
+          <li class="list-item-hover">
+            <span class="icon-box blue"><i class="fa-solid fa-tag"></i></span>
+            <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="section-title">2. Kiến Trúc Landmarks & Hệ Thống Phân Cấp</h2>
+      <p>Để cấu trúc một trang web có ý nghĩa, nhà phát triển phải phân bổ các khối nội dung vào đúng các <strong>"điểm mốc" (landmarks)</strong>.</p>
+      
+      <div class="comparison-grid">
+        <div class="box-card content-box-card">
+          <h4 class="card-title blue">&lt;header&gt; & &lt;nav&gt;</h4>
+          <p>Vai trò banner toàn cục và chứa các liên kết điều hướng chính, hỗ trợ cực tốt cho Screen Readers.</p>
+        </div>
+        <div class="box-card border-box-card">
+          <h4 class="card-title green">&lt;main&gt; & &lt;article&gt;</h4>
+          <p>Trái tim của trang web và các nội dung độc lập, có khả năng tái sử dụng cao.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">3. SEO & Accessibility</h2>
+      <div class="example-highlight-box">
+        <p><strong>Sự thật thú vị:</strong> 71.6% người khiếm thị điều hướng bằng cách nhảy qua các tiêu đề. Sử đúng cấu trúc Heading (H1-H6) là chìa khóa của khả năng tiếp cận.</p>
+      </div>
+
+      <div class="code-reset-block">
+        <div class="code-label">Ví dụ Cấu trúc Chuẩn</div>
+        <pre class="code-pre"><code><span class="prop">&lt;main&gt;</span>
+  <span class="prop">&lt;article&gt;</span>
+    <span class="prop">&lt;h1&gt;</span>Tiêu đề bài viết<span class="prop">&lt;/h1&gt;</span>
+    <span class="prop">&lt;section&gt;</span>...<span class="prop">&lt;/section&gt;</span>
+  <span class="prop">&lt;/article&gt;</span>
+<span class="prop">&lt;/main&gt;</span></code></pre>
+      </div>
+
+      <h2 class="section-title">4. Sự Sẵn Sàng Cho Trí Tuệ Nhân Tạo (AI)</h2>
+      <p>Trong kỷ nguyên 2025-2026, AI Readiness không còn là tùy chọn. HTML Ngữ nghĩa cung cấp luồng dữ liệu thô đã được làm giàu sẵn bởi phân cấp con người, giúp AI hiểu nội dung chính xác hơn.</p>
+
+      <hr class="divider">
+      
+      <p class="closing-text">
+        "Sự thanh lịch của một cấu trúc mã là trụ cột cho tính bền vững của sinh thái mạng toàn cầu." 🚀
+      </p>
+    `
   }
 ];
 

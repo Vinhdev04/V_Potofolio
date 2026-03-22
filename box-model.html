@@ -1,0 +1,718 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  BookOpen, 
+  Layers, 
+  Target, 
+  Accessibility, 
+  Cpu, 
+  Search, 
+  AlertTriangle, 
+  CheckCircle2, 
+  Info,
+  ChevronRight,
+  Code2,
+  Globe
+} from 'lucide-react';
+
+const SectionTitle = ({ children, icon: Icon }) => (
+  <div className="flex items-center gap-3 mb-6 mt-12 border-b border-slate-200 pb-4">
+    <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
+      <Icon size={24} />
+    </div>
+    <h2 className="text-2xl font-bold text-slate-800">{children}</h2>
+  </div>
+);
+
+const Card = ({ title, children, color = "blue" }) => {
+  const colors = {
+    blue: "border-blue-500 bg-blue-50/50",
+    amber: "border-amber-500 bg-amber-50/50",
+    emerald: "border-emerald-500 bg-emerald-50/50",
+    rose: "border-rose-500 bg-rose-50/50",
+    indigo: "border-indigo-500 bg-indigo-50/50"
+  };
+
+  return (
+    <div className={`p-6 rounded-xl border-l-4 shadow-sm mb-6 transition-all hover:shadow-md ${colors[color]}`}>
+      {title && <h3 className="text-lg font-bold mb-3 text-slate-800 flex items-center gap-2 uppercase tracking-wide text-sm">{title}</h3>}
+      <div className="text-slate-700 leading-relaxed">{children}</div>
+    </div>
+  );
+};
+
+const ComparisonTable = () => (
+  <div className="overflow-x-auto my-8 rounded-xl border border-slate-200 shadow-sm">
+    <table className="w-full text-left border-collapse">
+      <thead>
+        <tr className="bg-slate-800 text-white">
+          <th className="p-4 font-semibold border-b border-slate-700">Đặc Điểm Phân Tích</th>
+          <th className="p-4 font-semibold border-b border-slate-700">Kỷ nguyên HTML4</th>
+          <th className="p-4 font-semibold border-b border-slate-700">Kỷ nguyên HTML5</th>
+          <th className="p-4 font-semibold border-b border-slate-700">XHTML</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-slate-200">
+        <tr className="hover:bg-slate-50 transition-colors">
+          <td className="p-4 font-medium text-slate-900">Cấu trúc khung</td>
+          <td className="p-4 text-slate-600 italic">Phụ thuộc div/span, ID/Class thủ công.</td>
+          <td className="p-4 text-slate-800 font-semibold">Tích hợp thẻ điểm mốc: header, main, article...</td>
+          <td className="p-4 text-slate-600">Kế thừa cũ nhưng áp XML khắt khe.</td>
+        </tr>
+        <tr className="hover:bg-slate-50 transition-colors">
+          <td className="p-4 font-medium text-slate-900">Linh hoạt cú pháp</td>
+          <td className="p-4 text-slate-600">Tương đối lỏng lẻo.</td>
+          <td className="p-4 text-slate-800 font-semibold">Linh hoạt, tối ưu cho con người và máy.</td>
+          <td className="p-4 text-slate-600 font-bold text-red-600 text-xs">CỰC KỲ NGHIÊM NGẶT.</td>
+        </tr>
+        <tr className="hover:bg-slate-50 transition-colors">
+          <td className="p-4 font-medium text-slate-900">Đa phương tiện</td>
+          <td className="p-4 text-slate-600 italic">Dựa vào Flash/Plugins bên thứ ba.</td>
+          <td className="p-4 text-slate-800 font-semibold text-emerald-600">Hỗ trợ gốc: video, audio, canvas.</td>
+          <td className="p-4 text-slate-600">Hạn chế các phần tử gốc đặc thù.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+);
+
+const App = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Hero Section */}
+      <header className="bg-slate-900 text-white py-20 px-6 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-1/2 h-1/2 bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-1/2 h-1/2 bg-emerald-500 rounded-full blur-[120px]"></div>
+        </div>
+        
+        <div className="max-w-5xl mx-auto relative z-10 text-center">
+          <div className="inline-block px-4 py-1 bg-blue-600/30 border border-blue-400/30 rounded-full text-blue-300 text-sm font-semibold mb-6 animate-pulse">
+            RESEARCH REPORT 2025
+          </div>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight leading-tight">
+            Ngữ Nghĩa Học Trong HTML & <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 italic">
+              Kiến Trúc Trải Nghiệm Web Hiện Đại
+            </span>
+          </h1>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light">
+            Phân tích tác động toàn diện từ SEO, Khả năng tiếp cận đến sự sẵn sàng cho kỷ nguyên AI.
+          </p>
+        </div>
+      </header>
+
+      <main className="max-w-5xl mx-auto px-6 py-12">
+        
+        {/* Triết lý & Tiến hóa */}
+        <section>
+          <SectionTitle icon={BookOpen}>Nền Tảng Triết Học & Sự Tiến Hóa</SectionTitle>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <p className="text-lg leading-relaxed text-slate-700">
+                Trong khoa học máy tính, <strong>"ngữ nghĩa" (semantics)</strong> biểu thị ý nghĩa nội tại và mục đích cốt lõi của mã, tách biệt hoàn toàn khỏi hình thức hiển thị. 
+                <span className="text-blue-600 font-semibold"> HTML Ngữ nghĩa (POSH)</span> không chỉ là code, nó là một triết lý kiến trúc khắt khe.
+              </p>
+              <Card title="Hệ quả của 'Div Soup'" color="rose">
+                Lạm dụng thẻ vô định khiến trình phân tích không thể nhận biết đâu là thanh điều hướng, đâu là nội dung. Một cấu trúc phi ngữ nghĩa chỉ là một danh sách phẳng không có sơ đồ kiến trúc.
+              </Card>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
+              <div className="flex items-center gap-2 mb-4 text-emerald-600 font-bold">
+                <CheckCircle2 size={20} />
+                <span>HTML5: Bước ngoặt 2014</span>
+              </div>
+              <p className="text-slate-600 mb-4 italic text-sm">
+                Sự ra đời của HTML5 đã vĩnh viễn thay đổi mô hình bằng cách giới thiệu các phần tử cấu trúc mang đậm tính ngữ nghĩa.
+              </p>
+              <ul className="space-y-3">
+                {['header', 'nav', 'main', 'article', 'section', 'footer'].map(tag => (
+                  <li key={tag} className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                    <code className="bg-slate-100 px-2 py-0.5 rounded text-blue-700 font-bold">&lt;{tag}&gt;</code>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <ComparisonTable />
+        </section>
+
+        {/* Kiến trúc Landmarks */}
+        <section>
+          <SectionTitle icon={Layers}>Cấu Trúc Landmarks & Hệ Thống Phân Cấp</SectionTitle>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="md:col-span-2 space-y-4">
+              <p className="text-slate-700 leading-relaxed">
+                Để cấu trúc một trang web có ý nghĩa, nhà phát triển phải phân bổ các khối nội dung vào đúng các <strong>"điểm mốc" (landmarks)</strong>. 
+                Chúng cung cấp bộ khung máy có thể đọc được (machine-readable), thiết lập ranh giới chức năng rõ ràng.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                  <h4 className="font-bold text-blue-600 mb-1">&lt;header&gt;</h4>
+                  <p className="text-xs text-slate-500 italic">Vai trò "banner" toàn cục hoặc giới thiệu cục bộ.</p>
+                </div>
+                <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                  <h4 className="font-bold text-emerald-600 mb-1">&lt;nav&gt;</h4>
+                  <p className="text-xs text-slate-500">Chứa các liên kết chính, hỗ trợ Screen Readers.</p>
+                </div>
+                <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                  <h4 className="font-bold text-amber-600 mb-1">&lt;main&gt;</h4>
+                  <p className="text-xs text-slate-500">Trái tim của trang. Duy nhất một thẻ hoạt động.</p>
+                </div>
+                <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                  <h4 className="font-bold text-rose-600 mb-1">&lt;aside&gt;</h4>
+                  <p className="text-xs text-slate-500 italic">Nội dung bổ trợ (Complementary). Có thể bị loại bỏ mà không mất nghĩa chính.</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-slate-800 p-6 rounded-2xl text-slate-300 shadow-2xl relative overflow-hidden">
+               <div className="absolute top-0 right-0 p-4 opacity-20">
+                <Info size={40} />
+               </div>
+               <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                 <Target size={18} className="text-blue-400" /> Vai Trò Ẩn Định (ARIA Roles)
+               </h4>
+               <p className="text-sm leading-relaxed">
+                 Mọi phần tử ngữ nghĩa đều mang trong mình một vai trò ngầm định. Ví dụ: 
+                 <br/><br/>
+                 <code className="text-blue-300">&lt;main&gt;</code> tương đương <code className="text-emerald-300">role="main"</code>.
+                 <br/><br/>
+                 Điều này giúp trình duyệt tự động phân loại khối lượng thông tin khổng lồ cho các công cụ hỗ trợ.
+               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Article vs Section */}
+        <section className="mt-16">
+          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative">
+            <h3 className="text-2xl font-bold mb-8 text-center text-slate-800">Phân Phối Nội Dung: Article vs Section</h3>
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="relative p-6 border-2 border-dashed border-blue-200 rounded-2xl">
+                <div className="absolute -top-4 left-6 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                  &lt;section&gt;
+                </div>
+                <p className="mb-4 text-slate-700 italic">"Nhóm các khối nội dung có sự liên kết chặt chẽ về mặt chủ đề."</p>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex gap-2"><ChevronRight size={16} className="text-blue-500 shrink-0"/> Cần có tiêu đề (heading) đi kèm.</li>
+                  <li className="flex gap-2"><ChevronRight size={16} className="text-blue-500 shrink-0"/> Tính tự trị thấp.</li>
+                  <li className="flex gap-2"><ChevronRight size={16} className="text-blue-500 shrink-0"/> Không bóc tách độc lập được.</li>
+                </ul>
+              </div>
+
+              <div className="relative p-6 border-2 border-dashed border-emerald-200 rounded-2xl">
+                <div className="absolute -top-4 left-6 bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                  &lt;article&gt;
+                </div>
+                <p className="mb-4 text-slate-700 italic font-medium">"Một tác phẩm hoàn chỉnh, tự chứa (self-contained)."</p>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0"/> Khả năng tái phân phối (syndication) cao.</li>
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0"/> Có thể đứng độc lập (Blog, tin tức, card sản phẩm).</li>
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0"/> Có thể lồng ghép lẫn nhau hợp lệ.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO & H1 Debate */}
+        <section>
+          <SectionTitle icon={Search}>SEO & Cuộc Tranh Luận Hệ Thống Tiêu Đề</SectionTitle>
+          <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl border border-blue-100">
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="flex-1">
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Dù Google (John Mueller) khẳng định thuật toán hiện đại xử lý được nhiều thẻ <code>&lt;h1&gt;</code>, thực tiễn tốt nhất vẫn là <strong>một H1 duy nhất</strong>.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex gap-4 p-4 bg-white rounded-lg shadow-sm border-l-4 border-emerald-500">
+                    <Info className="text-emerald-500 shrink-0" />
+                    <div>
+                      <p className="font-bold text-slate-800">Tín hiệu rõ ràng (Clarity Signal)</p>
+                      <p className="text-sm text-slate-600">Tạo sự đồng bộ tuyệt đối giữa Title Tag, URL và nội dung trang.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 p-4 bg-white rounded-lg shadow-sm border-l-4 border-amber-500">
+                    <Accessibility className="text-amber-500 shrink-0" />
+                    <div>
+                      <p className="font-bold text-slate-800">Mô hình nhận thức</p>
+                      <p className="text-sm text-slate-600">71.6% người khiếm thị điều hướng bằng cách nhảy qua các tiêu đề.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full md:w-64 h-64 bg-slate-200 rounded-full flex items-center justify-center border-8 border-white shadow-lg overflow-hidden relative">
+                <div className="text-center">
+                  <div className="text-5xl font-black text-blue-600">H1</div>
+                  <div className="text-xs uppercase tracking-widest text-slate-500 mt-2">Single Node</div>
+                </div>
+                <div className="absolute inset-0 border-4 border-blue-200 rounded-full animate-ping opacity-20"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Accessibility & AOM */}
+        <section>
+          <SectionTitle icon={Accessibility}>Accessibility & Mô Hình Đối Tượng AOM</SectionTitle>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card title="AOM - Cây Khả Năng Tiếp Cận" color="indigo">
+              Khi trình duyệt phân tích HTML, nó tạo ra một cấu trúc dữ liệu tàng hình gọi là <strong>Accessibility Object Model (AOM)</strong>. Đây là phiên bản cô đọng, giàu ngữ nghĩa của DOM dành riêng cho Screen Readers.
+            </Card>
+            <div className="p-6 bg-slate-900 rounded-2xl text-blue-400 font-mono text-sm leading-relaxed shadow-xl">
+              <div className="text-slate-500 mb-2">// Trình đọc màn hình nhìn thấy gì?</div>
+              <div>&lt;nav&gt; <span className="text-slate-500">→ "Bắt đầu vùng điều hướng"</span></div>
+              <div className="pl-4">&lt;ul&gt; <span className="text-slate-500">→ "Danh sách gồm 5 mục"</span></div>
+              <div className="pl-8">&lt;li&gt;Trang chủ&lt;/li&gt;</div>
+              <div className="pl-8">&lt;li&gt;Dịch vụ&lt;/li&gt;</div>
+              <div className="text-slate-500 mt-2">// Nếu dùng div:</div>
+              <div className="text-rose-400">&lt;div&gt; <span className="text-slate-500">→ (Im lặng / Văn bản phẳng)</span></div>
+            </div>
+          </div>
+          
+          <div className="mt-8 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+            <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2">
+              <Code2 size={20} /> Quản Lý Tiêu Điểm (Focus Management)
+            </h4>
+            <p className="text-slate-700 text-sm leading-relaxed">
+              Các phần tử ngữ nghĩa tương tác (<code className="bg-white px-1">button</code>, <code className="bg-white px-1">input</code>) tự động gia nhập chuỗi Tab. 
+              Sử dụng <code>div</code> làm nút bấm là khởi đầu cho một cơn ác mộng bảo trì: bạn phải giả lập <code>tabindex</code>, sự kiện KeyDown và hành vi click.
+            </p>
+          </div>
+        </section>
+
+        {/* ARIA Rules */}
+        <section>
+          <SectionTitle icon={AlertTriangle}>4 Nguyên Tắc Vàng Của WAI-ARIA</SectionTitle>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { id: 1, title: "Tối Thượng Của Yếu Tố Gốc", content: "Nếu có thẻ HTML gốc cung cấp sẵn chức năng, BẮT BUỘC phải dùng nó thay vì ARIA roles." },
+              { id: 2, title: "Cấm Phá Vỡ Ngữ Nghĩa Gốc", content: "Nghiêm cấm việc thay đổi hoặc ghi đè ngữ nghĩa của các phần tử gốc." },
+              { id: 3, title: "Ràng Buộc Bàn Phím", content: "Mọi widget động dán nhãn ARIA phải được kịch bản hóa để xử lý đầy đủ phím Enter, Space..." },
+              { id: 4, title: "Cấm Che Dấu Tiêu Điểm", content: "Không dùng aria-hidden='true' lên các thành phần đang nằm trong chu kỳ tab." }
+            ].map(rule => (
+              <div key={rule.id} className="p-5 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-blue-300 transition-colors">
+                <div className="text-blue-600 font-black text-xl mb-1">#0{rule.id}</div>
+                <h5 className="font-bold text-slate-800 mb-2 uppercase text-xs tracking-wider">{rule.title}</h5>
+                <p className="text-sm text-slate-600 leading-relaxed">{rule.content}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-center italic text-slate-500 text-sm">
+            "Không có ARIA còn tốt hơn là ARIA tồi."
+          </p>
+        </section>
+
+        {/* AI Readiness */}
+        <section>
+          <SectionTitle icon={Cpu}>Sự Sẵn Sàng Cho Trí Tuệ Nhân Tạo (AI)</SectionTitle>
+          <Card color="emerald">
+            <p className="text-lg font-medium mb-4">Trong kỷ nguyên 2025-2026, AI Readiness không còn là tùy chọn.</p>
+            <div className="space-y-4 text-sm">
+              <p>
+                <strong>Phân tách MC (Main Content) & SC (Supplementary Content):</strong> Giúp Crawlers tiết kiệm tài nguyên (Crawl budget) và tập trung lập chỉ mục vào khu vực quan trọng nhất.
+              </p>
+              <p>
+                <strong>Trải nghiệm SGE (Search Generative Experiences):</strong> Các LLM cào dữ liệu dựa trên các tín hiệu chủ ý nội dung. HTML Ngữ nghĩa cung cấp luồng dữ liệu thô đã được làm giàu sẵn bởi phân cấp con người.
+              </p>
+            </div>
+          </Card>
+        </section>
+
+        {/* Conclusion */}
+        <section className="mt-20 border-t-2 border-slate-200 pt-12 mb-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <Globe className="mx-auto text-blue-500 mb-6" size={48} />
+            <h2 className="text-3xl font-bold text-slate-800 mb-6">Tổng Kết</h2>
+            <p className="text-slate-600 leading-relaxed italic">
+              "Sự thanh lịch của một cấu trúc mã không phải là sở thích thẩm mỹ cá nhân, mà là trụ cột chịu lực cho toàn bộ tính bền vững của sinh thái mạng toàn cầu. Semantic HTML trực tiếp giải mã và tối ưu hóa hệ quy chiếu tương tác kép giữa AI và Con Người."
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-slate-900 text-slate-500 py-12 px-6 border-t border-slate-800">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold">H5</div>
+            <span className="font-bold text-slate-300">Semantic HTML Report</span>
+          </div>
+          <div className="text-xs">
+            © 2025 Deep Research Report. All rights reserved.
+          </div>
+          <div className="flex gap-4 text-sm">
+            <a href="#" className="hover:text-blue-400 transition-colors">Documentation</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">WCAG Standards</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">SEO Guidelines</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;import React, { useState, useEffect } from 'react';
+import { 
+  BookOpen, 
+  Layers, 
+  Target, 
+  Accessibility, 
+  Cpu, 
+  Search, 
+  AlertTriangle, 
+  CheckCircle2, 
+  Info,
+  ChevronRight,
+  Code2,
+  Globe
+} from 'lucide-react';
+
+const SectionTitle = ({ children, icon: Icon }) => (
+  <div className="flex items-center gap-3 mb-6 mt-12 border-b border-slate-200 pb-4">
+    <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
+      <Icon size={24} />
+    </div>
+    <h2 className="text-2xl font-bold text-slate-800">{children}</h2>
+  </div>
+);
+
+const Card = ({ title, children, color = "blue" }) => {
+  const colors = {
+    blue: "border-blue-500 bg-blue-50/50",
+    amber: "border-amber-500 bg-amber-50/50",
+    emerald: "border-emerald-500 bg-emerald-50/50",
+    rose: "border-rose-500 bg-rose-50/50",
+    indigo: "border-indigo-500 bg-indigo-50/50"
+  };
+
+  return (
+    <div className={`p-6 rounded-xl border-l-4 shadow-sm mb-6 transition-all hover:shadow-md ${colors[color]}`}>
+      {title && <h3 className="text-lg font-bold mb-3 text-slate-800 flex items-center gap-2 uppercase tracking-wide text-sm">{title}</h3>}
+      <div className="text-slate-700 leading-relaxed">{children}</div>
+    </div>
+  );
+};
+
+const ComparisonTable = () => (
+  <div className="overflow-x-auto my-8 rounded-xl border border-slate-200 shadow-sm">
+    <table className="w-full text-left border-collapse">
+      <thead>
+        <tr className="bg-slate-800 text-white">
+          <th className="p-4 font-semibold border-b border-slate-700">Đặc Điểm Phân Tích</th>
+          <th className="p-4 font-semibold border-b border-slate-700">Kỷ nguyên HTML4</th>
+          <th className="p-4 font-semibold border-b border-slate-700">Kỷ nguyên HTML5</th>
+          <th className="p-4 font-semibold border-b border-slate-700">XHTML</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-slate-200">
+        <tr className="hover:bg-slate-50 transition-colors">
+          <td className="p-4 font-medium text-slate-900">Cấu trúc khung</td>
+          <td className="p-4 text-slate-600 italic">Phụ thuộc div/span, ID/Class thủ công.</td>
+          <td className="p-4 text-slate-800 font-semibold">Tích hợp thẻ điểm mốc: header, main, article...</td>
+          <td className="p-4 text-slate-600">Kế thừa cũ nhưng áp XML khắt khe.</td>
+        </tr>
+        <tr className="hover:bg-slate-50 transition-colors">
+          <td className="p-4 font-medium text-slate-900">Linh hoạt cú pháp</td>
+          <td className="p-4 text-slate-600">Tương đối lỏng lẻo.</td>
+          <td className="p-4 text-slate-800 font-semibold">Linh hoạt, tối ưu cho con người và máy.</td>
+          <td className="p-4 text-slate-600 font-bold text-red-600 text-xs">CỰC KỲ NGHIÊM NGẶT.</td>
+        </tr>
+        <tr className="hover:bg-slate-50 transition-colors">
+          <td className="p-4 font-medium text-slate-900">Đa phương tiện</td>
+          <td className="p-4 text-slate-600 italic">Dựa vào Flash/Plugins bên thứ ba.</td>
+          <td className="p-4 text-slate-800 font-semibold text-emerald-600">Hỗ trợ gốc: video, audio, canvas.</td>
+          <td className="p-4 text-slate-600">Hạn chế các phần tử gốc đặc thù.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+);
+
+const App = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Hero Section */}
+      <header className="bg-slate-900 text-white py-20 px-6 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-1/2 h-1/2 bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-1/2 h-1/2 bg-emerald-500 rounded-full blur-[120px]"></div>
+        </div>
+        
+        <div className="max-w-5xl mx-auto relative z-10 text-center">
+          <div className="inline-block px-4 py-1 bg-blue-600/30 border border-blue-400/30 rounded-full text-blue-300 text-sm font-semibold mb-6 animate-pulse">
+            RESEARCH REPORT 2025
+          </div>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight leading-tight">
+            Ngữ Nghĩa Học Trong HTML & <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 italic">
+              Kiến Trúc Trải Nghiệm Web Hiện Đại
+            </span>
+          </h1>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light">
+            Phân tích tác động toàn diện từ SEO, Khả năng tiếp cận đến sự sẵn sàng cho kỷ nguyên AI.
+          </p>
+        </div>
+      </header>
+
+      <main className="max-w-5xl mx-auto px-6 py-12">
+        
+        {/* Triết lý & Tiến hóa */}
+        <section>
+          <SectionTitle icon={BookOpen}>Nền Tảng Triết Học & Sự Tiến Hóa</SectionTitle>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <p className="text-lg leading-relaxed text-slate-700">
+                Trong khoa học máy tính, <strong>"ngữ nghĩa" (semantics)</strong> biểu thị ý nghĩa nội tại và mục đích cốt lõi của mã, tách biệt hoàn toàn khỏi hình thức hiển thị. 
+                <span className="text-blue-600 font-semibold"> HTML Ngữ nghĩa (POSH)</span> không chỉ là code, nó là một triết lý kiến trúc khắt khe.
+              </p>
+              <Card title="Hệ quả của 'Div Soup'" color="rose">
+                Lạm dụng thẻ vô định khiến trình phân tích không thể nhận biết đâu là thanh điều hướng, đâu là nội dung. Một cấu trúc phi ngữ nghĩa chỉ là một danh sách phẳng không có sơ đồ kiến trúc.
+              </Card>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
+              <div className="flex items-center gap-2 mb-4 text-emerald-600 font-bold">
+                <CheckCircle2 size={20} />
+                <span>HTML5: Bước ngoặt 2014</span>
+              </div>
+              <p className="text-slate-600 mb-4 italic text-sm">
+                Sự ra đời của HTML5 đã vĩnh viễn thay đổi mô hình bằng cách giới thiệu các phần tử cấu trúc mang đậm tính ngữ nghĩa.
+              </p>
+              <ul className="space-y-3">
+                {['header', 'nav', 'main', 'article', 'section', 'footer'].map(tag => (
+                  <li key={tag} className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                    <code className="bg-slate-100 px-2 py-0.5 rounded text-blue-700 font-bold">&lt;{tag}&gt;</code>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <ComparisonTable />
+        </section>
+
+        {/* Kiến trúc Landmarks */}
+        <section>
+          <SectionTitle icon={Layers}>Cấu Trúc Landmarks & Hệ Thống Phân Cấp</SectionTitle>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="md:col-span-2 space-y-4">
+              <p className="text-slate-700 leading-relaxed">
+                Để cấu trúc một trang web có ý nghĩa, nhà phát triển phải phân bổ các khối nội dung vào đúng các <strong>"điểm mốc" (landmarks)</strong>. 
+                Chúng cung cấp bộ khung máy có thể đọc được (machine-readable), thiết lập ranh giới chức năng rõ ràng.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                  <h4 className="font-bold text-blue-600 mb-1">&lt;header&gt;</h4>
+                  <p className="text-xs text-slate-500 italic">Vai trò "banner" toàn cục hoặc giới thiệu cục bộ.</p>
+                </div>
+                <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                  <h4 className="font-bold text-emerald-600 mb-1">&lt;nav&gt;</h4>
+                  <p className="text-xs text-slate-500">Chứa các liên kết chính, hỗ trợ Screen Readers.</p>
+                </div>
+                <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                  <h4 className="font-bold text-amber-600 mb-1">&lt;main&gt;</h4>
+                  <p className="text-xs text-slate-500">Trái tim của trang. Duy nhất một thẻ hoạt động.</p>
+                </div>
+                <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                  <h4 className="font-bold text-rose-600 mb-1">&lt;aside&gt;</h4>
+                  <p className="text-xs text-slate-500 italic">Nội dung bổ trợ (Complementary). Có thể bị loại bỏ mà không mất nghĩa chính.</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-slate-800 p-6 rounded-2xl text-slate-300 shadow-2xl relative overflow-hidden">
+               <div className="absolute top-0 right-0 p-4 opacity-20">
+                <Info size={40} />
+               </div>
+               <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                 <Target size={18} className="text-blue-400" /> Vai Trò Ẩn Định (ARIA Roles)
+               </h4>
+               <p className="text-sm leading-relaxed">
+                 Mọi phần tử ngữ nghĩa đều mang trong mình một vai trò ngầm định. Ví dụ: 
+                 <br/><br/>
+                 <code className="text-blue-300">&lt;main&gt;</code> tương đương <code className="text-emerald-300">role="main"</code>.
+                 <br/><br/>
+                 Điều này giúp trình duyệt tự động phân loại khối lượng thông tin khổng lồ cho các công cụ hỗ trợ.
+               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Article vs Section */}
+        <section className="mt-16">
+          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative">
+            <h3 className="text-2xl font-bold mb-8 text-center text-slate-800">Phân Phối Nội Dung: Article vs Section</h3>
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="relative p-6 border-2 border-dashed border-blue-200 rounded-2xl">
+                <div className="absolute -top-4 left-6 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                  &lt;section&gt;
+                </div>
+                <p className="mb-4 text-slate-700 italic">"Nhóm các khối nội dung có sự liên kết chặt chẽ về mặt chủ đề."</p>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex gap-2"><ChevronRight size={16} className="text-blue-500 shrink-0"/> Cần có tiêu đề (heading) đi kèm.</li>
+                  <li className="flex gap-2"><ChevronRight size={16} className="text-blue-500 shrink-0"/> Tính tự trị thấp.</li>
+                  <li className="flex gap-2"><ChevronRight size={16} className="text-blue-500 shrink-0"/> Không bóc tách độc lập được.</li>
+                </ul>
+              </div>
+
+              <div className="relative p-6 border-2 border-dashed border-emerald-200 rounded-2xl">
+                <div className="absolute -top-4 left-6 bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                  &lt;article&gt;
+                </div>
+                <p className="mb-4 text-slate-700 italic font-medium">"Một tác phẩm hoàn chỉnh, tự chứa (self-contained)."</p>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0"/> Khả năng tái phân phối (syndication) cao.</li>
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0"/> Có thể đứng độc lập (Blog, tin tức, card sản phẩm).</li>
+                  <li className="flex gap-2"><CheckCircle2 size={16} className="text-emerald-500 shrink-0"/> Có thể lồng ghép lẫn nhau hợp lệ.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO & H1 Debate */}
+        <section>
+          <SectionTitle icon={Search}>SEO & Cuộc Tranh Luận Hệ Thống Tiêu Đề</SectionTitle>
+          <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl border border-blue-100">
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="flex-1">
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Dù Google (John Mueller) khẳng định thuật toán hiện đại xử lý được nhiều thẻ <code>&lt;h1&gt;</code>, thực tiễn tốt nhất vẫn là <strong>một H1 duy nhất</strong>.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex gap-4 p-4 bg-white rounded-lg shadow-sm border-l-4 border-emerald-500">
+                    <Info className="text-emerald-500 shrink-0" />
+                    <div>
+                      <p className="font-bold text-slate-800">Tín hiệu rõ ràng (Clarity Signal)</p>
+                      <p className="text-sm text-slate-600">Tạo sự đồng bộ tuyệt đối giữa Title Tag, URL và nội dung trang.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 p-4 bg-white rounded-lg shadow-sm border-l-4 border-amber-500">
+                    <Accessibility className="text-amber-500 shrink-0" />
+                    <div>
+                      <p className="font-bold text-slate-800">Mô hình nhận thức</p>
+                      <p className="text-sm text-slate-600">71.6% người khiếm thị điều hướng bằng cách nhảy qua các tiêu đề.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full md:w-64 h-64 bg-slate-200 rounded-full flex items-center justify-center border-8 border-white shadow-lg overflow-hidden relative">
+                <div className="text-center">
+                  <div className="text-5xl font-black text-blue-600">H1</div>
+                  <div className="text-xs uppercase tracking-widest text-slate-500 mt-2">Single Node</div>
+                </div>
+                <div className="absolute inset-0 border-4 border-blue-200 rounded-full animate-ping opacity-20"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Accessibility & AOM */}
+        <section>
+          <SectionTitle icon={Accessibility}>Accessibility & Mô Hình Đối Tượng AOM</SectionTitle>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card title="AOM - Cây Khả Năng Tiếp Cận" color="indigo">
+              Khi trình duyệt phân tích HTML, nó tạo ra một cấu trúc dữ liệu tàng hình gọi là <strong>Accessibility Object Model (AOM)</strong>. Đây là phiên bản cô đọng, giàu ngữ nghĩa của DOM dành riêng cho Screen Readers.
+            </Card>
+            <div className="p-6 bg-slate-900 rounded-2xl text-blue-400 font-mono text-sm leading-relaxed shadow-xl">
+              <div className="text-slate-500 mb-2">// Trình đọc màn hình nhìn thấy gì?</div>
+              <div>&lt;nav&gt; <span className="text-slate-500">→ "Bắt đầu vùng điều hướng"</span></div>
+              <div className="pl-4">&lt;ul&gt; <span className="text-slate-500">→ "Danh sách gồm 5 mục"</span></div>
+              <div className="pl-8">&lt;li&gt;Trang chủ&lt;/li&gt;</div>
+              <div className="pl-8">&lt;li&gt;Dịch vụ&lt;/li&gt;</div>
+              <div className="text-slate-500 mt-2">// Nếu dùng div:</div>
+              <div className="text-rose-400">&lt;div&gt; <span className="text-slate-500">→ (Im lặng / Văn bản phẳng)</span></div>
+            </div>
+          </div>
+          
+          <div className="mt-8 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+            <h4 className="font-bold text-emerald-800 mb-4 flex items-center gap-2">
+              <Code2 size={20} /> Quản Lý Tiêu Điểm (Focus Management)
+            </h4>
+            <p className="text-slate-700 text-sm leading-relaxed">
+              Các phần tử ngữ nghĩa tương tác (<code className="bg-white px-1">button</code>, <code className="bg-white px-1">input</code>) tự động gia nhập chuỗi Tab. 
+              Sử dụng <code>div</code> làm nút bấm là khởi đầu cho một cơn ác mộng bảo trì: bạn phải giả lập <code>tabindex</code>, sự kiện KeyDown và hành vi click.
+            </p>
+          </div>
+        </section>
+
+        {/* ARIA Rules */}
+        <section>
+          <SectionTitle icon={AlertTriangle}>4 Nguyên Tắc Vàng Của WAI-ARIA</SectionTitle>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { id: 1, title: "Tối Thượng Của Yếu Tố Gốc", content: "Nếu có thẻ HTML gốc cung cấp sẵn chức năng, BẮT BUỘC phải dùng nó thay vì ARIA roles." },
+              { id: 2, title: "Cấm Phá Vỡ Ngữ Nghĩa Gốc", content: "Nghiêm cấm việc thay đổi hoặc ghi đè ngữ nghĩa của các phần tử gốc." },
+              { id: 3, title: "Ràng Buộc Bàn Phím", content: "Mọi widget động dán nhãn ARIA phải được kịch bản hóa để xử lý đầy đủ phím Enter, Space..." },
+              { id: 4, title: "Cấm Che Dấu Tiêu Điểm", content: "Không dùng aria-hidden='true' lên các thành phần đang nằm trong chu kỳ tab." }
+            ].map(rule => (
+              <div key={rule.id} className="p-5 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-blue-300 transition-colors">
+                <div className="text-blue-600 font-black text-xl mb-1">#0{rule.id}</div>
+                <h5 className="font-bold text-slate-800 mb-2 uppercase text-xs tracking-wider">{rule.title}</h5>
+                <p className="text-sm text-slate-600 leading-relaxed">{rule.content}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-center italic text-slate-500 text-sm">
+            "Không có ARIA còn tốt hơn là ARIA tồi."
+          </p>
+        </section>
+
+        {/* AI Readiness */}
+        <section>
+          <SectionTitle icon={Cpu}>Sự Sẵn Sàng Cho Trí Tuệ Nhân Tạo (AI)</SectionTitle>
+          <Card color="emerald">
+            <p className="text-lg font-medium mb-4">Trong kỷ nguyên 2025-2026, AI Readiness không còn là tùy chọn.</p>
+            <div className="space-y-4 text-sm">
+              <p>
+                <strong>Phân tách MC (Main Content) & SC (Supplementary Content):</strong> Giúp Crawlers tiết kiệm tài nguyên (Crawl budget) và tập trung lập chỉ mục vào khu vực quan trọng nhất.
+              </p>
+              <p>
+                <strong>Trải nghiệm SGE (Search Generative Experiences):</strong> Các LLM cào dữ liệu dựa trên các tín hiệu chủ ý nội dung. HTML Ngữ nghĩa cung cấp luồng dữ liệu thô đã được làm giàu sẵn bởi phân cấp con người.
+              </p>
+            </div>
+          </Card>
+        </section>
+
+        {/* Conclusion */}
+        <section className="mt-20 border-t-2 border-slate-200 pt-12 mb-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <Globe className="mx-auto text-blue-500 mb-6" size={48} />
+            <h2 className="text-3xl font-bold text-slate-800 mb-6">Tổng Kết</h2>
+            <p className="text-slate-600 leading-relaxed italic">
+              "Sự thanh lịch của một cấu trúc mã không phải là sở thích thẩm mỹ cá nhân, mà là trụ cột chịu lực cho toàn bộ tính bền vững của sinh thái mạng toàn cầu. Semantic HTML trực tiếp giải mã và tối ưu hóa hệ quy chiếu tương tác kép giữa AI và Con Người."
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-slate-900 text-slate-500 py-12 px-6 border-t border-slate-800">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold">H5</div>
+            <span className="font-bold text-slate-300">Semantic HTML Report</span>
+          </div>
+          <div className="text-xs">
+            © 2025 Deep Research Report. All rights reserved.
+          </div>
+          <div className="flex gap-4 text-sm">
+            <a href="#" className="hover:text-blue-400 transition-colors">Documentation</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">WCAG Standards</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">SEO Guidelines</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+export default App;
