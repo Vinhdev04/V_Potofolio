@@ -508,6 +508,54 @@
     }
   }
 
+  // Filter Styles
+  .filter-section {
+    .ant-select {
+      .ant-select-selector {
+        background: rgba(10, 25, 47, 0.8) !important;
+        border-color: rgba(100, 255, 218, 0.2) !important;
+        color: #ccd6f6 !important;
+        border-radius: 8px !important;
+        padding: 4px 12px !important;
+      }
+
+      .ant-select-selection-placeholder {
+        color: #8892b0 !important;
+      }
+
+      .ant-select-selection-item {
+        background: rgba(100, 255, 218, 0.1) !important;
+        border-color: rgba(100, 255, 218, 0.3) !important;
+        color: #64ffda !important;
+        border-radius: 4px !important;
+      }
+
+      .ant-select-selection-item-remove {
+        color: #64ffda !important;
+        &:hover { color: #ff0050 !important; }
+      }
+
+      &.ant-select-focused .ant-select-selector {
+        border-color: #64ffda !important;
+        box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.1) !important;
+      }
+    }
+
+    .ant-btn {
+      background: transparent !important;
+      border-color: rgba(136, 146, 176, 0.3) !important;
+      color: #8892b0 !important;
+      border-radius: 8px !important;
+      height: 40px !important;
+      transition: all 0.3s ease !important;
+
+      &:hover {
+        border-color: #ff0050 !important;
+        color: #ff0050 !important;
+      }
+    }
+  }
+
   h3 {
     color: $text-primary;
     margin-top: 30px;

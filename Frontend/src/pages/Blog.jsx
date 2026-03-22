@@ -1,14 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Typography, Row, Col, Card, Tabs, Button, Tag } from 'antd';
-import { motion } from 'framer-motion';
-import { CalendarOutlined, ClockCircleOutlined, PlayCircleFilled, EyeOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Typography, Row, Col, Card, Tabs, Button, Tag, Space, Select } from 'antd';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  CalendarOutlined, 
+  ClockCircleOutlined, 
+  PlayCircleFilled, 
+  EyeOutlined, 
+  ArrowRightOutlined,
+  FilterOutlined,
+  TagOutlined,
+  BarChartOutlined
+} from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import '@/assets/css/Blog.scss';
 import { blogPosts, tiktokVideos } from '@/data/blogData';
 import FloatingQuote from '@/components/FloatingQuote';
 import { quotesData } from '@/data/homeData';
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph, Text } = Typography;
+const { Option } = Select;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -29,8 +39,18 @@ const itemVariants = {
   }
 };
 
-const ArticlesList = () => {
+const ArticlesList = ({ posts }) => {
   const navigate = useNavigate();
+
+  const getLevelColor = (level) => {
+    switch (level) {
+      case 'Cơ bản': return 'green';
+      case 'Trung bình': return 'blue';
+      case 'Nâng cao': return 'volcano';
+      default: return 'default';
+    }
+  };
+
   return (
     <motion.div
       variants={containerVariants}
@@ -38,40 +58,71 @@ const ArticlesList = () => {
       animate="visible"
     >
       <Row gutter={[24, 24]}>
-        {blogPosts.map((post) => (
-          <Col xs={24} md={12} lg={8} key={post.id}>
-            <motion.div variants={itemVariants} style={{ height: '100%' }}>
-              <Card 
-                className="article-card" 
-                variant="borderless" 
-                hoverable 
-                onClick={() => navigate(`/blog/${post.id}`)}
-                style={{ cursor: 'pointer' }}
+        <AnimatePresence>
+          {posts.map((post) => (
+            <Col xs={24} md={12} lg={8} key={post.id}>
+              <motion.div 
+                variants={itemVariants} 
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                style={{ height: '100%' }}
               >
-                <div className="article-image">
-                  <img src={post.image} alt={post.title} />
-                  <Tag color="#64ffda" className="article-category" style={{ position: 'absolute', top: '10px', right: '10px', margin: 0, color: '#0a192f', fontWeight: 'bold', border: 'none' }}>
-                    {post.category}
-                  </Tag>
-                </div>
-                <div className="article-content">
-                  <div className="article-meta">
-                    <span><CalendarOutlined /> {post.date}</span>
-                    <span><ClockCircleOutlined /> {post.readTime}</span>
+                <Card 
+                  className="article-card" 
+                  variant="borderless" 
+                  hoverable 
+                  onClick={() => navigate(`/blog/${post.id}`)}
+                  style={{ cursor: 'pointer', height: '100%', display: 'flex', flexDirection: 'column' }}
+                >
+                  <div className="article-image">
+                    <img src={post.image} alt={post.title} />
+                    <div style={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', flexDirection: 'column', gap: '5px', alignItems: 'flex-end' }}>
+                      <Tag color="#64ffda" className="article-category" style={{ margin: 0, color: '#0a192f', fontWeight: 'bold', border: 'none' }}>
+                        {post.category}
+                      </Tag>
+                      <Tag color={getLevelColor(post.level)} style={{ margin: 0, fontWeight: 'bold', textTransform: 'uppercase', fontSize: '10px' }}>
+                        {post.level}
+                      </Tag>
+                    </div>
                   </div>
-                  <Title level={3} className="article-title">{post.title}</Title>
-                  <Paragraph className="article-excerpt" ellipsis={{ rows: 3 }}>
-                    {post.excerpt}
-                  </Paragraph>
-                  <Button type="link" className="read-more-btn" icon={<ArrowRightOutlined />}>
-                    Đọc tiếp
-                  </Button>
-                </div>
-              </Card>
-            </motion.div>
-          </Col>
-        ))}
+                  <div className="article-content" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <div className="article-meta">
+                      <span><CalendarOutlined /> {post.date}</span>
+                      <span><ClockCircleOutlined /> {post.readTime}</span>
+                    </div>
+                    <Title level={3} className="article-title">{post.title}</Title>
+                    
+                    <div style={{ marginBottom: '15px' }}>
+                      <Space size={[0, 4]} wrap>
+                        {post.tags?.map(tag => (
+                          <Tag key={tag} icon={<TagOutlined />} style={{ borderRadius: '4px', background: 'rgba(100, 255, 218, 0.1)', color: '#64ffda', border: '1px solid rgba(100, 255, 218, 0.2)' }}>
+                            {tag.toUpperCase()}
+                          </Tag>
+                        ))}
+                      </Space>
+                    </div>
+
+                    <Paragraph className="article-excerpt" ellipsis={{ rows: 3 }} style={{ flex: 1 }}>
+                      {post.excerpt}
+                    </Paragraph>
+                    <Button type="link" className="read-more-btn" icon={<ArrowRightOutlined />} style={{ padding: 0 }}>
+                      Đọc tiếp
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+            </Col>
+          ))}
+        </AnimatePresence>
       </Row>
+      {posts.length === 0 && (
+        <div style={{ textAlign: 'center', padding: '100px 0', color: '#8892b0' }}>
+          <Title level={4} style={{ color: '#8892b0' }}>Không tìm thấy bài viết nào phù hợp</Title>
+          <Text color="secondary">Thử thay đổi bộ lọc để xem thêm kết quả</Text>
+        </div>
+      )}
     </motion.div>
   );
 };
@@ -140,12 +191,76 @@ const TikTokGrid = () => {
 const Blog = () => {
   const quote = quotesData[6];
   const [activeTab, setActiveTab] = useState('articles');
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedLevels, setSelectedLevels] = useState([]);
+
+  const allTags = ['html', 'css', 'js', 'react', 'bootstrap', 'antd'];
+  const allLevels = ['Cơ bản', 'Trung bình', 'Nâng cao'];
+
+  const filteredPosts = useMemo(() => {
+    return blogPosts.filter(post => {
+      const matchTags = selectedTags.length === 0 || selectedTags.some(tag => post.tags?.includes(tag));
+      const matchLevels = selectedLevels.length === 0 || selectedLevels.includes(post.level);
+      return matchTags && matchLevels;
+    });
+  }, [selectedTags, selectedLevels]);
 
   const items = [
     {
       key: 'articles',
       label: 'Bài Viết (Articles)',
-      children: <ArticlesList />,
+      children: (
+        <>
+          <div className="filter-section" style={{ marginBottom: '40px', background: 'rgba(17, 34, 64, 0.5)', padding: '24px', borderRadius: '12px', border: '1px solid rgba(100, 255, 218, 0.1)' }}>
+            <Row gutter={[24, 24]} align="middle">
+              <Col xs={24} md={10}>
+                <div style={{ marginBottom: '8px', color: '#64ffda', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <TagOutlined /> <Text strong style={{ color: '#64ffda' }}>Lọc theo Công nghệ</Text>
+                </div>
+                <Select
+                  mode="multiple"
+                  style={{ width: '100%' }}
+                  placeholder="Chọn ngôn ngữ/framework..."
+                  onChange={setSelectedTags}
+                  value={selectedTags}
+                  allowClear
+                >
+                  {allTags.map(tag => (
+                    <Option key={tag} value={tag}>{tag.toUpperCase()}</Option>
+                  ))}
+                </Select>
+              </Col>
+              <Col xs={24} md={10}>
+                <div style={{ marginBottom: '8px', color: '#64ffda', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <BarChartOutlined /> <Text strong style={{ color: '#64ffda' }}>Lọc theo Mức độ</Text>
+                </div>
+                <Select
+                  mode="multiple"
+                  style={{ width: '100%' }}
+                  placeholder="Chọn mức độ bài viết..."
+                  onChange={setSelectedLevels}
+                  value={selectedLevels}
+                  allowClear
+                >
+                  {allLevels.map(level => (
+                    <Option key={level} value={level}>{level}</Option>
+                  ))}
+                </Select>
+              </Col>
+              <Col xs={24} md={4} style={{ display: 'flex', alignItems: 'flex-end', height: '100%' }}>
+                <Button 
+                  icon={<FilterOutlined />} 
+                  onClick={() => { setSelectedTags([]); setSelectedLevels([]); }}
+                  style={{ width: '100%', marginTop: '30px' }}
+                >
+                  Xóa lọc
+                </Button>
+              </Col>
+            </Row>
+          </div>
+          <ArticlesList posts={filteredPosts} />
+        </>
+      ),
     },
     {
       key: 'tiktok',

@@ -1,4 +1,3 @@
-export const blogPosts = [
   {
     id: 1,
     title: 'Tối ưu hóa React Performance',
@@ -8,6 +7,8 @@ export const blogPosts = [
     category: 'Tech',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     tiktokId: 2,
+    tags: ['react', 'js'],
+    level: 'Nâng cao',
     content: `
       <p>React là một thư viện mạnh mẽ, nhưng nếu không chú ý đến hiệu suất, ứng dụng của bạn có thể trở nên chậm chạp. Dưới đây là các kỹ thuật quan trọng:</p>
       <h3>1. Memoization với React.memo, useMemo và useCallback</h3>
@@ -26,6 +27,8 @@ export const blogPosts = [
     readTime: '7 min read',
     category: 'Coding Standard',
     image: 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    tags: ['js'],
+    level: 'Trung bình',
     content: `
       <p>Clean Code không chỉ là viết code cho máy chạy, mà là viết cho con người đọc.</p>
       <h3>1. Đặt tên biến có ý nghĩa</h3>
@@ -43,6 +46,8 @@ export const blogPosts = [
     category: 'Career',
     image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     tiktokId: 4,
+    tags: ['html', 'css', 'js', 'react'],
+    level: 'Cơ bản',
     content: `
       <p>Trở thành Fullstack Developer là một hành trình dài. Dưới đây là lộ trình gợi ý:</p>
       <h3>Frontend</h3>
@@ -62,6 +67,8 @@ export const blogPosts = [
     category: 'CSS Cơ Bản',
     image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     tiktokId: 5,
+    tags: ['css', 'html'],
+    level: 'Cơ bản',
     content: `
       <p class="intro-text">
         Bạn đã bao giờ set <code class="highlight-pink">width: 100px</code> cho một thẻ div, nhưng khi chạy lên nó lại to chà bá chưa? Nếu rồi, thì chào mừng bạn đến với cú lừa đầu đời mang tên CSS Box Model.
@@ -152,6 +159,8 @@ export const blogPosts = [
     readTime: '8 min read',
     category: 'HTML Ngữ Nghĩa',
     image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    tags: ['html'],
+    level: 'Trung bình',
     content: `
       <p class="intro-text">
         Trong khoa học máy tính, <strong>"ngữ nghĩa" (semantics)</strong> biểu thị ý nghĩa nội tại và mục đích cốt lõi của mã, tách biệt hoàn toàn khỏi hình thức hiển thị. 
