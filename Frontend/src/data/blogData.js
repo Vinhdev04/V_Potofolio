@@ -1,3 +1,4 @@
+export const blogPosts = [
   {
     id: 1,
     title: 'Tối ưu hóa React Performance',
