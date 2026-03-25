@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Tag } from 'antd';
+import { Typography, Row, Col, Card, Table, Tag, Space, Divider } from 'antd';
 import { 
   InfoCircleOutlined, 
   WarningOutlined, 
@@ -8,96 +8,106 @@ import {
   SendOutlined,
   ClockCircleOutlined,
   HistoryOutlined,
-  SafetyCertificateOutlined
+  SafetyCertificateOutlined,
+  BulbOutlined,
+  ThunderboltOutlined,
+  FireOutlined
 } from '@ant-design/icons';
+import { motion } from 'framer-motion';
 
 const { Title, Text, Paragraph } = Typography;
 
 const BlogContentRenderer = ({ content }) => {
   if (!content || typeof content === 'string') {
-    return <div dangerouslySetInnerHTML={{ __html: content }} />;
+    return <div className="blog-content" dangerouslySetInnerHTML={{ __html: content }} />;
   }
 
-  return (
-    <div className="flex flex-col gap-20 w-full relative">
-      {/* Background Dot Grid */}
-      <div className="absolute inset-0 z-[-1]" 
-           style={{ 
-             backgroundImage: 'radial-gradient(#e2e8f0 1.2px, transparent 1.2px)', 
-             backgroundSize: '24px 24px',
-             opacity: 0.6
-           }} 
-      />
+  // Scroll Animation variants for individual items
+  const itemVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
+  };
 
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', width: '100%', position: 'relative' }}>
       {content.map((section, idx) => {
         switch (section.type) {
           case 'header':
             return (
-              <div key={idx} className="text-center pt-24 pb-16 px-4 relative z-10">
-                <div className="max-w-4xl mx-auto">
-                  <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8 text-sm font-semibold text-slate-600 transition-transform hover:scale-105">
-                    <DatabaseOutlined className="text-teal-500 text-base" />
+              <motion.div 
+                key={idx} 
+                initial="hidden" 
+                whileInView="visible" 
+                viewport={{ once: true, amount: 0.3 }} 
+                variants={itemVariants} 
+                style={{ textAlign: 'center', padding: '40px 20px', position: 'relative', zIndex: 10 }}
+              >
+                <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                  <Tag color="#112240" style={{ border: '1px solid #64ffda', color: '#64ffda', padding: '6px 16px', borderRadius: '20px', fontSize: '14px', marginBottom: '30px', fontWeight: 'bold' }}>
+                    <DatabaseOutlined style={{ marginRight: '8px' }} />
                     {section.badge}
-                  </div>
-                  <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[1.1] text-slate-900">
+                  </Tag>
+                  <Title level={1} style={{ fontSize: '3rem', fontWeight: 900, marginBottom: '30px', color: '#ccd6f6', lineHeight: 1.2 }}>
                     {section.title_parts.map((part, pIdx) => (
-                      <React.Fragment key={pIdx}>
-                        <span className={part.gradient ? `bg-gradient-to-r ${part.gradient} bg-clip-text text-transparent` : ''}>
-                          {part.text}
-                        </span>
-                        {pIdx < section.title_parts.length - 1 && (pIdx % 2 === 0 ? ', ' : ' & ')}
-                      </React.Fragment>
+                      <span key={pIdx} style={part.gradient ? { color: '#64ffda', textShadow: '0 0 20px rgba(100, 255, 218, 0.3)' } : {}}>
+                        {part.text}
+                      </span>
                     ))}
-                  </h1>
-                  <p className="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium">
+                  </Title>
+                  <Paragraph style={{ fontSize: '1.2rem', color: '#8892b0', maxWidth: '700px', margin: '0 auto', lineHeight: 1.8 }}>
                     {section.description}
-                  </p>
+                  </Paragraph>
                 </div>
-              </div>
+              </motion.div>
             );
 
           case 'table':
             return (
-              <section key={idx} className="bg-white border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[32px] p-8 md:p-12 relative z-10">
-                <h2 className="text-3xl font-bold mb-10 flex items-center gap-3 text-slate-800">
-                  <div className="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center border border-indigo-100">
-                    <HistoryOutlined className="text-indigo-600 text-xl" />
+              <motion.section 
+                key={idx} 
+                initial="hidden" 
+                whileInView="visible" 
+                viewport={{ once: true, amount: 0.2 }} 
+                variants={itemVariants} 
+                style={{ background: '#112240', border: '1px solid rgba(100, 255, 218, 0.1)', borderRadius: '24px', padding: '40px', position: 'relative' }}
+              >
+                <Title level={2} style={{ color: '#ccd6f6', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <div style={{ width: '50px', height: '50px', background: 'rgba(100, 255, 218, 0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <HistoryOutlined style={{ color: '#64ffda', fontSize: '24px' }} />
                   </div>
                   {section.title}
-                </h2>
-                <div className="overflow-x-auto pb-4 custom-scrollbar">
-                  <table className="w-full text-left border-collapse min-w-[900px]">
+                </Title>
+                <div style={{ overflowX: 'auto' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '800px' }}>
                     <thead>
-                      <tr className="bg-slate-50/80 text-slate-500 text-sm uppercase tracking-widest border-b-2 border-slate-100">
-                        <th className="p-6 font-bold first:rounded-tl-2xl">Đặc điểm</th>
+                      <tr style={{ background: 'rgba(10, 25, 47, 0.5)', borderBottom: '2px solid rgba(100, 255, 218, 0.1)' }}>
+                        <th style={{ padding: '20px', textAlign: 'left', color: '#8892b0', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>Đặc điểm</th>
                         {section.headers.map((h, hIdx) => (
-                          <th key={hIdx} className={`p-6 font-bold ${h.color}`}>{h.text}</th>
+                          <th key={hIdx} style={{ padding: '20px', textAlign: 'left', color: '#64ffda', fontWeight: 'bold' }}>{h.text}</th>
                         ))}
                       </tr>
                     </thead>
-                    <tbody className="text-slate-700 text-lg">
+                    <tbody>
                       {section.rows.map((row, rIdx) => (
-                        <tr key={rIdx} className="border-b border-slate-50 hover:bg-slate-50/40 transition-all group">
-                          <td className="p-6 font-semibold text-slate-800 group-hover:pl-8 transition-all">{row.label}</td>
+                        <tr key={rIdx} style={{ borderBottom: '1px solid rgba(136, 146, 176, 0.1)', transition: 'background 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(10, 25, 47, 0.3)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+                          <td style={{ padding: '20px', color: '#ccd6f6', fontWeight: 'bold' }}>{row.label}</td>
                           {row.cells.map((cell, cIdx) => (
-                            <td key={cIdx} className="p-6">
+                            <td key={cIdx} style={{ padding: '20px', color: '#8892b0' }}>
                               {cell.tag ? (
-                                <span className={`px-4 py-1.5 rounded-xl text-sm font-bold shadow-sm ${cell.tag.style}`}>
+                                <Tag color="#0a192f" style={{ border: '1px solid #64ffda', color: '#64ffda', padding: '4px 12px', borderRadius: '6px' }}>
                                   {cell.text}
-                                </span>
+                                </Tag>
                               ) : cell.isServer ? (
-                                <div className="flex flex-col">
-                                  <span className="text-orange-600 font-bold flex items-center gap-2">
-                                    <SendOutlined className="text-base transform -rotate-45" /> {cell.text}
-                                  </span>
-                                </div>
+                                <span style={{ color: '#ffbd2e', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                  <SendOutlined /> {cell.text}
+                                </span>
                               ) : cell.security ? (
-                                <div className="flex flex-col gap-1">
-                                  <span className="text-rose-500 font-bold">{cell.text}</span>
-                                  {cell.subText && <span className="text-sm text-emerald-600 font-semibold">{cell.subText}</span>}
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                  <span style={{ color: '#ff5f56', fontWeight: 'bold' }}>{cell.text}</span>
+                                  {cell.subText && <span style={{ color: '#27c93f', fontSize: '12px' }}>{cell.subText}</span>}
                                 </div>
                               ) : (
-                                <span className="text-slate-500 font-medium">{cell.text}</span>
+                                <span>{cell.text}</span>
                               )}
                             </td>
                           ))}
@@ -106,62 +116,92 @@ const BlogContentRenderer = ({ content }) => {
                     </tbody>
                   </table>
                 </div>
-              </section>
+              </motion.section>
             );
 
           case 'grid':
             return (
-              <div key={idx} className="w-full relative z-10">
-                <h2 className="text-4xl font-bold text-center mb-16 text-slate-800 tracking-tight">{section.title}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                  {section.items.map((item, iIdx) => (
-                    <div key={iIdx} className="bg-white border border-slate-200 rounded-[32px] overflow-hidden hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-3 transition-all duration-500 group">
-                      <div className={`h-2.5 w-full bg-gradient-to-r ${item.theme_gradient}`} />
-                      <div className="p-10">
-                        <div className={`w-16 h-16 ${item.icon_bg} rounded-[24px] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
-                          {item.icon === 'hard-drive' && <DatabaseOutlined className={`text-3xl ${item.icon_color}`} />}
-                          {item.icon === 'clock' && <ClockCircleOutlined className={`text-3xl ${item.icon_color}`} />}
-                          {item.icon === 'cookie' && <CheckCircleOutlined className={`text-3xl ${item.icon_color}`} />}
-                        </div>
-                        <h3 className="text-3xl font-extrabold mb-4 text-slate-800 tracking-tight">{item.title}</h3>
-                        <p className="text-slate-500 mb-10 leading-relaxed text-lg font-medium">{item.description}</p>
-                        
-                        <div className="flex flex-col gap-6">
-                          {item.blocks.map((block, bIdx) => (
-                            <div key={bIdx} className={`${block.bg} p-6 rounded-[24px] border ${block.border} shadow-sm`}>
-                              <h4 className={`font-bold ${block.title_color} mb-4 flex items-center gap-2.5 text-base uppercase tracking-wider`}>
-                                {block.type === 'app' && <InfoCircleOutlined className="text-lg" />}
-                                {block.type === 'warn' && <WarningOutlined className="text-lg" />}
-                                {block.type === 'security' && <SafetyCertificateOutlined className="text-lg" />}
-                                {block.type === 'feature' && <InfoCircleOutlined className="text-lg" />}
-                                {block.title}
-                              </h4>
-                              <ul className="space-y-3">
-                                {block.list && block.list.map((li, lIdx) => (
-                                  <li key={lIdx} className={`text-base flex items-start gap-3 ${block.text_color} font-medium`}>
-                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-current opacity-50 shrink-0" />
-                                    {li}
-                                  </li>
-                                ))}
-                                {block.text && <p className={`text-sm ${block.text_color} font-medium leading-relaxed`}>{block.text}</p>}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <motion.div 
+                key={idx} 
+                initial="hidden" 
+                whileInView="visible" 
+                viewport={{ once: true, amount: 0.1 }} 
+                variants={itemVariants} 
+                style={{ width: '100%' }}
+              >
+                <Title level={2} style={{ textAlign: 'center', color: '#ccd6f6', marginBottom: '50px', fontSize: '2.5rem' }}>{section.title}</Title>
+                <Row gutter={[30, 30]}>
+                  {section.items.map((item, iIdx) => {
+                    const iconColorMap = {
+                      'hard-drive': '#64ffda',
+                      'clock': '#ffbd2e',
+                      'cookie': '#ff5f56'
+                    };
+                    const titleColorMap = {
+                      'app': '#64ffda',
+                      'warn': '#ffbd2e',
+                      'security': '#ff5f56',
+                      'feature': '#3b82f6'
+                    };
+                    return (
+                      <Col xs={24} lg={section.items.length === 2 ? 12 : 8} key={iIdx}>
+                        <Card 
+                          style={{ height: '100%', background: '#112240', border: '1px solid rgba(136, 146, 176, 0.1)', borderRadius: '24px', overflow: 'hidden' }}
+                          bodyStyle={{ padding: '30px' }}
+                          hoverable
+                        >
+                          <div style={{ height: '6px', background: 'linear-gradient(90deg, #64ffda, #0a192f)', position: 'absolute', top: 0, left: 0, right: 0 }} />
+                          <div style={{ width: '60px', height: '60px', background: 'rgba(10, 25, 47, 0.8)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', border: '1px solid rgba(100, 255, 218, 0.2)' }}>
+                            {item.icon === 'hard-drive' && <DatabaseOutlined style={{ fontSize: '28px', color: iconColorMap[item.icon] }} />}
+                            {item.icon === 'clock' && <ClockCircleOutlined style={{ fontSize: '28px', color: iconColorMap[item.icon] }} />}
+                            {item.icon === 'cookie' && <CheckCircleOutlined style={{ fontSize: '28px', color: iconColorMap[item.icon] }} />}
+                            {!['hard-drive', 'clock', 'cookie'].includes(item.icon) && <BulbOutlined style={{ fontSize: '28px', color: '#64ffda' }} />}
+                          </div>
+                          <Title level={3} style={{ color: '#ccd6f6', marginBottom: '16px' }}>{item.title}</Title>
+                          <Paragraph style={{ color: '#8892b0', fontSize: '1.1rem', marginBottom: '30px', minHeight: '60px' }}>{item.description}</Paragraph>
+                          
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                            {item.blocks.map((block, bIdx) => (
+                              <div key={bIdx} style={{ background: 'rgba(10, 25, 47, 0.4)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(136, 146, 176, 0.1)' }}>
+                                <div style={{ color: titleColorMap[block.type] || '#64ffda', fontWeight: 'bold', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.9rem' }}>
+                                  {block.type === 'app' && <InfoCircleOutlined />}
+                                  {block.type === 'warn' && <WarningOutlined />}
+                                  {block.type === 'security' && <SafetyCertificateOutlined />}
+                                  {block.type === 'feature' && <ThunderboltOutlined />}
+                                  {block.title}
+                                </div>
+                                <ul style={{ paddingLeft: '20px', margin: 0, color: '#8892b0', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                  {block.list && block.list.map((li, lIdx) => (
+                                    <li key={lIdx} style={{ fontSize: '0.95rem' }}>{li}</li>
+                                  ))}
+                                  {block.text && <Paragraph style={{ margin: 0, color: '#8892b0', fontSize: '0.95rem' }}>{block.text}</Paragraph>}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        </Card>
+                      </Col>
+                    );
+                  })}
+                </Row>
+              </motion.div>
             );
 
           case 'closing':
             return (
-              <div key={idx} className="text-center py-16 px-8 bg-slate-50 border border-dashed border-slate-300 rounded-3xl mt-12">
-                <p className="text-2xl font-bold text-slate-800 italic">
-                  "{section.text}" 🚀
-                </p>
-              </div>
+              <motion.div 
+                key={idx} 
+                initial="hidden" 
+                whileInView="visible" 
+                viewport={{ once: true, amount: 0.5 }} 
+                variants={itemVariants} 
+                style={{ textAlign: 'center', padding: '60px 40px', background: 'rgba(100, 255, 218, 0.05)', border: '1px dashed rgba(100, 255, 218, 0.3)', borderRadius: '32px', marginTop: '40px' }}
+              >
+                <Title level={3} style={{ color: '#64ffda', margin: 0, fontStyle: 'italic', fontWeight: 'normal' }}>
+                  <FireOutlined style={{ marginRight: '10px' }} />
+                  "{section.text}"
+                </Title>
+              </motion.div>
             );
 
           default:

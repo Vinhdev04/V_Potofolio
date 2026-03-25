@@ -5,6 +5,17 @@ import { ArrowLeftOutlined, CalendarOutlined, ClockCircleOutlined } from '@ant-d
 import { motion } from 'framer-motion';
 import { blogPosts } from '@/data/blogData';
 import BoxModelInteractive from '@/components/blog/BoxModelInteractive';
+import VarLetConst from '@/components/blog/VarLetConst';
+import ZIndexStackingContext from '@/components/blog/ZIndexStackingContext';
+import FlexboxVsGrid from '@/components/blog/FlexboxVsGrid';
+import DisplayVsVisibility from '@/components/blog/DisplayVsVisibility';
+import AsyncVsDefer from '@/components/blog/AsyncVsDefer';
+import DoctypeGuide from '@/components/blog/DoctypeGuide';
+import EqualityCoercion from '@/components/blog/EqualityCoercion';
+import EventDelegation from '@/components/blog/EventDelegation';
+import PromiseCombinators from '@/components/blog/PromiseCombinators';
+import StateAndProps from '@/components/blog/StateAndProps';
+import UseEffectGuide from '@/components/blog/UseEffectGuide';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import BlogContentRenderer from '@/components/blog/BlogContentRenderer';
 import '@/assets/css/Blog.scss';
@@ -32,6 +43,50 @@ const BlogDetail = () => {
   const renderContent = () => {
     if (post.isStructured) {
       return <BlogContentRenderer content={post.content} />;
+    }
+
+    if (post.id === 9) {
+      return <VarLetConst />;
+    }
+
+    if (post.id === 10) {
+      return <ZIndexStackingContext />;
+    }
+
+    if (post.id === 11) {
+      return <FlexboxVsGrid />;
+    }
+
+    if (post.id === 12) {
+      return <DisplayVsVisibility />;
+    }
+
+    if (post.id === 13) {
+      return <AsyncVsDefer />;
+    }
+
+    if (post.id === 14) {
+      return <DoctypeGuide />;
+    }
+
+    if (post.id === 15) {
+      return <EqualityCoercion />;
+    }
+
+    if (post.id === 16) {
+      return <EventDelegation />;
+    }
+
+    if (post.id === 17) {
+      return <PromiseCombinators />;
+    }
+
+    if (post.id === 18) {
+      return <StateAndProps />;
+    }
+
+    if (post.id === 19) {
+      return <UseEffectGuide />;
     }
 
     if (post.id === 4) {

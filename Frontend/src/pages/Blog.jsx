@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Typography, Row, Col, Card, Tabs, Button, Tag, Space, Select } from 'antd';
+import { Typography, Row, Col, Card, Tabs, Button, Tag, Space, Select, Skeleton } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   CalendarOutlined, 
@@ -39,8 +39,49 @@ const itemVariants = {
   }
 };
 
-const ArticlesList = ({ posts }) => {
+const BlogSkeleton = () => (
+  <Row gutter={[24, 24]}>
+    {[1, 2, 3, 4, 5, 6].map((i) => (
+      <Col xs={24} md={12} lg={8} key={i}>
+        <Card
+          className="article-card"
+          variant="borderless"
+          style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        >
+          <Skeleton.Button active style={{ width: '100%', height: '200px', borderRadius: '16px' }} />
+          <div style={{ padding: '20px' }}>
+            <Skeleton active title={{ width: '80%' }} paragraph={{ rows: 3 }} />
+          </div>
+        </Card>
+      </Col>
+    ))}
+  </Row>
+);
+
+const ArticlesList = ({ posts, loading, hasMore, onLoadMore }) => {
   const navigate = useNavigate();
+  const loaderRef = React.useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore && !loading) {
+          onLoadMore();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (loaderRef.current) {
+      observer.observe(loaderRef.current);
+    }
+
+    return () => {
+      if (loaderRef.current) {
+        observer.unobserve(loaderRef.current);
+      }
+    };
+  }, [hasMore, loading, onLoadMore]);
 
   const getLevelColor = (level) => {
     switch (level) {
@@ -61,6 +102,7 @@ const ArticlesList = ({ posts }) => {
         <AnimatePresence>
           {posts.map((post) => (
             <Col xs={24} md={12} lg={8} key={post.id}>
+              {/* Card content remains same */}
               <motion.div 
                 variants={itemVariants} 
                 layout
@@ -117,7 +159,18 @@ const ArticlesList = ({ posts }) => {
           ))}
         </AnimatePresence>
       </Row>
-      {posts.length === 0 && (
+
+      {loading && (
+        <div style={{ marginTop: '24px' }}>
+          <BlogSkeleton />
+        </div>
+      )}
+
+      {!loading && hasMore && (
+        <div ref={loaderRef} style={{ height: '20px', margin: '20px 0' }} />
+      )}
+
+      {posts.length === 0 && !loading && (
         <div style={{ textAlign: 'center', padding: '100px 0', color: '#8892b0' }}>
           <Title level={4} style={{ color: '#8892b0' }}>Không tìm thấy bài viết nào phù hợp</Title>
           <Text color="secondary">Thử thay đổi bộ lọc để xem thêm kết quả</Text>
@@ -193,6 +246,12 @@ const Blog = () => {
   const [activeTab, setActiveTab] = useState('articles');
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedLevels, setSelectedLevels] = useState([]);
+  
+  // Pagination & Infinite Scroll State
+  const [displayPosts, setDisplayPosts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const pageSize = 6;
 
   const allTags = ['html', 'css', 'js', 'react', 'bootstrap', 'antd'];
   const allLevels = ['Cơ bản', 'Trung bình', 'Nâng cao'];
@@ -204,6 +263,31 @@ const Blog = () => {
       return matchTags && matchLevels;
     });
   }, [selectedTags, selectedLevels]);
+
+  useEffect(() => {
+    // Reset when filters change
+    setPage(1);
+    setDisplayPosts([]);
+    loadMorePosts(true);
+  }, [filteredPosts]);
+
+  const loadMorePosts = (reset = false) => {
+    if (loading) return;
+    
+    setLoading(true);
+    // Simulate API delay
+    setTimeout(() => {
+      const start = reset ? 0 : page * pageSize;
+      const end = start + pageSize;
+      const newPosts = filteredPosts.slice(0, end);
+      
+      setDisplayPosts(newPosts);
+      if (!reset) setPage(prev => prev + 1);
+      setLoading(false);
+    }, 800);
+  };
+
+  const hasMore = displayPosts.length < filteredPosts.length;
 
   const items = [
     {
@@ -258,7 +342,12 @@ const Blog = () => {
               </Col>
             </Row>
           </div>
-          <ArticlesList posts={filteredPosts} />
+          <ArticlesList 
+            posts={displayPosts} 
+            loading={loading} 
+            hasMore={hasMore} 
+            onLoadMore={() => loadMorePosts()} 
+          />
         </>
       ),
     },

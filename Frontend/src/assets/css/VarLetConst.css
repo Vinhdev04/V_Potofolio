@@ -1,0 +1,59 @@
+.var-let-const-container {
+    background-color: #f8fafc;
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Animation Classes */
+.vlc-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.vlc-reveal.vlc-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Effects for Cards */
+.vlc-feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.vlc-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom Code Block Styling */
+.vlc-pre {
+    background: #1e293b;
+    color: #f8fafc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    border-left: 4px solid #475569;
+}
+
+.var-code { border-left-color: #f97316; }
+.let-code { border-left-color: #3b82f6; }
+.const-code{ border-left-color: #8b5cf6; }
+
+/* Highlight text */
+.vlc-highlight {
+    position: relative;
+    z-index: 1;
+}
+.vlc-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(250, 204, 21, 0.4);
+    z-index: -1;
+    transform: skew(-10deg);
+}
