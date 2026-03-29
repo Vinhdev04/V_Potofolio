@@ -1,27 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Typography, Button, Tag, Divider, Space } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, ClockCircleOutlined, TagOutlined } from '@ant-design/icons';
 import { blogPosts } from '@/data/blogData';
-import BoxModelInteractive from '@/components/blog/BoxModelInteractive';
-import VarLetConst from '@/components/blog/VarLetConst';
-import ZIndexStackingContext from '@/components/blog/ZIndexStackingContext';
-import FlexboxVsGrid from '@/components/blog/FlexboxVsGrid';
-import DisplayVsVisibility from '@/components/blog/DisplayVsVisibility';
-import AsyncVsDefer from '@/components/blog/AsyncVsDefer';
-import DoctypeGuide from '@/components/blog/DoctypeGuide';
-import EqualityCoercion from '@/components/blog/EqualityCoercion';
-import EventDelegation from '@/components/blog/EventDelegation';
-import PromiseCombinators from '@/components/blog/PromiseCombinators';
-import StateAndProps from '@/components/blog/StateAndProps';
-import UseEffectGuide from '@/components/blog/UseEffectGuide';
-import RelatedPosts from '@/components/blog/RelatedPosts';
-import BlogContentRenderer from '@/components/blog/BlogContentRenderer';
 import PageShell from '@/components/motion/PageShell';
 import Reveal from '@/components/motion/Reveal';
 import '@/assets/css/Blog.scss';
 
 const { Title, Paragraph } = Typography;
+const BlogContentRenderer = lazy(() => import('@/components/blog/BlogContentRenderer'));
+const RelatedPosts = lazy(() => import('@/components/blog/RelatedPosts'));
+const BoxModelInteractive = lazy(() => import('@/components/blog/BoxModelInteractive'));
+
+const blogWidgetsById = {
+  9: lazy(() => import('@/components/blog/VarLetConst')),
+  10: lazy(() => import('@/components/blog/ZIndexStackingContext')),
+  11: lazy(() => import('@/components/blog/FlexboxVsGrid')),
+  12: lazy(() => import('@/components/blog/DisplayVsVisibility')),
+  13: lazy(() => import('@/components/blog/AsyncVsDefer')),
+  14: lazy(() => import('@/components/blog/DoctypeGuide')),
+  15: lazy(() => import('@/components/blog/EqualityCoercion')),
+  16: lazy(() => import('@/components/blog/EventDelegation')),
+  17: lazy(() => import('@/components/blog/PromiseCombinators')),
+  18: lazy(() => import('@/components/blog/StateAndProps')),
+  19: lazy(() => import('@/components/blog/UseEffectGuide')),
+};
+
+const InlineLoader = () => <div className="blog-inline-loader">Đang tải nội dung...</div>;
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -44,25 +49,31 @@ const BlogDetail = () => {
   }
 
   const renderContent = () => {
-    if (post.isStructured) return <BlogContentRenderer content={post.content} />;
-    if (post.id === 9) return <VarLetConst />;
-    if (post.id === 10) return <ZIndexStackingContext />;
-    if (post.id === 11) return <FlexboxVsGrid />;
-    if (post.id === 12) return <DisplayVsVisibility />;
-    if (post.id === 13) return <AsyncVsDefer />;
-    if (post.id === 14) return <DoctypeGuide />;
-    if (post.id === 15) return <EqualityCoercion />;
-    if (post.id === 16) return <EventDelegation />;
-    if (post.id === 17) return <PromiseCombinators />;
-    if (post.id === 18) return <StateAndProps />;
-    if (post.id === 19) return <UseEffectGuide />;
+    if (post.isStructured) {
+      return (
+        <Suspense fallback={<InlineLoader />}>
+          <BlogContentRenderer content={post.content} />
+        </Suspense>
+      );
+    }
+
+    const BlogWidget = blogWidgetsById[post.id];
+    if (BlogWidget) {
+      return (
+        <Suspense fallback={<InlineLoader />}>
+          <BlogWidget />
+        </Suspense>
+      );
+    }
 
     if (post.id === 4) {
       const parts = post.content.split('<div id="interactive-box-model"></div>');
       return (
         <>
           <div className="blog-content" dangerouslySetInnerHTML={{ __html: parts[0] }} />
-          <BoxModelInteractive />
+          <Suspense fallback={<InlineLoader />}>
+            <BoxModelInteractive />
+          </Suspense>
           <div className="blog-content" dangerouslySetInnerHTML={{ __html: parts[1] }} />
         </>
       );
@@ -142,7 +153,9 @@ const BlogDetail = () => {
       </div>
 
       <div className="blog-related-shell">
-        <RelatedPosts currentPostId={post.id} />
+        <Suspense fallback={<InlineLoader />}>
+          <RelatedPosts currentPostId={post.id} />
+        </Suspense>
         <Divider style={{ borderColor: 'rgba(136, 146, 176, 0.16)', margin: '60px 0 32px' }} />
       </div>
     </PageShell>

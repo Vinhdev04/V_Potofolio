@@ -25,5 +25,24 @@ export default defineConfig({
         additionalData: `@use "@/assets/css/variables.scss" as *;`
       }
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return undefined;
+
+          if (id.includes('antd') || id.includes('@ant-design') || id.includes('rc-')) {
+            return 'antd-vendor';
+          }
+
+          if (id.includes('framer-motion')) {
+            return 'motion-vendor';
+          }
+
+          return undefined;
+        },
+      },
+    },
   }
 })
