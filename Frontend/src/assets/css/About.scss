@@ -1,0 +1,295 @@
+.about-page {
+  padding: 50px 0;
+
+  &__badge {
+    margin-bottom: 20px;
+  }
+}
+
+.about-card,
+.about-main-card {
+  border: 1px solid color-mix(in srgb, var(--secondary-color) 10%, transparent) !important;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-card-strong) 90%, transparent),
+    color-mix(in srgb, var(--bg-card) 88%, transparent)
+  ) !important;
+}
+
+.about-card {
+  overflow: hidden;
+
+  &--sticky {
+    position: sticky;
+    top: 108px;
+  }
+
+  &__inner {
+    padding: 28px;
+    text-align: center;
+  }
+
+  &__avatar {
+    width: 168px;
+    height: 168px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 24px color-mix(in srgb, var(--accent-color) 32%, transparent);
+    background: color-mix(in srgb, var(--bg-card-strong) 90%, white 10%);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__name.ant-typography {
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  &__role.ant-typography {
+    color: var(--accent-color);
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  &__summary.ant-typography {
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+  }
+
+  &__meta {
+    margin-top: 26px;
+    display: grid;
+    gap: 14px;
+    text-align: left;
+  }
+
+  &__actions {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  &__button {
+    height: 46px;
+    border-radius: 14px;
+    font-weight: 600;
+
+    &--primary.ant-btn {
+      background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+      color: #07111f;
+      border: none;
+      box-shadow: 0 14px 28px color-mix(in srgb, var(--accent-color) 26%, transparent);
+    }
+
+    &--ghost.ant-btn {
+      background: color-mix(in srgb, var(--bg-card-strong) 92%, transparent);
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+  }
+
+  &__button-icon {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+}
+
+.about-meta {
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  &__icon {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  &__text.ant-typography {
+    color: var(--text-secondary);
+    margin-bottom: 0;
+    word-break: break-word;
+  }
+}
+
+.about-main-card {
+  &__content {
+    padding: 36px;
+  }
+}
+
+.about-section {
+  margin-top: 40px;
+
+  &__title.ant-typography {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+
+    span {
+      color: var(--secondary-color);
+    }
+
+    &--main {
+      margin-top: 0;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+
+  &__paragraph.ant-typography {
+    color: var(--text-secondary);
+    font-size: 1.04rem;
+    line-height: 1.85;
+  }
+}
+
+.about-timeline {
+  &__item {
+    padding-bottom: 18px;
+  }
+
+  &__role.ant-typography {
+    color: var(--text-primary);
+    margin: 0 0 4px;
+  }
+
+  &__company.ant-typography {
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__company-link {
+    display: inline-block;
+  }
+
+  &__period {
+    margin: 10px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  &__list {
+    padding-left: 18px;
+    color: var(--text-secondary);
+
+    li + li {
+      margin-top: 6px;
+    }
+  }
+}
+
+.about-education {
+  &__item {
+    margin-bottom: 24px;
+    padding-left: 18px;
+    border-left: 3px solid var(--accent-color);
+  }
+
+  &__school.ant-typography {
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  &__degree.ant-typography {
+    color: var(--accent-color);
+    font-size: 1rem;
+  }
+
+  &__meta {
+    margin-top: 6px;
+    color: var(--text-secondary);
+  }
+}
+
+.about-skill-group {
+  &__title.ant-typography {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    font-size: 1.02rem;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__tag.ant-tag {
+    margin-inline-end: 0;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border-color: color-mix(in srgb, var(--secondary-color) 18%, transparent);
+    background: color-mix(in srgb, var(--accent-color) 10%, transparent);
+    color: var(--text-primary);
+  }
+}
+
+@media (max-width: 1199px) {
+  .about-card--sticky {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 36px 0 24px;
+  }
+
+  .about-main-card__content {
+    padding: 24px 20px;
+  }
+
+  .about-card__inner {
+    padding: 24px 20px;
+  }
+
+  .about-card__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section__title.ant-typography {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-card__avatar {
+    width: 140px;
+    height: 140px;
+  }
+
+  .about-main-card__content {
+    padding: 22px 16px;
+  }
+
+  .about-card__inner {
+    padding: 22px 16px;
+  }
+}

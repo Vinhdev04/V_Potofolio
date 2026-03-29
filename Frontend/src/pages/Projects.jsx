@@ -19,33 +19,43 @@ const Projects = () => {
   const [filter, setFilter] = useState('All');
   const [visibleCount, setVisibleCount] = useState(6);
 
-  const filteredProjects = filter === 'All' ? projects : projects.filter((p) => p.category === filter);
+  const filteredProjects = filter === 'All' ? projects : projects.filter((project) => project.category === filter);
   const displayedProjects = filteredProjects.slice(0, visibleCount);
 
   return (
     <PageShell className="projects-container" accent="#a855f7" style={{ position: 'relative' }}>
-      {quote && <FloatingQuote text={quote.text} author={quote.author} color={quote.color} style={{ top: '150px', left: '20px', zIndex: 10 }} />}
+      {quote && (
+        <FloatingQuote
+          text={quote.text}
+          author={quote.author}
+          color={quote.color}
+          style={{ top: '150px', left: '20px', zIndex: 10 }}
+        />
+      )}
 
       <Reveal className="projects-header section-shell">
         <div className="section-badge">Selected work</div>
-        <Title level={1} className="projects-title">Thư Viện Dự Án</Title>
+        <Title level={1} className="projects-title">
+          Thư Viện Dự Án
+        </Title>
         <Paragraph className="projects-description">
-          Một bộ sưu tập dự án tập trung vào giao diện, tính ứng dụng và trải nghiệm thực tế, từ landing page, tool nhỏ đến sản phẩm học tập lớn hơn.
+          Một bộ sưu tập dự án tập trung vào giao diện, tính ứng dụng và trải nghiệm thực tế, từ landing page,
+          tool nhỏ đến sản phẩm học tập quy mô lớn hơn.
         </Paragraph>
 
         <div className="projects-filter">
-          {categories.map((cat) => (
+          {categories.map((category) => (
             <Button
-              key={cat}
-              type={filter === cat ? 'primary' : 'default'}
+              key={category}
+              type={filter === category ? 'primary' : 'default'}
               size="large"
               onClick={() => {
-                setFilter(cat);
+                setFilter(category);
                 setVisibleCount(6);
               }}
-              className={filter === cat ? 'filter-btn active' : 'filter-btn'}
+              className={filter === category ? 'filter-btn active' : 'filter-btn'}
             >
-              {cat}
+              {category}
             </Button>
           ))}
         </div>
@@ -63,7 +73,14 @@ const Projects = () => {
                         <img alt={project.title} src={project.image} className="project-image" />
                         <div className="project-overlay">
                           <div className="overlay-content">
-                            <Button type="primary" shape="circle" icon={<EyeOutlined />} size="large" className="overlay-btn" onClick={() => setSelectedProject(project)} />
+                            <Button
+                              type="primary"
+                              shape="circle"
+                              icon={<EyeOutlined />}
+                              size="large"
+                              className="overlay-btn"
+                              onClick={() => setSelectedProject(project)}
+                            />
                             {project.repoLink !== '#' && (
                               <Button
                                 type="default"
@@ -71,8 +88,8 @@ const Projects = () => {
                                 icon={<GithubOutlined />}
                                 size="large"
                                 className="overlay-btn"
-                                onClick={(e) => {
-                                  e.stopPropagation();
+                                onClick={(event) => {
+                                  event.stopPropagation();
                                   window.open(project.repoLink, '_blank');
                                 }}
                               />
@@ -85,10 +102,18 @@ const Projects = () => {
                       </div>
 
                       <div className="project-content">
-                        <Title level={4} className="project-title">{project.title}</Title>
-                        <Paragraph ellipsis={{ rows: 3 }} className="project-description">{project.description}</Paragraph>
+                        <Title level={4} className="project-title">
+                          {project.title}
+                        </Title>
+                        <Paragraph ellipsis={{ rows: 3 }} className="project-description">
+                          {project.description}
+                        </Paragraph>
                         <div className="project-tags">
-                          {project.tags.slice(0, 3).map((tag) => <Tag key={tag} className="tech-tag">{tag}</Tag>)}
+                          {project.tags.slice(0, 3).map((tag) => (
+                            <Tag key={tag} className="tech-tag">
+                              {tag}
+                            </Tag>
+                          ))}
                           {project.tags.length > 3 && <Tag className="tech-tag more-tag">+{project.tags.length - 3}</Tag>}
                         </div>
                       </div>
@@ -100,7 +125,10 @@ const Projects = () => {
               ))
             ) : (
               <Col span={24}>
-                <Empty description={<span className="empty-text">Không tìm thấy dự án nào trong danh mục này.</span>} className="empty-state" />
+                <Empty
+                  description={<span className="empty-text">Không tìm thấy dự án nào trong danh mục này.</span>}
+                  className="empty-state"
+                />
               </Col>
             )}
           </Row>
