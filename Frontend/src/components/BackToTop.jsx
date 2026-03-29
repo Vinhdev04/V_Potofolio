@@ -33,30 +33,15 @@ const BackToTop = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
-          style={{
-            position: 'fixed',
-            bottom: 40,
-            right: 40,
-            zIndex: 1000,
-          }}
+          className="floating-action floating-action--top"
         >
           <Button
             type="primary"
             shape="circle"
             size="large"
-            icon={<ArrowUpOutlined />}
+            icon={<span className="floating-action__icon"><ArrowUpOutlined /></span>}
             onClick={scrollToTop}
-            style={{
-              width: 50,
-              height: 50,
-              boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-              background: '#64ffda',
-              color: '#0a192f',
-              border: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
+            className="floating-action__button floating-action__button--top"
           />
         </motion.div>
       )}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Menu, Drawer, Button, Grid } from 'antd';
 import { MenuOutlined, SunOutlined, MoonOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { menuItems } from '@/data/menuData';
 import { useTheme } from '@/context/ThemeContext';
 import '@/assets/css/layout.scss'; // Reuse existing styles
@@ -48,23 +49,35 @@ const Navbar = () => {
 
   return (
     <Header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="logo">VinhDev</div>
+      <motion.div
+        className="logo"
+        initial={{ opacity: 0, y: -18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Link to="/">VinhDev</Link>
+      </motion.div>
       
       {/* Desktop Menu */}
       {screens.md ? (
-        <div style={{ display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'flex-end' }}>
+        <motion.div
+          className="navbar-actions"
+          initial={{ opacity: 0, y: -18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <Menu
             theme={theme === 'dark' ? 'dark' : 'light'}
             mode="horizontal"
             selectedKeys={[getSelectedKey()]}
             items={menuItemsConfig}
-            style={{ minWidth: 0, border: 'none', background: 'transparent' }}
+            className="navbar-menu"
           />
           <ThemeToggle />
-        </div>
+        </motion.div>
       ) : (
         /* Mobile Menu Button */
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="navbar-actions mobile">
             <ThemeToggle />
             <Button 
             type="text" 

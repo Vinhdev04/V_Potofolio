@@ -1,55 +1,25 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Typography, Row, Col, Card, Tabs, Button, Tag, Space, Select, Skeleton } from 'antd';
+import { Typography, Row, Col, Card, Tabs, Button, Tag, Space, Select, Skeleton, Statistic } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  CalendarOutlined, 
-  ClockCircleOutlined, 
-  PlayCircleFilled, 
-  EyeOutlined, 
-  ArrowRightOutlined,
-  FilterOutlined,
-  TagOutlined,
-  BarChartOutlined
-} from '@ant-design/icons';
+import { CalendarOutlined, ClockCircleOutlined, PlayCircleFilled, EyeOutlined, ArrowRightOutlined, FilterOutlined, TagOutlined, BarChartOutlined, BookOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import '@/assets/css/Blog.scss';
 import { blogPosts, tiktokVideos } from '@/data/blogData';
 import FloatingQuote from '@/components/FloatingQuote';
 import { quotesData } from '@/data/homeData';
+import PageShell from '@/components/motion/PageShell';
+import Reveal, { RevealGroup, RevealItem } from '@/components/motion/Reveal';
 
 const { Title, Paragraph, Text } = Typography;
 const { Option } = Select;
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.5 }
-  }
-};
 
 const BlogSkeleton = () => (
   <Row gutter={[24, 24]}>
     {[1, 2, 3, 4, 5, 6].map((i) => (
       <Col xs={24} md={12} lg={8} key={i}>
-        <Card
-          className="article-card"
-          variant="borderless"
-          style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-        >
-          <Skeleton.Button active style={{ width: '100%', height: '200px', borderRadius: '16px' }} />
-          <div style={{ padding: '20px' }}>
+        <Card className="article-card article-card--skeleton" variant="borderless">
+          <Skeleton.Button active style={{ width: '100%', height: '220px', borderRadius: '18px' }} />
+          <div className="article-content">
             <Skeleton active title={{ width: '80%' }} paragraph={{ rows: 3 }} />
           </div>
         </Card>
@@ -63,181 +33,116 @@ const ArticlesList = ({ posts, loading, hasMore, onLoadMore }) => {
   const loaderRef = React.useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && hasMore && !loading) {
-          onLoadMore();
-        }
-      },
-      { threshold: 1.0 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && hasMore && !loading) onLoadMore();
+    }, { threshold: 0.6 });
 
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-
+    if (loaderRef.current) observer.observe(loaderRef.current);
     return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
-      }
+      if (loaderRef.current) observer.unobserve(loaderRef.current);
     };
   }, [hasMore, loading, onLoadMore]);
 
-  const getLevelColor = (level) => {
+  const getLevelClass = (level) => {
     switch (level) {
-      case 'Cơ bản': return 'green';
-      case 'Trung bình': return 'blue';
-      case 'Nâng cao': return 'volcano';
-      default: return 'default';
+      case 'Cơ bản': return 'basic';
+      case 'Trung bình': return 'medium';
+      case 'Nâng cao': return 'advanced';
+      default: return 'basic';
     }
   };
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <RevealGroup>
       <Row gutter={[24, 24]}>
         <AnimatePresence>
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <Col xs={24} md={12} lg={8} key={post.id}>
-              {/* Card content remains same */}
-              <motion.div 
-                variants={itemVariants} 
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                style={{ height: '100%' }}
-              >
-                <Card 
-                  className="article-card" 
-                  variant="borderless" 
-                  hoverable 
-                  onClick={() => navigate(`/blog/${post.id}`)}
-                  style={{ cursor: 'pointer', height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
+              <RevealItem layout transition={{ duration: 0.35, delay: index * 0.04 }} style={{ height: '100%' }}>
+                <Card className="article-card" variant="borderless" hoverable onClick={() => navigate(`/blog/${post.id}`)}>
                   <div className="article-image">
                     <img src={post.image} alt={post.title} />
-                    <div style={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', flexDirection: 'column', gap: '5px', alignItems: 'flex-end' }}>
-                      <Tag color="#64ffda" className="article-category" style={{ margin: 0, color: '#0a192f', fontWeight: 'bold', border: 'none' }}>
-                        {post.category}
-                      </Tag>
-                      <Tag color={getLevelColor(post.level)} style={{ margin: 0, fontWeight: 'bold', textTransform: 'uppercase', fontSize: '10px' }}>
-                        {post.level}
-                      </Tag>
+                    <div className="article-image-overlay" />
+                    <div className="article-image-top">
+                      <Tag className="article-category-chip">{post.category}</Tag>
+                      <Tag className={`article-level article-level--${getLevelClass(post.level)}`}>{post.level}</Tag>
                     </div>
                   </div>
-                  <div className="article-content" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+
+                  <div className="article-content">
                     <div className="article-meta">
                       <span><CalendarOutlined /> {post.date}</span>
                       <span><ClockCircleOutlined /> {post.readTime}</span>
                     </div>
                     <Title level={3} className="article-title">{post.title}</Title>
-                    
-                    <div style={{ marginBottom: '15px' }}>
-                      <Space size={[0, 4]} wrap>
-                        {post.tags?.map(tag => (
-                          <Tag key={tag} icon={<TagOutlined />} style={{ borderRadius: '4px', background: 'rgba(100, 255, 218, 0.1)', color: '#64ffda', border: '1px solid rgba(100, 255, 218, 0.2)' }}>
-                            {tag.toUpperCase()}
-                          </Tag>
+                    <Paragraph className="article-excerpt" ellipsis={{ rows: 3 }}>{post.excerpt}</Paragraph>
+
+                    <div className="article-tags">
+                      <Space size={[6, 8]} wrap>
+                        {post.tags?.slice(0, 3).map((tag) => (
+                          <Tag key={tag} icon={<TagOutlined />} className="article-tag">{tag.toUpperCase()}</Tag>
                         ))}
                       </Space>
                     </div>
 
-                    <Paragraph className="article-excerpt" ellipsis={{ rows: 3 }} style={{ flex: 1 }}>
-                      {post.excerpt}
-                    </Paragraph>
-                    <Button type="link" className="read-more-btn" icon={<ArrowRightOutlined />} style={{ padding: 0 }}>
-                      Đọc tiếp
-                    </Button>
+                    <Button type="link" className="read-more-btn" icon={<ArrowRightOutlined />}>Đọc tiếp</Button>
                   </div>
                 </Card>
-              </motion.div>
+              </RevealItem>
             </Col>
           ))}
         </AnimatePresence>
       </Row>
 
-      {loading && (
-        <div style={{ marginTop: '24px' }}>
-          <BlogSkeleton />
-        </div>
-      )}
-
-      {!loading && hasMore && (
-        <div ref={loaderRef} style={{ height: '20px', margin: '20px 0' }} />
-      )}
+      {loading && <div style={{ marginTop: 24 }}><BlogSkeleton /></div>}
+      {!loading && hasMore && <div ref={loaderRef} style={{ height: 24, margin: '24px 0' }} />}
 
       {posts.length === 0 && !loading && (
-        <div style={{ textAlign: 'center', padding: '100px 0', color: '#8892b0' }}>
-          <Title level={4} style={{ color: '#8892b0' }}>Không tìm thấy bài viết nào phù hợp</Title>
-          <Text color="secondary">Thử thay đổi bộ lọc để xem thêm kết quả</Text>
+        <div className="blog-empty-state">
+          <Title level={4}>Không tìm thấy bài viết phù hợp</Title>
+          <Text>Thử thay đổi bộ lọc để xem thêm kết quả.</Text>
         </div>
       )}
-    </motion.div>
+    </RevealGroup>
   );
 };
 
 const TikTokGrid = () => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://www.tiktok.com/embed.js";
+    script.src = 'https://www.tiktok.com/embed.js';
     script.async = true;
     document.body.appendChild(script);
-
     return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
+      if (document.body.contains(script)) document.body.removeChild(script);
     };
   }, []);
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
-         <blockquote 
-             className="tiktok-embed" 
-             cite="https://www.tiktok.com/@devcraftt" 
-             data-unique-id="devcraftt" 
-             data-embed-type="creator" 
-             style={{ maxWidth: '780px', minWidth: '288px' }} 
-         > 
-             <section> 
-                 <a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@devcraftt?refer=creator_embed">@devcraftt</a> 
-             </section> 
-         </blockquote>
-      </div>
+    <RevealGroup className="tiktok-section">
+      <Reveal className="tiktok-creator-card">
+        <blockquote className="tiktok-embed" cite="https://www.tiktok.com/@devcraftt" data-unique-id="devcraftt" data-embed-type="creator" style={{ maxWidth: '780px', minWidth: '288px' }}>
+          <section><a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@devcraftt?refer=creator_embed">@devcraftt</a></section>
+        </blockquote>
+      </Reveal>
 
       <Row gutter={[20, 20]}>
         {tiktokVideos.map((video) => (
           <Col xs={12} sm={8} md={6} lg={4} key={video.id}>
-            <motion.div variants={itemVariants}>
-              <div 
-                className="tiktok-card" 
-                onClick={() => window.open(video.link, '_blank')}
-              >
+            <RevealItem>
+              <div className="tiktok-card" onClick={() => window.open(video.link, '_blank')}>
                 <img src={video.thumbnail} alt={video.title} />
                 <div className="tiktok-overlay">
-                  <div className="tiktok-stats">
-                    <EyeOutlined /> {video.views}
-                  </div>
+                  <div className="tiktok-stats"><EyeOutlined /> {video.views}</div>
                   <PlayCircleFilled className="play-icon" />
-                  <div className="tiktok-info">
-                    <Title level={5} className="tiktok-title">{video.title}</Title>
-                  </div>
+                  <div className="tiktok-info"><Title level={5} className="tiktok-title">{video.title}</Title></div>
                 </div>
               </div>
-            </motion.div>
+            </RevealItem>
           </Col>
         ))}
       </Row>
-    </motion.div>
+    </RevealGroup>
   );
 };
 
@@ -246,160 +151,88 @@ const Blog = () => {
   const [activeTab, setActiveTab] = useState('articles');
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedLevels, setSelectedLevels] = useState([]);
-  
-  // Pagination & Infinite Scroll State
-  const [displayPosts, setDisplayPosts] = useState([]);
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(6);
   const pageSize = 6;
-
   const allTags = ['html', 'css', 'js', 'react', 'bootstrap', 'antd'];
   const allLevels = ['Cơ bản', 'Trung bình', 'Nâng cao'];
 
-  const filteredPosts = useMemo(() => {
-    return blogPosts.filter(post => {
-      const matchTags = selectedTags.length === 0 || selectedTags.some(tag => post.tags?.includes(tag));
+  const filteredPosts = useMemo(() => (
+    blogPosts.filter((post) => {
+      const matchTags = selectedTags.length === 0 || selectedTags.some((tag) => post.tags?.includes(tag));
       const matchLevels = selectedLevels.length === 0 || selectedLevels.includes(post.level);
       return matchTags && matchLevels;
-    });
-  }, [selectedTags, selectedLevels]);
+    })
+  ), [selectedTags, selectedLevels]);
 
   useEffect(() => {
-    // Reset when filters change
-    setPage(1);
-    setDisplayPosts([]);
-    loadMorePosts(true);
+    setVisibleCount(6);
   }, [filteredPosts]);
 
-  const loadMorePosts = (reset = false) => {
-    if (loading) return;
-    
-    setLoading(true);
-    // Simulate API delay
-    setTimeout(() => {
-      const start = reset ? 0 : page * pageSize;
-      const end = start + pageSize;
-      const newPosts = filteredPosts.slice(0, end);
-      
-      setDisplayPosts(newPosts);
-      if (!reset) setPage(prev => prev + 1);
-      setLoading(false);
-    }, 800);
-  };
-
-  const hasMore = displayPosts.length < filteredPosts.length;
+  const displayPosts = filteredPosts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredPosts.length;
 
   const items = [
     {
       key: 'articles',
-      label: 'Bài Viết (Articles)',
+      label: 'Bài Viết',
       children: (
         <>
-          <div className="filter-section" style={{ marginBottom: '40px', background: 'rgba(17, 34, 64, 0.5)', padding: '24px', borderRadius: '12px', border: '1px solid rgba(100, 255, 218, 0.1)' }}>
+          <Reveal className="filter-shell">
             <Row gutter={[24, 24]} align="middle">
-              <Col xs={24} md={10}>
-                <div style={{ marginBottom: '8px', color: '#64ffda', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <TagOutlined /> <Text strong style={{ color: '#64ffda' }}>Lọc theo Công nghệ</Text>
-                </div>
-                <Select
-                  mode="multiple"
-                  style={{ width: '100%' }}
-                  placeholder="Chọn ngôn ngữ/framework..."
-                  onChange={setSelectedTags}
-                  value={selectedTags}
-                  allowClear
-                >
-                  {allTags.map(tag => (
-                    <Option key={tag} value={tag}>{tag.toUpperCase()}</Option>
-                  ))}
+              <Col xs={24} md={9}>
+                <div className="filter-label"><TagOutlined /> Công nghệ</div>
+                <Select mode="multiple" style={{ width: '100%' }} placeholder="Chọn ngôn ngữ / framework" onChange={setSelectedTags} value={selectedTags} allowClear>
+                  {allTags.map((tag) => <Option key={tag} value={tag}>{tag.toUpperCase()}</Option>)}
                 </Select>
               </Col>
-              <Col xs={24} md={10}>
-                <div style={{ marginBottom: '8px', color: '#64ffda', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <BarChartOutlined /> <Text strong style={{ color: '#64ffda' }}>Lọc theo Mức độ</Text>
-                </div>
-                <Select
-                  mode="multiple"
-                  style={{ width: '100%' }}
-                  placeholder="Chọn mức độ bài viết..."
-                  onChange={setSelectedLevels}
-                  value={selectedLevels}
-                  allowClear
-                >
-                  {allLevels.map(level => (
-                    <Option key={level} value={level}>{level}</Option>
-                  ))}
+              <Col xs={24} md={9}>
+                <div className="filter-label"><BarChartOutlined /> Mức độ</div>
+                <Select mode="multiple" style={{ width: '100%' }} placeholder="Chọn mức độ bài viết" onChange={setSelectedLevels} value={selectedLevels} allowClear>
+                  {allLevels.map((level) => <Option key={level} value={level}>{level}</Option>)}
                 </Select>
               </Col>
-              <Col xs={24} md={4} style={{ display: 'flex', alignItems: 'flex-end', height: '100%' }}>
-                <Button 
-                  icon={<FilterOutlined />} 
-                  onClick={() => { setSelectedTags([]); setSelectedLevels([]); }}
-                  style={{ width: '100%', marginTop: '30px' }}
-                >
-                  Xóa lọc
-                </Button>
+              <Col xs={24} md={6}>
+                <Button icon={<FilterOutlined />} onClick={() => { setSelectedTags([]); setSelectedLevels([]); }} className="filter-reset-btn">Xóa lọc</Button>
               </Col>
             </Row>
-          </div>
-          <ArticlesList 
-            posts={displayPosts} 
-            loading={loading} 
-            hasMore={hasMore} 
-            onLoadMore={() => loadMorePosts()} 
-          />
+          </Reveal>
+
+          <ArticlesList posts={displayPosts} loading={false} hasMore={hasMore} onLoadMore={() => setVisibleCount((prev) => prev + pageSize)} />
         </>
       ),
     },
     {
       key: 'tiktok',
-      label: 'TikTok Channel',
+      label: 'TikTok',
       children: <TikTokGrid />,
     },
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="blog-container"
-      style={{ position: 'relative' }}
-    >
-      <FloatingQuote 
-        text={quote.text} 
-        author={quote.author} 
-        color={quote.color} 
-        style={{ 
-          top: '120px', 
-          right: '20px', 
-          zIndex: 10
-        }} 
-      />
-      <div className="blog-header">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Title level={1} className="blog-title">Blog & Chia Sẻ</Title>
-          <Paragraph className="blog-description">
-            Nơi tôi chia sẻ kiến thức về lập trình, kinh nghiệm làm việc và những video thú vị từ kênh TikTok của mình.
-          </Paragraph>
-        </motion.div>
-      </div>
+    <PageShell className="blog-container" accent="#64ffda" style={{ position: 'relative' }}>
+      <FloatingQuote text={quote.text} author={quote.author} color={quote.color} style={{ top: '120px', right: '20px', zIndex: 10 }} />
+
+      <Reveal className="blog-hero section-shell">
+        <div className="blog-hero__grid">
+          <div className="blog-hero__content">
+            <div className="section-badge">Editorial space</div>
+            <Title level={1} className="blog-title">Blog và Chia Sẻ</Title>
+            <Paragraph className="blog-description">
+              Nơi tôi gom lại kiến thức frontend, các chủ đề dễ nhầm khi học web, và những nội dung ngắn gọn, dễ xem, dễ áp dụng vào dự án thực tế.
+            </Paragraph>
+          </div>
+
+          <div className="blog-hero__stats">
+            <Card className="blog-stat-card"><Statistic title="Bài viết" value={blogPosts.length} prefix={<BookOutlined />} /></Card>
+            <Card className="blog-stat-card"><Statistic title="Video" value={tiktokVideos.length} prefix={<VideoCameraOutlined />} /></Card>
+          </div>
+        </div>
+      </Reveal>
 
       <div className="blog-tabs">
-        <Tabs 
-          activeKey={activeTab} 
-          onChange={setActiveTab} 
-          centered 
-          items={items}
-          size="large"
-        />
+        <Tabs activeKey={activeTab} onChange={setActiveTab} centered items={items} size="large" />
       </div>
-    </motion.div>
+    </PageShell>
   );
 };
 

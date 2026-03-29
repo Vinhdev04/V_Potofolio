@@ -1,23 +1,154 @@
 .main-layout {
   min-height: 100vh;
-  background: #0a192f;
+  background:
+    radial-gradient(circle at top, color-mix(in srgb, var(--secondary-color) 10%, transparent), transparent 28%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-card) 94%, transparent), color-mix(in srgb, var(--bg-color) 98%, transparent));
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform-origin: 0%;
+  z-index: 220;
+  background: linear-gradient(90deg, #64ffda, #3b82f6, #64ffda);
+  background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--secondary-color));
+  box-shadow: 0 0 18px color-mix(in srgb, var(--secondary-color) 60%, transparent);
+}
+
+.main-content {
+  padding: 0 clamp(20px, 4vw, 56px);
+  margin-top: 84px;
+  position: relative;
+}
+
+.route-shell {
+  position: relative;
+}
+
+.page-shell {
+  position: relative;
+  overflow: visible;
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__halo {
+    position: absolute;
+    top: -8rem;
+    right: -6rem;
+    width: min(36vw, 26rem);
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle, color-mix(in srgb, var(--page-accent) 30%, transparent) 0%, transparent 68%);
+    filter: blur(14px);
+    opacity: 0.75;
+    pointer-events: none;
+  }
+}
+
+.section-shell {
+  position: relative;
+  padding: 2rem;
+  border: 1px solid rgba(100, 255, 218, 0.08);
+  border: 1px solid color-mix(in srgb, var(--secondary-color) 8%, transparent);
+  border-radius: 28px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-card-strong) 82%, transparent), color-mix(in srgb, var(--bg-card) 72%, transparent));
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px var(--shadow-color);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--secondary-color) 10%, transparent), transparent 34%),
+      radial-gradient(circle at top right, color-mix(in srgb, var(--accent-color) 14%, transparent), transparent 35%);
+    pointer-events: none;
+  }
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(100, 255, 218, 0.18);
+  background: color-mix(in srgb, var(--bg-card) 82%, transparent);
+  color: var(--secondary-color);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+.section-badge::before {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 12px currentColor;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+
+  &.mobile {
+    flex: initial;
+  }
+}
+
+.navbar-menu {
+  min-width: 0;
+  border: none;
+  background: transparent;
 }
 
 .header {
   position: fixed;
-  z-index: 100;
-  width: 100%;
-  background: rgba(10, 25, 47, 0.85) !important;
-  backdrop-filter: blur(10px);
+  inset: 0 0 auto 0;
+  z-index: 200;
+  width: min(1200px, calc(100% - 32px));
+  margin: 14px auto 0;
+  background: color-mix(in srgb, var(--bg-card) 76%, transparent) !important;
+  backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid color-mix(in srgb, var(--secondary-color) 10%, transparent);
+  border-radius: 22px;
+  box-shadow: 0 20px 45px var(--shadow-color);
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+
+  &.scrolled {
+    background: color-mix(in srgb, var(--bg-card-strong) 88%, transparent) !important;
+    border-color: color-mix(in srgb, var(--secondary-color) 18%, transparent);
+    box-shadow: 0 28px 60px var(--shadow-color);
+    transform: translateY(-2px);
+  }
   
   .logo {
-    color: #64ffda;
+    color: var(--secondary-color);
     font-size: 1.5rem;
     font-weight: bold;
     font-family: 'Fira Code', monospace;
+    letter-spacing: -0.04em;
+
+    a {
+      color: inherit;
+    }
   }
   
   .ant-menu {
@@ -25,16 +156,201 @@
     border-bottom: none;
     
     .ant-menu-item {
-      color: #ccd6f6;
+      color: var(--text-primary);
       
       &:hover, &.ant-menu-item-selected {
-        color: #64ffda !important;
+        color: var(--secondary-color) !important;
         background: transparent !important;
         
         &::after {
-          border-bottom-color: #64ffda !important;
+          border-bottom-color: var(--secondary-color) !important;
         }
       }
     }
+  }
+}
+
+.floating-socials,
+.floating-action {
+  position: fixed;
+  right: 32px;
+  z-index: 1200;
+  pointer-events: none;
+}
+
+.floating-socials {
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &__button {
+    width: 52px;
+    min-width: 52px !important;
+    max-width: 52px !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    padding: 0 !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: white;
+    box-shadow: 0 14px 28px rgba(2, 12, 27, 0.32);
+    backdrop-filter: blur(12px);
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    pointer-events: auto;
+    flex: 0 0 52px;
+    overflow: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+
+    &:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 18px 34px rgba(2, 12, 27, 0.38);
+    }
+
+    &--facebook {
+      background: linear-gradient(135deg, #4a6fd6, #3152ab);
+    }
+
+    &--zalo {
+      background: linear-gradient(135deg, #0f85ff, #0068ff);
+    }
+
+    &--mail {
+      background: linear-gradient(135deg, #ef6b5b, #db4437);
+    }
+  }
+
+  &__icon,
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  &__icon {
+    font-size: 18px;
+
+    .anticon,
+    svg {
+      display: block;
+      line-height: 1;
+    }
+  }
+
+  &__label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+}
+
+.floating-socials__button {
+  .ant-btn-icon {
+    margin-inline-end: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.floating-action {
+  bottom: 32px;
+
+  &__button {
+    width: 54px;
+    min-width: 54px !important;
+    max-width: 54px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    padding: 0 !important;
+    border: none;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: auto;
+    overflow: hidden;
+    transform: translateZ(0);
+
+    &--top {
+      background: linear-gradient(135deg, #64ffda, #3b82f6);
+      color: #04101e;
+      box-shadow: 0 14px 32px rgba(59, 130, 246, 0.35);
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+
+    .anticon,
+    svg {
+      display: block;
+      line-height: 1;
+    }
+  }
+}
+
+.floating-action__button {
+  .ant-btn-icon {
+    margin-inline-end: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 14px;
+    margin-top: 100px;
+  }
+
+  .header {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    padding-inline: 12px;
+  }
+
+  .section-shell {
+    padding: 1.25rem;
+    border-radius: 22px;
+  }
+
+  .floating-socials,
+  .floating-action {
+    right: 18px;
+  }
+
+  .floating-socials {
+    bottom: 92px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    padding: 0 10px;
+  }
+
+  .header {
+    width: calc(100% - 12px);
+    margin-top: 6px;
+    border-radius: 18px;
   }
 }
