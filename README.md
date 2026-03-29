@@ -1,119 +1,124 @@
-# DevPortfolio - Vinhdev04
+# VinhDev Portfolio
 
-Một hệ thống Portfolio cá nhân chuyên nghiệp, hiện đại được xây dựng với **ReactJS** (Frontend) và **Node.js** (Backend). Dự án thể hiện kỹ năng Fullstack, tối ưu hóa hiệu suất và trải nghiệm người dùng.
+Portfolio cá nhân của **Phạm Công Vinh (Vinhdev04)**, xây dựng với **React + Vite + Ant Design + Framer Motion**.
 
-## 🌟 Tính Năng Nổi Bật
+Website tập trung vào:
+- giao diện hiện đại, đồng bộ dark/light mode
+- animation và scroll effect mượt
+- blog trình bày dễ đọc
+- responsive tốt trên desktop, tablet và mobile
+- tối ưu tải trang bằng lazy loading và chia nhỏ bundle
 
-### Frontend (User Interface)
-- **Thiết kế Responsive:** Tương thích hoàn hảo trên mọi thiết bị (Mobile, Tablet, Desktop).
-- **Dark Mode UI:** Giao diện tối hiện đại, dịu mắt dành cho lập trình viên.
-- **Single Page Experience:** Tích hợp mượt mà các phần giới thiệu, kỹ năng, dự án, kinh nghiệm trên một trang duy nhất với hiệu ứng cuộn trơn tru.
-- **Github Profile Integration:** Hiển thị trực quan thông tin Github (Pinned Repos, Contribution Graph, Stats).
-- **Project Gallery:** Bộ lọc dự án thông minh (Web Apps, Open Source, UI/UX) và tính năng tải thêm (Load More).
-- **Performance Optimization:** Sử dụng `React.lazy` và `Suspense` để tối ưu thời gian tải trang.
-- **Custom 404 Page:** Trang lỗi thân thiện và điều hướng người dùng.
-- **Contact Form:** Tích hợp form liên hệ gửi tin nhắn trực tiếp.
-- **Floating Actions:** Nút BackToTop và các nút liên hệ nhanh (Zalo, Facebook, Email).
+## Demo
+- GitHub: [Vinhdev04](https://github.com/Vinhdev04)
+- Repository: [V_Potofolio](https://github.com/Vinhdev04/V_Potofolio)
 
-### Backend (API)
-- **RESTful API:** Cung cấp dữ liệu cho Frontend.
-- **Database Connection:** Kết nối cơ sở dữ liệu (nếu có).
-- **Error Handling:** Xử lý lỗi tập trung.
-
-## 🚀 Công Nghệ Sử Dụng
+## Tính năng chính
 
 ### Frontend
-- **Core:** [ReactJS](https://reactjs.org/) (Vite), [React Router DOM v6](https://reactrouter.com/)
-- **UI Framework:** [Ant Design 5](https://ant.design/)
-- **Styling:** SCSS, Tailwind CSS (Optional)
-- **Animation:** [Framer Motion](https://www.framer.com/motion/)
-- **Icons:** React Icons, Ant Design Icons
-- **State Management:** React Hooks (useState, useEffect, useContext)
+- Trang `Home`, `About`, `Projects`, `Skills`, `Experience`, `Certificates`, `Contact`, `Blog`, `Blog Detail`
+- Theme `dark / light` đồng bộ toàn website
+- Route transition, reveal animation, hover animation, scroll progress
+- Floating actions: `Facebook`, `Zalo`, `Email`, `Back to top`
+- Blog list có filter và blog detail theo layout đọc bài
+- Các bài blog tương tác được lazy load theo từng nội dung
+- Layout responsive cho mobile, tablet, desktop
+
+### Kỹ thuật
+- Router tách trang bằng `React.lazy` + `Suspense`
+- `Framer Motion` cho page transition và scroll animation
+- `SCSS` + CSS variables cho theme token
+- Bundle splitting để giảm tải chunk nặng ở blog detail
 
 ### Backend
-- **Core:** Node.js, Express
-- **Utilities:** Cors, Dotenv
+Thư mục `Backend/` đang là phần mở rộng tùy nhu cầu. Hiện trọng tâm chính của repo là frontend portfolio.
 
-## 🛠 Cài Đặt và Chạy Dự Án
+## Công nghệ sử dụng
+- React 18
+- Vite 5
+- React Router DOM 6
+- Ant Design 5
+- Framer Motion
+- SCSS
+- React Icons
 
-### Yêu cầu
-- Node.js (v16 trở lên)
-- npm hoặc yarn
-- Git
+## Cấu trúc thư mục
 
-### 1. Clone Dự Án
-```bash
-git clone https://github.com/Vinhdev04/V_Potofolio.git
-cd V_Potofolio
+```txt
+V_Potofolio/
+|-- Frontend/
+|   |-- src/
+|   |   |-- assets/
+|   |   |-- components/
+|   |   |-- context/
+|   |   |-- data/
+|   |   |-- pages/
+|   |   |-- routes/
+|   |   `-- main.jsx
+|   |-- package.json
+|   `-- vite.config.js
+|-- Backend/
+|-- netlify.toml
+`-- README.md
 ```
 
-### 2. Setup Frontend
+## Chạy local
+
+### Frontend
 ```bash
 cd Frontend
-# Cài đặt thư viện
 npm install
-
-# Chạy môi trường phát triển
 npm run dev
 ```
-Truy cập: `http://localhost:5173`
 
-### 3. Deploy (Triển khai)
+Mặc định chạy tại:
 
-#### Option 1: Deploy lên Netlify (Recommended)
-1. Đăng nhập Netlify và chọn **Add new site** -> **Import an existing project**.
-2. Kết nối với GitHub và chọn repository `V_Potofolio`.
-3. Điền các thông số Build settings như sau:
-   - **Base directory:** `Frontend`
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-4. Nhấn **Deploy**.
+```txt
+http://localhost:5173
+```
 
-#### Option 2: Deploy lên GitHub Pages
-Dự án đã được cấu hình sẵn để deploy tự động lên GitHub Pages bằng `gh-pages`.
+### Build production
+```bash
+cd Frontend
+npm run build
+```
+
+### Preview build
+```bash
+cd Frontend
+npm run preview
+```
+
+## Deploy
+
+### Netlify
+Repo đã có `netlify.toml`. Có thể deploy với:
+- Base directory: `Frontend`
+- Build command: `npm run build`
+- Publish directory: `dist`
+
+### GitHub Pages
+Frontend đã có script:
 
 ```bash
 cd Frontend
-# Build và Deploy
 npm run deploy
 ```
-*Lưu ý: Nếu dùng GitHub Pages, cần đổi lại `base` trong `vite.config.js` thành `/V_Potofolio/`.*
 
-### 4. Setup Backend (Optional)
-```bash
-cd Backend
-npm install
-npm run dev
-```
-Server chạy tại: `http://localhost:5000`
+Nếu deploy GitHub Pages, cần kiểm tra lại `base` trong [vite.config.js](/d:/V_Potofolio/Frontend/vite.config.js) cho đúng môi trường deploy.
 
-## 📂 Cấu Trúc Thư Mục
-```
-V_Potofolio/
-├── Frontend/           # ReactJS Application
-│   ├── src/
-│   │   ├── assets/     # Images, fonts
-│   │   ├── components/ # Reusable components (Header, Footer, GithubProfile...)
-│   │   ├── pages/      # Page components (Home, Projects, Contact...)
-│   │   ├── routes/     # Router configuration
-│   │   ├── styles/     # SCSS files
-│   │   ├── App.jsx     # Root component
-│   │   └── main.jsx    # Entry point
-│   └── ...
-├── Backend/            # Node.js API
-│   ├── controllers/
-│   ├── routes/
-│   └── ...
-└── README.md
-```
+## Một số cập nhật gần đây
+- Đồng bộ dark/light mode toàn site
+- Nâng cấp UI blog và blog detail
+- Sửa lỗi route transition khi quay lại `Home`
+- Tối ưu responsive cho `About`, `Projects`, `Contact`, `Navbar`, `Footer`
+- Tách lazy loading cho blog widgets để giảm tải `BlogDetail`
 
-## 👤 Author
-**Phạm Công Vinh (Vinhdev04)**
-- **Github:** [https://github.com/Vinhdev04](https://github.com/Vinhdev04)
-- **Facebook:** [https://www.facebook.com/i.padygamy1210](https://www.facebook.com/i.padygamy1210)
-- **Email:** PCV.FED@GMAIL.COM
-- **Zalo:** 0352032375
+## Thông tin liên hệ
+- GitHub: [github.com/Vinhdev04](https://github.com/Vinhdev04)
+- Facebook: [facebook.com/i.padygamy1210](https://www.facebook.com/i.padygamy1210)
+- Email: `PCV.FED@GMAIL.COM`
+- Zalo: `0352032375`
 
----
-© 2026 Vinhdev04. All Rights Reserved.
-"Write Once, Run Anywhere"
+## License
+Dùng cho mục đích portfolio cá nhân và trình bày dự án.
