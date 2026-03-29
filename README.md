@@ -1,3 +1,5 @@
+![VinhDev Portfolio](Frontend/src/assets/images/web.png)
+
 # VinhDev Portfolio
 
 Portfolio cá nhân của **Phạm Công Vinh (Vinhdev04)**, xây dựng với **React + Vite + Ant Design + Framer Motion**.
