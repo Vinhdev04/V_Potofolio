@@ -1,8 +1,9 @@
 @use "@/assets/css/variables.scss" as *;
 
 .footer {
-  background-color: $bg-color;
-  color: $text-secondary;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-card) 68%, transparent), color-mix(in srgb, var(--bg-color) 98%, transparent));
+  color: var(--text-secondary);
   padding: 50px 20px 20px;
   font-family: $font-mono;
   border-top: 1px solid var(--border-color);
@@ -15,14 +16,14 @@
 
   .footer-brand {
     .brand-title {
-      color: $text-primary;
+      color: var(--text-primary);
       margin-bottom: 15px;
       font-size: 2rem;
       font-weight: 800;
       letter-spacing: -1px;
 
       span {
-        color: $secondary-color;
+        color: var(--secondary-color);
         position: relative;
         
         &::after {
@@ -32,26 +33,26 @@
           left: 0;
           width: 100%;
           height: 8px;
-          background: rgba($secondary-color, 0.2);
+          background: color-mix(in srgb, var(--secondary-color) 20%, transparent);
           z-index: -1;
         }
       }
     }
     .brand-desc {
-      color: $text-secondary;
+      color: var(--text-secondary);
       line-height: 1.8;
       max-width: 350px;
       font-size: 0.95rem;
 
       strong {
-        color: $text-primary;
+        color: var(--text-primary);
         font-weight: 600;
       }
     }
   }
 
   .footer-title {
-    color: $text-primary;
+    color: var(--text-primary);
     font-size: 1.1rem;
     margin-bottom: 20px;
     position: relative;
@@ -64,7 +65,7 @@
       left: 0;
       width: 30px;
       height: 2px;
-      background-color: $secondary-color;
+      background-color: var(--secondary-color);
     }
   }
 
@@ -74,14 +75,14 @@
     gap: 12px;
 
     a {
-      color: $text-secondary;
+      color: var(--text-secondary);
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
       gap: 8px;
 
       &:hover {
-        color: $secondary-color;
+        color: var(--secondary-color);
         padding-left: 5px;
       }
     }
@@ -94,7 +95,7 @@
     flex-wrap: wrap;
 
     .social-btn {
-      color: #8892b0;
+      color: var(--text-secondary);
       font-size: 1.1rem;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       display: flex;
@@ -102,9 +103,9 @@
       justify-content: center;
       width: 42px;
       height: 42px;
-      border: 1px solid rgba(136, 146, 176, 0.2);
-      border-radius: 10px;
-      background: rgba(17, 34, 64, 0.3);
+      border: 1px solid color-mix(in srgb, var(--text-secondary) 18%, transparent);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--bg-card) 82%, transparent);
       
       svg {
         width: 18px;
@@ -112,11 +113,11 @@
       }
       
       &:hover {
-        color: var(--hover-color, $secondary-color);
-        border-color: var(--hover-color, $secondary-color);
-        background: rgba(100, 255, 218, 0.05);
+        color: var(--hover-color, var(--secondary-color));
+        border-color: var(--hover-color, var(--secondary-color));
+        background: color-mix(in srgb, var(--hover-color) 12%, transparent);
         transform: translateY(-5px) scale(1.1);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 12px 24px var(--shadow-color);
       }
     }
   }
@@ -130,10 +131,10 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      color: $text-secondary;
+      color: var(--text-secondary);
       
       .anticon {
-        color: $secondary-color;
+        color: var(--secondary-color);
         font-size: 1.1rem;
       }
       
@@ -150,17 +151,16 @@
     text-align: center;
     
     .copyright {
-      color: $text-secondary;
+      color: var(--text-secondary);
       font-size: 0.85rem;
       
       span {
-        color: $secondary-color;
+        color: var(--secondary-color);
       }
     }
   }
 }
 
-// Responsive adjustments
 @media (max-width: 768px) {
   .footer {
     padding: 40px 20px 20px;
@@ -186,6 +186,26 @@
     
     .contact-info .contact-item {
       justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 34px 14px 18px;
+
+    .brand-title {
+      font-size: 1.7rem;
+    }
+
+    .footer-bottom {
+      margin-top: 36px;
+      padding-top: 18px;
+    }
+
+    .copyright {
+      display: inline-block;
+      line-height: 1.8;
     }
   }
 }

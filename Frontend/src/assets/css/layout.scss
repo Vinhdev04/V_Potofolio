@@ -116,6 +116,37 @@
   background: transparent;
 }
 
+.navbar-drawer-title {
+  color: var(--secondary-color);
+  font-family: 'Fira Code', monospace;
+}
+
+.navbar-drawer {
+  .ant-drawer-content,
+  .ant-drawer-header {
+    background: color-mix(in srgb, var(--bg-card) 94%, transparent);
+  }
+
+  .ant-drawer-title,
+  .ant-drawer-close {
+    color: var(--text-primary);
+  }
+}
+
+.navbar-drawer-menu {
+  padding: 12px;
+
+  .ant-menu-item {
+    border-radius: 12px;
+    color: var(--text-primary) !important;
+  }
+
+  .ant-menu-item-selected {
+    background: color-mix(in srgb, var(--secondary-color) 12%, transparent) !important;
+    color: var(--secondary-color) !important;
+  }
+}
+
 .header {
   position: fixed;
   inset: 0 0 auto 0;
@@ -352,5 +383,10 @@
     width: calc(100% - 12px);
     margin-top: 6px;
     border-radius: 18px;
+    padding-inline: 10px;
+  }
+
+  .navbar-actions.mobile {
+    gap: 2px;
   }
 }

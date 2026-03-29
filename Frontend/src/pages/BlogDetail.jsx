@@ -26,7 +26,7 @@ const { Title, Paragraph } = Typography;
 const BlogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const post = blogPosts.find((p) => p.id === parseInt(id));
+  const post = blogPosts.find((item) => item.id === parseInt(id, 10));
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,9 +34,11 @@ const BlogDetail = () => {
 
   if (!post) {
     return (
-      <div style={{ textAlign: 'center', padding: '150px 20px', color: '#ccd6f6' }}>
-        <Title level={2} style={{ color: '#ccd6f6' }}>Bài viết không tồn tại</Title>
-        <Button type="primary" onClick={() => navigate('/blog')}>Quay lại Blog</Button>
+      <div className="blog-detail-empty">
+        <Title level={2}>Bài viết không tồn tại</Title>
+        <Button type="primary" onClick={() => navigate('/blog')}>
+          Quay lại Blog
+        </Button>
       </div>
     );
   }
@@ -70,7 +72,11 @@ const BlogDetail = () => {
   };
 
   return (
-    <PageShell className="blog-detail-container" accent="#3b82f6" style={{ padding: '120px 20px 50px', maxWidth: '1240px', margin: '0 auto', color: '#8892b0' }}>
+    <PageShell
+      className="blog-detail-container"
+      accent="#3b82f6"
+      style={{ padding: '120px 0 50px', maxWidth: '1240px', margin: '0 auto' }}
+    >
       <div className="blog-detail-shell">
         <Reveal className="blog-detail-main">
           <Button type="link" icon={<ArrowLeftOutlined />} onClick={() => navigate('/blog')} className="blog-back-btn">
@@ -80,16 +86,24 @@ const BlogDetail = () => {
           <div className="blog-detail-hero section-shell">
             <div className="blog-detail-meta">
               <Tag className="article-category-chip">{post.category}</Tag>
-              <span><CalendarOutlined /> {post.date}</span>
-              <span><ClockCircleOutlined /> {post.readTime}</span>
+              <span>
+                <CalendarOutlined /> {post.date}
+              </span>
+              <span>
+                <ClockCircleOutlined /> {post.readTime}
+              </span>
             </div>
 
-            <Title level={1} className="blog-detail-title">{post.title}</Title>
+            <Title level={1} className="blog-detail-title">
+              {post.title}
+            </Title>
             <Paragraph className="blog-detail-excerpt">{post.excerpt}</Paragraph>
 
             <Space size={[8, 10]} wrap className="blog-detail-tags">
               {post.tags?.map((tag) => (
-                <Tag key={tag} className="article-tag" icon={<TagOutlined />}>{tag.toUpperCase()}</Tag>
+                <Tag key={tag} className="article-tag" icon={<TagOutlined />}>
+                  {tag.toUpperCase()}
+                </Tag>
               ))}
             </Space>
           </div>
@@ -98,9 +112,7 @@ const BlogDetail = () => {
             <img src={post.image} alt={post.title} className="blog-cover-image" />
           </div>
 
-          <article className="blog-reading-panel">
-            {renderContent()}
-          </article>
+          <article className="blog-reading-panel">{renderContent()}</article>
         </Reveal>
 
         <Reveal direction="right" className="blog-detail-aside">
@@ -108,12 +120,22 @@ const BlogDetail = () => {
             <div className="section-badge">Reading note</div>
             <Title level={4}>Tóm tắt nhanh</Title>
             <Paragraph>
-              Bài viết này được trình bày theo hướng dễ quét, dễ đọc và ưu tiên ví dụ thực tế để bạn xem nhanh rồi áp dụng ngay.
+              Bài viết này được trình bày theo hướng dễ quét, dễ đọc và ưu tiên ví dụ thực tế để bạn xem nhanh rồi
+              áp dụng ngay.
             </Paragraph>
             <div className="blog-aside-facts">
-              <div><span>Chủ đề</span><strong>{post.category}</strong></div>
-              <div><span>Thời gian đọc</span><strong>{post.readTime}</strong></div>
-              <div><span>Mức độ</span><strong>{post.level || 'Tổng hợp'}</strong></div>
+              <div>
+                <span>Chủ đề</span>
+                <strong>{post.category}</strong>
+              </div>
+              <div>
+                <span>Thời gian đọc</span>
+                <strong>{post.readTime}</strong>
+              </div>
+              <div>
+                <span>Mức độ</span>
+                <strong>{post.level || 'Tổng hợp'}</strong>
+              </div>
             </div>
           </div>
         </Reveal>

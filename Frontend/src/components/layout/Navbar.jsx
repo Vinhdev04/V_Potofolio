@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { menuItems } from '@/data/menuData';
 import { useTheme } from '@/context/ThemeContext';
-import '@/assets/css/layout.scss'; // Reuse existing styles
+import '@/assets/css/layout.scss';
 
 const { Header } = Layout;
 const { useBreakpoint } = Grid;
@@ -17,7 +17,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -28,13 +27,17 @@ const Navbar = () => {
 
   const getSelectedKey = () => {
     const path = location.pathname;
-    const item = menuItems.find(item => item.path === path || (path !== '/' && path.includes(item.path)));
+    const item = menuItems.find((entry) => entry.path === path || (path !== '/' && path.includes(entry.path)));
     return item ? item.key : '1';
   };
 
-  const menuItemsConfig = menuItems.map(item => ({
+  const menuItemsConfig = menuItems.map((item) => ({
     key: item.key,
-    label: <Link to={item.path} onClick={() => setDrawerVisible(false)}>{item.label}</Link>
+    label: (
+      <Link to={item.path} onClick={() => setDrawerVisible(false)}>
+        {item.label}
+      </Link>
+    ),
   }));
 
   const ThemeToggle = () => (
@@ -57,8 +60,6 @@ const Navbar = () => {
       >
         <Link to="/">VinhDev</Link>
       </motion.div>
-      
-      {/* Desktop Menu */}
       {screens.md ? (
         <motion.div
           className="navbar-actions"
@@ -76,28 +77,30 @@ const Navbar = () => {
           <ThemeToggle />
         </motion.div>
       ) : (
-        /* Mobile Menu Button */
         <div className="navbar-actions mobile">
-            <ThemeToggle />
-            <Button 
-            type="text" 
-            icon={<MenuOutlined style={{ color: 'var(--secondary-color)', fontSize: '20px' }} />} 
+          <ThemeToggle />
+          <Button
+            type="text"
+            icon={<MenuOutlined style={{ color: 'var(--secondary-color)', fontSize: '20px' }} />}
             onClick={() => setDrawerVisible(true)}
             className="mobile-menu-btn"
             style={{ marginLeft: '10px' }}
-            />
+          />
         </div>
       )}
 
-      {/* Mobile Drawer */}
       <Drawer
-        title={<span style={{ color: 'var(--secondary-color)', fontFamily: 'Fira Code' }}>Menu</span>}
+        title={<span className="navbar-drawer-title">Menu</span>}
         placement="right"
         onClose={() => setDrawerVisible(false)}
         open={drawerVisible}
-        styles={{ 
+        className="navbar-drawer"
+        styles={{
           body: { padding: 0, background: 'var(--bg-secondary)' },
-          header: { background: 'var(--bg-color)', borderBottom: '1px solid var(--text-secondary)' }
+          header: {
+            background: 'color-mix(in srgb, var(--bg-card) 92%, transparent)',
+            borderBottom: '1px solid var(--border-color)',
+          },
         }}
         width={250}
       >
@@ -106,6 +109,7 @@ const Navbar = () => {
           mode="vertical"
           selectedKeys={[getSelectedKey()]}
           items={menuItemsConfig}
+          className="navbar-drawer-menu"
           style={{ background: 'transparent', border: 'none' }}
         />
       </Drawer>

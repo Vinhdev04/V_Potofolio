@@ -1,13 +1,12 @@
 import React from 'react';
-import { Layout, Row, Col, Typography, Space, Tooltip } from 'antd';
+import { Layout, Row, Col, Typography, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
-import { 
-  GithubOutlined, 
-  FacebookFilled, 
-  MailOutlined, 
-  PhoneOutlined, 
+import {
+  GithubOutlined,
+  MailOutlined,
+  PhoneOutlined,
   RightOutlined,
-  HeartFilled
+  HeartFilled,
 } from '@ant-design/icons';
 import { socialLinks, contactInfo } from '@/data/socialData';
 import '@/assets/css/Footer.scss';
@@ -20,23 +19,24 @@ const Footer = () => {
     <AntFooter className="footer">
       <div className="footer-container">
         <Row gutter={[32, 32]}>
-          {/* Brand Section */}
           <Col xs={24} md={8} lg={9}>
             <div className="footer-brand">
               <Title level={2} className="brand-title">
                 <span>Vinh</span>dev04
               </Title>
               <Paragraph className="brand-desc">
-                Chuyên xây dựng các ứng dụng web <strong>hiện đại</strong>, hiệu suất cao và trải nghiệm người dùng <strong>tối ưu</strong>. Luôn cập nhật công nghệ mới nhất để mang lại giá trị tốt nhất.
+                Chuyên xây dựng các ứng dụng web <strong>hiện đại</strong>, hiệu suất cao và trải nghiệm người dùng
+                <strong> tối ưu</strong>. Luôn cập nhật công nghệ mới để tạo ra sản phẩm rõ ràng, mượt và có giá trị
+                sử dụng thực tế.
               </Paragraph>
-              
+
               <div className="social-links">
                 {socialLinks.map((social, index) => (
                   <Tooltip title={social.name} key={index} color={social.color}>
-                    <a 
-                      href={social.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="social-btn"
                       style={{ '--hover-color': social.color }}
                     >
@@ -47,22 +47,34 @@ const Footer = () => {
               </div>
             </div>
           </Col>
-          
-          {/* Quick Links */}
+
           <Col xs={24} sm={12} md={8} lg={7}>
-            <Title level={5} className="footer-title">Liên Kết Nhanh</Title>
+            <Title level={5} className="footer-title">
+              Liên Kết Nhanh
+            </Title>
             <div className="footer-links">
-              <Link to="/about"><RightOutlined style={{ fontSize: '10px' }} /> Về Tôi</Link>
-              <Link to="/projects"><RightOutlined style={{ fontSize: '10px' }} /> Dự Án</Link>
-              <Link to="/skills"><RightOutlined style={{ fontSize: '10px' }} /> Kỹ Năng</Link>
-              <Link to="/experience"><RightOutlined style={{ fontSize: '10px' }} /> Kinh Nghiệm</Link>
-              <Link to="/certificates"><RightOutlined style={{ fontSize: '10px' }} /> Chứng Chỉ</Link>
+              <Link to="/about">
+                <RightOutlined style={{ fontSize: '10px' }} /> Về Tôi
+              </Link>
+              <Link to="/projects">
+                <RightOutlined style={{ fontSize: '10px' }} /> Dự Án
+              </Link>
+              <Link to="/skills">
+                <RightOutlined style={{ fontSize: '10px' }} /> Kỹ Năng
+              </Link>
+              <Link to="/experience">
+                <RightOutlined style={{ fontSize: '10px' }} /> Kinh Nghiệm
+              </Link>
+              <Link to="/certificates">
+                <RightOutlined style={{ fontSize: '10px' }} /> Chứng Chỉ
+              </Link>
             </div>
           </Col>
 
-          {/* Contact Info */}
           <Col xs={24} sm={12} md={8} lg={8}>
-            <Title level={5} className="footer-title">Thông Tin Liên Hệ</Title>
+            <Title level={5} className="footer-title">
+              Thông Tin Liên Hệ
+            </Title>
             <div className="contact-info">
               <div className="contact-item">
                 <PhoneOutlined />
@@ -74,18 +86,18 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <GithubOutlined />
-                <a href={socialLinks.find(s => s.name === 'GitHub')?.link} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                <a href={socialLinks.find((item) => item.name === 'GitHub')?.link} target="_blank" rel="noopener noreferrer">
                   github.com/Vinhdev04
                 </a>
               </div>
             </div>
           </Col>
         </Row>
-        
-        {/* Footer Bottom */}
+
         <div className="footer-bottom">
           <Text className="copyright">
-            © {new Date().getFullYear()} Designed & Built by <span>Vinhdev04</span> with <HeartFilled style={{ color: '#e25555' }} />
+            © {new Date().getFullYear()} Designed & Built by <span>Vinhdev04</span> with{' '}
+            <HeartFilled style={{ color: '#e25555' }} />
           </Text>
         </div>
       </div>

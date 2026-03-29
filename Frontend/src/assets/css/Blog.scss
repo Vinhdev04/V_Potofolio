@@ -80,6 +80,8 @@
 .blog-aside-facts span { display: block; color: $text-secondary; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
 .blog-aside-facts strong { color: $text-primary; font-size: 1rem; }
 .blog-related-shell { margin-top: 70px; }
+.blog-detail-empty { text-align: center; padding: 150px 20px; color: var(--text-primary); }
+.blog-detail-empty h2 { color: var(--text-primary) !important; }
 
 .blog-content { color: var(--text-secondary); }
 .blog-content > * { animation: fadeInUp 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
@@ -115,11 +117,11 @@
 .blog-content ul, .blog-content ol { margin-bottom: 20px; padding-left: 20px; color: var(--text-secondary); }
 .blog-content ul li, .blog-content ol li { margin-bottom: 8px; }
 
-.filter-shell .ant-select .ant-select-selector { background: rgba(10, 25, 47, 0.8) !important; border-color: rgba(100, 255, 218, 0.16) !important; color: #ccd6f6 !important; border-radius: 14px !important; padding: 6px 12px !important; min-height: 46px; }
-.filter-shell .ant-select .ant-select-selection-placeholder { color: #8892b0 !important; }
-.filter-shell .ant-select .ant-select-selection-item { background: rgba(100, 255, 218, 0.1) !important; border-color: rgba(100, 255, 218, 0.2) !important; color: #64ffda !important; border-radius: 999px !important; }
-.filter-shell .ant-btn { background: transparent !important; border-color: rgba(136, 146, 176, 0.22) !important; color: #8892b0 !important; }
-.filter-shell .ant-btn:hover { border-color: $secondary-color !important; color: $secondary-color !important; }
+.filter-shell .ant-select .ant-select-selector { background: color-mix(in srgb, var(--bg-card) 88%, transparent) !important; border-color: color-mix(in srgb, var(--secondary-color) 16%, transparent) !important; color: var(--text-primary) !important; border-radius: 14px !important; padding: 6px 12px !important; min-height: 46px; }
+.filter-shell .ant-select .ant-select-selection-placeholder { color: var(--text-secondary) !important; }
+.filter-shell .ant-select .ant-select-selection-item { background: color-mix(in srgb, var(--secondary-color) 10%, transparent) !important; border-color: color-mix(in srgb, var(--secondary-color) 18%, transparent) !important; color: var(--secondary-color) !important; border-radius: 999px !important; }
+.filter-shell .ant-btn { background: transparent !important; border-color: color-mix(in srgb, var(--text-secondary) 22%, transparent) !important; color: var(--text-secondary) !important; }
+.filter-shell .ant-btn:hover { border-color: var(--secondary-color) !important; color: var(--secondary-color) !important; }
 
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
@@ -137,7 +139,31 @@
   .article-image { height: 200px; }
   .blog-reading-panel { padding: 22px; border-radius: 24px; }
   .blog-detail-title { font-size: 2rem !important; }
+  .blog-detail-meta { gap: 10px; font-size: 0.88rem; }
+  .blog-cover-image { border-radius: 24px; }
   .blog-content .section-title { font-size: 1.6rem; }
   .blog-content .intro-text { font-size: 1.05rem; padding: 1.2rem 1.2rem 1.2rem 1.4rem; }
   .blog-content .knowledge-block, .blog-content .knowledge-table-wrapper { padding: 1.2rem; }
+}
+
+@media (max-width: 576px) {
+  .blog-container { padding: 56px 0 32px; }
+  .blog-detail-container { padding-top: 108px !important; }
+  .blog-tabs .ant-tabs-tab { padding: 10px 14px; font-size: 0.95rem; }
+  .filter-shell { padding: 18px 16px; border-radius: 20px; }
+  .article-content { padding: 18px; }
+  .blog-back-btn { margin-bottom: 14px; font-size: 15px; }
+  .blog-detail-hero { margin-bottom: 22px; }
+  .blog-detail-title { font-size: 1.72rem !important; line-height: 1.14 !important; }
+  .blog-detail-excerpt { font-size: 0.98rem !important; line-height: 1.75 !important; }
+  .blog-cover-wrap { margin-bottom: 22px; }
+  .blog-cover-image { border-radius: 20px; }
+  .blog-reading-panel { padding: 18px 16px; border-radius: 20px; }
+  .blog-aside-card { padding: 18px 16px; border-radius: 20px; }
+  .blog-related-shell { margin-top: 42px; }
+  .blog-content .section-title { font-size: 1.35rem; }
+  .blog-content .intro-text { padding: 1rem 1rem 1rem 1.15rem; font-size: 1rem; }
+  .blog-content .knowledge-block,
+  .blog-content .knowledge-table-wrapper,
+  .blog-content .closing-text { padding: 1rem; border-radius: 18px; }
 }
